@@ -7,16 +7,21 @@ public class CharacterAttack : MonoBehaviour
     [SerializeField] private CharacterInput player = null;
     [SerializeField] private Transform attackFrom = null;
 
+    [SerializeField] private float jumpForce = 30f;
+
     //l'attaque légère en elle même
     [SerializeField] private GameObject attackLight = null;
     //les attaques lourdes au sol
-    [SerializeField] private GameObject attackHeavyNeutralAir = null, attackHeavySideAir = null, attackHeavyUpAir = null, attackHeavyDownAir = null;
+    //[SerializeField] private GameObject attackHeavyNeutralAir = null, attackHeavySideAir = null, attackHeavyUpAir = null, attackHeavyDownAir = null;
     //les attaques lourdes aérienne
-    [SerializeField] private GameObject attackHeavyNeutralGround = null, attackHeavySideGround = null, attackHeavyUpGround = null, attackHeavyDownGround = null;
+    //[SerializeField] private GameObject attackHeavyNeutralGround = null, attackHeavySideGround = null, attackHeavyUpGround = null, attackHeavyDownGround = null;
 
     //paramètre
     [SerializeField] private float attackHeavyDuration = 2f, attackLightDuration = 0.3f;
     [SerializeField] private float rotZ;
+
+    //Up B Ground
+    [SerializeField] private float AirDuration = 1f;
 
     void Update()
     {
@@ -70,11 +75,12 @@ public class CharacterAttack : MonoBehaviour
                 {
                     Instantiate(attackHeavySideGround, attackFrom);
 
-                } else if (player.inputStickYabs > 0.3 && player.inputStickYabs > player.inputStickXabs && player.inputStickY > 0)
+                } else */if (player.inputStickYabs > 0.3 && player.inputStickYabs > player.inputStickXabs && player.inputStickY > 0)
                 {
-                    Instantiate(attackHeavyUpGround, attackFrom);
+                    //Instantiate(attackHeavyUpGround, attackFrom);
+                    player.body.velocity += new Vector2(0f, jumpForce);
 
-                } else if (player.inputStickYabs > 0.3 && player.inputStickYabs > player.inputStickXabs && player.inputStickY < 0)
+                } /*else if (player.inputStickYabs > 0.3 && player.inputStickYabs > player.inputStickXabs && player.inputStickY < 0)
                 {
                     Instantiate(attackHeavyDownGround, attackFrom);
 
@@ -88,7 +94,8 @@ public class CharacterAttack : MonoBehaviour
             {
                 if (player.inputStickXabs < 0.3 && player.inputStickYabs < 0.3)
                 {
-                    Instantiate(attackHeavyNeutralAir, attackFrom);
+                    //Instantiate(attackHeavyNeutralAir, attackFrom);
+                    StartCoroutine(AirMaintain(AirDuration));
                 }
                 /*
                 else if (player.inputStickXabs > 0.3 && player.inputStickXabs > player.inputStickYabs)
@@ -124,6 +131,17 @@ public class CharacterAttack : MonoBehaviour
             yield return new WaitForSeconds(time);
 
             player.canAttack = true;
+        }
+    }
+
+    IEnumerator AirMaintain(float AirDuration)
+    {
+        float time = 0f;
+        while (AirDuration > time) //we call this loop every frame while our custom dashDurationation is a higher value than the "time" variable in this coroutine
+        {
+            time += Time.deltaTime; //Increase our "time" variable by the amount of time that it has been since the last update
+            player.body.velocity = new Vector2(0f,1f); //set our rigidbody velocity to a custom velocity every frame
+            yield return 0; //go to next frame
         }
     }
 }

@@ -46,7 +46,7 @@ public class CharacterMovement : MonoBehaviour
 
     void characterRun()
     {
-        if (player.canMove == true && player.inputStickXabs > 0)
+        if (player.canMove && player.inputStickXabs > 0 && player.canAttack)
         {
             //la course
             if (player.isOnGround == true)
@@ -66,7 +66,13 @@ public class CharacterMovement : MonoBehaviour
         {
             player.canJump = false;
 
+            player.body.velocity = new Vector2(10f * player.lookingRight, jumpForce);
+
+            /*
+            player.body.velocity = Vector2.zero;
             player.body.velocity += new Vector2(0f, jumpForce);
+            */
+
         }
     }
 
