@@ -41,21 +41,22 @@ public class EnemyFly : MonoBehaviour
         float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rotZ);
 
-                          
+
         if (timeBtwShots <= 0)
         {
 
             Instantiate(projectile, transform.position, Quaternion.identity);
             timeBtwShots = startTimeBtwShots;
 
-        }else
+        }
+        else
         {
 
             timeBtwShots -= Time.deltaTime;
 
         }
 
-        
+
 
     }
 
