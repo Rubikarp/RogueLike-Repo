@@ -8,15 +8,13 @@ public class LevelGeneration : MonoBehaviour
     [Header("Paramètre de génération")]
     //L'object sur lequel seront générés les salles et là ou elle seront contunues
     [SerializeField] private Transform roomGenerator, roomsContainer;
-    //liste des points de départ de la génération procedural
-    [SerializeField] private Transform startingPos;
 
     //nombre de salles que je veux générer 
     [Range(1, 300)] [SerializeField] private int roomCounterLimite;
 
     //écart entre les salles (dépend de la taille des salles)
-    [SerializeField] private float moveIncrementHorizontal;
-    [SerializeField] private float moveIncrementVertical;
+    [SerializeField] private float moveIncrementHorizontal = 0;
+    [SerializeField] private float moveIncrementVertical = 0;
 
     #endregion
 
@@ -61,10 +59,6 @@ public class LevelGeneration : MonoBehaviour
 
     private void Initialisation()
     {
-        //place le generateur sur le point de départ
-        roomGenerator.transform.position = startingPos.position;
-        //Génere la room 0 pour la première salle
-        Instantiate(staringRoom, roomGenerator.position, Quaternion.identity, roomsContainer);
         //commence vers la droite
         nextDirection = Direction.Right;
     }
@@ -81,8 +75,13 @@ public class LevelGeneration : MonoBehaviour
         comeFrom = actualDirection;
         InverseDirection(comeFrom);
 
+
         //regarde où il va ensuite
         DirectionRoll(nextDirection);
+        if (nextDirection == comeFrom)
+        {
+            DirectionRoll(nextDirection);
+        }
 
         //Fait apparaitre la salle
         RoomSpawning();
@@ -153,30 +152,67 @@ public class LevelGeneration : MonoBehaviour
         {
             // bouge vers la gauche
             Vector3 moveLeft = new Vector2(-moveIncrementHorizontal, 0);
-            transform.position += moveLeft;
+            roomGenerator.position += moveLeft;
         }
         //Droite
         else if (dir == Direction.Right)
         {
             // bouge vers la droite
             Vector3 moveLRight = new Vector2(moveIncrementHorizontal, 0);
-            transform.position += moveLRight;
+            roomGenerator.position += moveLRight;
         }
         //Bas
         else if (dir == Direction.Down)
         {
             // bouge vers la gauche
             Vector3 moveLDown = new Vector2(0, -moveIncrementVertical);
-            transform.position += moveLDown;
+            roomGenerator.position += moveLDown;
         }
 
     }
 
     private void RoomSpawning()
     {
-        //si GoFRom
-            //si GoTo
-                //spawn tel salle
+
+        if(comeFrom == Direction.Left)
+        {
+            if (nextDirection == Direction.Right)
+            {
+                Instantiate(roomsLeftRight[0], roomsContainer,false);
+            }
+            else if (nextDirection == Direction.Down)
+            {
+
+            }
+
+        }
+        else if (comeFrom == Direction.Right)
+        {
+            if (nextDirection == Direction.Left)
+            {
+
+            }
+            else if (nextDirection == Direction.Down)
+            {
+
+            }
+
+        }
+        else if (comeFrom == Direction.Up)
+        {
+            if (nextDirection == Direction.Left)
+            {
+
+            }
+            else if (nextDirection == Direction.Right)
+            {
+
+            }
+            else if (nextDirection == Direction.Down)
+            {
+
+            }
+        }
 
     }
 

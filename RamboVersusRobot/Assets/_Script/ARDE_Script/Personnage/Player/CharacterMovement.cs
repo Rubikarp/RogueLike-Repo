@@ -108,7 +108,7 @@ public class CharacterMovement : MonoBehaviour
         if (state.canJump == true && input.jumpEnter == true && state.isOnGround == true)
         {
             state.canJump = false;
-            state.isJumping = false;
+            state.isJumping = true;
 
             state.body.velocity = new Vector2(state.body.velocity.x / Mathf.Sqrt(2), jumpForce);
 
@@ -124,7 +124,7 @@ public class CharacterMovement : MonoBehaviour
 
         if(state.isOnGround || state.isOnWall || state.isOnCeilling)
         {
-            state.isJumping = true;
+            state.isJumping = false;
         }
 
     }
