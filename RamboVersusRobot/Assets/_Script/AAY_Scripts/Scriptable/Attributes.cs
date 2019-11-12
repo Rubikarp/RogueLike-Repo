@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace SkillTree
 {
-    [CreateAssetMenu (menuName = "Generator/Player/Create Skill")]
+    [CreateAssetMenu (menuName = "Generator/Player/Create Attribute")]
     public class Attributes : ScriptableObject
     {
         public string Description;
