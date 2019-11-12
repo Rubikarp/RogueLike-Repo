@@ -21,8 +21,6 @@ public class EnemyFly : MonoBehaviour
     public LayerMask whatIsPhysic;
 
 
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -41,22 +39,18 @@ public class EnemyFly : MonoBehaviour
         float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rotZ);
 
-                          
+
         if (timeBtwShots <= 0)
         {
 
             Instantiate(projectile, transform.position, Quaternion.identity);
             timeBtwShots = startTimeBtwShots;
 
-        }else
-        {
-
-            timeBtwShots -= Time.deltaTime;
-
         }
-
-        
-
+        else
+        {
+            timeBtwShots -= Time.deltaTime;
+        }
     }
 
     private void FixedUpdate()
@@ -89,19 +83,13 @@ public class EnemyFly : MonoBehaviour
             //transform.position = this.transform.position;
             //rb.velocity = new Vector2(transform.position.x, transform.position.y);
             Debug.Log("Stop");
-
         }*/
-
-
-
 
     }
 
     void OnDrawGizmosSelected()
     {
-
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position, new Vector2(1, 1));
-
     }
 }
