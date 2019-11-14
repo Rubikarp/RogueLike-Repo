@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class CharacterState : MonoBehaviour
 {
-    [SerializeField] CharacterInput input = null;
-
     [Header("Entités")]
     public Rigidbody2D body;
     public CapsuleCollider2D collid;

@@ -7,8 +7,6 @@ public class CharacterMovement : MonoBehaviour
     CharacterInput input;
     CharacterState state;
 
-    [SerializeField] private float speed = 30f;
-
     [Header("saut")]
     [SerializeField] private float jumpForce = 20f;
     [SerializeField] private float wallJumpForce = 15f;

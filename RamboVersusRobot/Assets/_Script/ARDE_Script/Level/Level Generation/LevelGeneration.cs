@@ -7,10 +7,10 @@ public class LevelGeneration : MonoBehaviour
     #region Paramètre de génération
     [Header("Paramètre de génération")]
     //L'object sur lequel seront générés les salles et là ou elle seront contunues
-    [SerializeField] private Transform roomGenerator, roomsContainer;
+    [SerializeField] private Transform roomGenerator = null, roomsContainer = null;
 
     //nombre de salles que je veux générer 
-    [Range(1, 300)] [SerializeField] private int roomCounterLimite;
+    [Range(1, 300)] [SerializeField] private int roomCounterLimite = 30;
 
     //écart entre les salles (dépend de la taille des salles)
     [SerializeField] private float moveIncrementHorizontal = 0;
@@ -21,13 +21,13 @@ public class LevelGeneration : MonoBehaviour
     #region Listes des Salles
     [Header("Les listes de salles disponibles")]
     //liste des salles qui peuvent apparaitre 
-    [SerializeField] private GameObject staringRoom;
-    [SerializeField] private GameObject[] roomsLeftRight;
-    [SerializeField] private GameObject[] roomsUpDown;
-    [SerializeField] private GameObject[] roomsUpLeft;
-    [SerializeField] private GameObject[] roomsUpRight;
-    [SerializeField] private GameObject[] roomsDownLeft;
-    [SerializeField] private GameObject[] roomsDownRight;
+    [SerializeField] private GameObject staringRoom = null;
+    [SerializeField] private GameObject[] roomsLeftRight = null;
+    [SerializeField] private GameObject[] roomsUpDown = null;
+    [SerializeField] private GameObject[] roomsUpLeft = null;
+    [SerializeField] private GameObject[] roomsUpRight = null;
+    [SerializeField] private GameObject[] roomsDownLeft = null;
+    [SerializeField] private GameObject[] roomsDownRight = null;
     #endregion
 
     #region Pour le fonctionnement en interne
@@ -59,8 +59,12 @@ public class LevelGeneration : MonoBehaviour
 
     private void Initialisation()
     {
+        Instantiate(staringRoom, roomsContainer);
+
+
         //commence vers la droite
         nextDirection = Direction.Right;
+        comeFrom = Direction.Left;
     }
 
     private void GenerateNextRoom()
@@ -73,14 +77,14 @@ public class LevelGeneration : MonoBehaviour
 
         //Provient de la direction opposé
         comeFrom = actualDirection;
-        InverseDirection(comeFrom);
+        comeFrom = InverseDirection(comeFrom);
 
 
         //regarde où il va ensuite
-        DirectionRoll(nextDirection);
-        if (nextDirection == comeFrom)
+        nextDirection = DirectionRoll(nextDirection);
+        while (nextDirection == comeFrom)
         {
-            DirectionRoll(nextDirection);
+            nextDirection = DirectionRoll(nextDirection);
         }
 
         //Fait apparaitre la salle
@@ -102,9 +106,9 @@ public class LevelGeneration : MonoBehaviour
 
     #region Tool
 
-    private void DirectionRoll(Direction dir)
+    private Direction DirectionRoll(Direction dir)
     {
-        diceRoll = Random.Range(1, 5);
+        diceRoll = Random.Range(1, 6);
 
         //Gauche 40%
         if (diceRoll == 1 || diceRoll == 2)
@@ -122,9 +126,10 @@ public class LevelGeneration : MonoBehaviour
             dir = Direction.Down;
         }
 
+        return dir;
     }
 
-    private void InverseDirection(Direction dir)
+    private Direction InverseDirection(Direction dir)
     {
         if (dir == Direction.Left)
         {
@@ -143,6 +148,7 @@ public class LevelGeneration : MonoBehaviour
             dir = Direction.Down;
         }
 
+        return dir;
     }
 
     private void Move(Direction dir)
@@ -151,22 +157,22 @@ public class LevelGeneration : MonoBehaviour
         if (dir == Direction.Left)
         {
             // bouge vers la gauche
-            Vector3 moveLeft = new Vector2(-moveIncrementHorizontal, 0);
+            Vector3 moveLeft = new Vector3(-moveIncrementHorizontal, 0,0);
             roomGenerator.position += moveLeft;
         }
         //Droite
         else if (dir == Direction.Right)
         {
             // bouge vers la droite
-            Vector3 moveLRight = new Vector2(moveIncrementHorizontal, 0);
-            roomGenerator.position += moveLRight;
+            Vector3 moveRight = new Vector3(moveIncrementHorizontal, 0,0);
+            roomGenerator.position += moveRight;
         }
         //Bas
         else if (dir == Direction.Down)
         {
             // bouge vers la gauche
-            Vector3 moveLDown = new Vector2(0, -moveIncrementVertical);
-            roomGenerator.position += moveLDown;
+            Vector3 moveDown = new Vector3(0, -moveIncrementVertical,0);
+            roomGenerator.position += moveDown;
         }
 
     }
@@ -178,11 +184,11 @@ public class LevelGeneration : MonoBehaviour
         {
             if (nextDirection == Direction.Right)
             {
-                Instantiate(roomsLeftRight[0], roomsContainer,false);
+                Instantiate(roomsLeftRight[0], roomGenerator.position, new Quaternion(0, 0, 0, 0), roomsContainer);
             }
             else if (nextDirection == Direction.Down)
             {
-
+                Instantiate(roomsDownLeft[0], roomGenerator.position, new Quaternion(0, 0, 0, 0), roomsContainer);
             }
 
         }
@@ -190,11 +196,11 @@ public class LevelGeneration : MonoBehaviour
         {
             if (nextDirection == Direction.Left)
             {
-
+                Instantiate(roomsLeftRight[0], roomGenerator.position, new Quaternion(0, 0, 0, 0), roomsContainer);
             }
             else if (nextDirection == Direction.Down)
             {
-
+                Instantiate(roomsDownRight[0], roomGenerator.position, new Quaternion(0, 0, 0, 0), roomsContainer);
             }
 
         }
@@ -202,14 +208,15 @@ public class LevelGeneration : MonoBehaviour
         {
             if (nextDirection == Direction.Left)
             {
-
+                Instantiate(roomsUpLeft[0], roomGenerator.position, new Quaternion(0, 0, 0, 0), roomsContainer);
             }
             else if (nextDirection == Direction.Right)
             {
-
+                Instantiate(roomsUpRight[0], roomGenerator.position, new Quaternion(0, 0, 0, 0), roomsContainer);
             }
             else if (nextDirection == Direction.Down)
             {
+                Instantiate(roomsUpDown[0], roomGenerator.position, new Quaternion (0,0,0,0), roomsContainer);
 
             }
         }

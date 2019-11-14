@@ -9,7 +9,7 @@ public class LifeSystem : MonoBehaviour
     public Animation anim = null;
 
     public float health = 1;
-    public float knockback = 100;
+    public float knockbackValue = 100;
 
 
     private void Start()
@@ -36,11 +36,11 @@ public class LifeSystem : MonoBehaviour
             GameObject attack = hit.gameObject;
             Attack scriptAttack = attack.GetComponentInParent<Attack>();
             Transform attackFrom = scriptAttack.GetComponent<Transform>();
-            Vector2 knockBack = me.position - attackFrom.position;
-            knockBack.Normalize();
+            Vector2 knockBackVect = me.position - attackFrom.position;
+            knockBackVect.Normalize();
 
             anim.Play();
-            body.velocity = knockBack * knockback;
+            body.velocity = knockBackVect * knockbackValue;
             TakeDamage(scriptAttack.damage);
 
 

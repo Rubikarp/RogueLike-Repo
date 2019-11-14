@@ -17,7 +17,7 @@ public class CharacterAttack : MonoBehaviour
     [SerializeField] private GameObject attackHeavyNeutralGround = null;
     [SerializeField] private GameObject attackHeavySideGround = null;
     [SerializeField] private GameObject attackHeavyUpGround = null;
-    [SerializeField] private GameObject attackHeaattackHeavyDownGroundvyDownAir = null;
+    [SerializeField] private GameObject attackHeavyDownGround = null;
 
     [HeaderAttribute("Aerial")]
     [SerializeField] private GameObject attackHeavyNeutralAir = null;
@@ -93,50 +93,51 @@ public class CharacterAttack : MonoBehaviour
 
         if (state.isOnGround)
         {
-            /*
-            if (player.inputStickXabs < 0.3 && player.inputStickYabs < 0.3 )
+            
+            if (input.stickXabs < 0.3 && input.stickYabs < 0.3 )
             {
                 Instantiate(attackHeavyNeutralGround, attackFrom);
-            } else if(player.inputStickXabs > 0.3 && player.inputStickXabs > player.inputStickYabs)
+            }
+            else if(input.stickXabs > 0.3 && input.stickXabs > input.stickYabs)
             {
                 Instantiate(attackHeavySideGround, attackFrom);
 
-            } else */
-            if (input.stickYabs > 0.3 && input.stickYabs > input.stickXabs && input.stickY > 0)
+            }
+            else if (input.stickYabs > 0.3 && input.stickYabs > input.stickXabs && input.stickY > 0)
             {
-                //Instantiate(attackHeavyUpGround, attackFrom);
+                Instantiate(attackHeavyUpGround, attackFrom);
                 state.body.velocity += groundHeavyUp;
 
             }
-            /*else if (player.inputStickYabs > 0.3 && player.inputStickYabs > player.inputStickXabs && player.inputStickY < 0)
+            else if (input.stickYabs > 0.3 && input.stickYabs > input.stickXabs && input.stickY < 0)
             {
                 Instantiate(attackHeavyDownGround, attackFrom);
 
-            } else
+            }
+            else
             {
                 Instantiate(attackHeavyNeutralGround, attackFrom);
             }
-            */
+            
         }
         else
         {
             if (input.stickXabs < 0.3 && input.stickYabs < 0.3)
             {
-                //Instantiate(attackHeavyNeutralAir, attackFrom);
+                Instantiate(attackHeavyNeutralAir, attackFrom);
                 StartCoroutine(AirMaintain(AirDuration));
             }
-            /*
-            else if (player.inputStickXabs > 0.3 && player.inputStickXabs > player.inputStickYabs)
+            else if (input.stickXabs > 0.3 && input.stickXabs > input.stickYabs)
             {
                 Instantiate(attackHeavySideAir, attackFrom);
 
             }
-            else if (player.inputStickYabs > 0.3 && player.inputStickYabs > player.inputStickXabs && player.inputStickY > 0)
+            else if (input.stickYabs > 0.3 && input.stickYabs > input.stickXabs && input.stickY > 0)
             {
                 Instantiate(attackHeavyUpAir, attackFrom);
 
             }
-            else if (player.inputStickYabs > 0.3 && player.inputStickYabs > player.inputStickXabs && player.inputStickY < 0)
+            else if (input.stickYabs > 0.3 && input.stickYabs > input.stickXabs && input.stickY < 0)
             {
                 Instantiate(attackHeavyDownAir, attackFrom);
 
@@ -145,23 +146,11 @@ public class CharacterAttack : MonoBehaviour
             {
                 Instantiate(attackHeavyNeutralAir, attackFrom);
             }
-            */
         }
 
         StartCoroutine(activateAttackIn(attackHeavyDuration));
 
     }
-
-    /*void HeavyUpGround()
-    {
-        if (input.stickYabs > 0.3 && input.stickYabs > input.stickXabs && input.stickY > 0)
-        {
-            //Instantiate(attackHeavyUpGround, attackFrom);
-            state.body.velocity += groundHeavyUp;
-
-        }
-    }
-    */
 
     IEnumerator activateAttackIn(float time)
     {
