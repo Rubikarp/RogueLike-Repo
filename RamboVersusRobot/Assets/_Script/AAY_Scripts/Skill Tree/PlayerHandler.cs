@@ -12,7 +12,7 @@ public class PlayerHandler : MonoBehaviour
         public PlayerStats Player;
 
         [SerializeField]
-        private Canvas m_Canvas;
+        private Canvas m_Canvas = null;
         private bool m_SeeCanvas;
 
     // Update is called once per frame
