@@ -6,8 +6,8 @@ namespace SkillTree
 {
 
 
-public class PlayerHandler : MonoBehaviour
-{
+    public class PlayerHandler : MonoBehaviour
+    {
 
         public PlayerStats Player;
 
@@ -15,17 +15,17 @@ public class PlayerHandler : MonoBehaviour
         private Canvas m_Canvas;
         private bool m_SeeCanvas;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown("tab"))
+        // Update is called once per frame
+        void Update()
         {
-            if (m_Canvas)
-                {
-                    m_SeeCanvas = !m_SeeCanvas;
-                    m_Canvas.gameObject.SetActive(m_SeeCanvas);
-                }
+            if (Input.GetKeyDown("tab"))
+            {
+                if (m_Canvas)
+                    {
+                        m_SeeCanvas = !m_SeeCanvas;
+                        m_Canvas.gameObject.SetActive(m_SeeCanvas);
+                    }
+            }
         }
     }
-}
 }
