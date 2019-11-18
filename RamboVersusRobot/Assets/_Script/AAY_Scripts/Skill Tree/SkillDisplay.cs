@@ -5,8 +5,6 @@ using UnityEngine;
 
 namespace SkillTree
 {
-
-
     public class SkillDisplay : MonoBehaviour
     {
         public Skills skill;

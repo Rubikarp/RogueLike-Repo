@@ -33,8 +33,8 @@ public class PlayerStats : MonoBehaviour
         public List<Skills> PlayerSkills = new List<Skills>();
 
        
-        public delegate void onMoneyChange();
-        public event onMoneyChange onMoneyChange;
+        public delegate void OnMoneyChange();
+        public event OnMoneyChange onMoneyChange;
 
             public void UpdateMoney(int amount)
             {
