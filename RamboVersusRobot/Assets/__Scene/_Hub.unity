@@ -532,6 +532,7 @@ GameObject:
   - component: {fileID: 164536050}
   - component: {fileID: 164536049}
   - component: {fileID: 164536048}
+  - component: {fileID: 164536051}
   m_Layer: 5
   m_Name: Skill 1
   m_TagString: Untagged
@@ -633,6 +634,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 164536046}
   m_CullTransparentMesh: 0
+--- !u!114 &164536051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164536046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b893134ac30006246b9aa67859cb6095, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skill: {fileID: 0}
+  skillName: {fileID: 0}
+  skillDescription: {fileID: 0}
+  skillIcon: {fileID: 0}
+  skillLevel: {fileID: 0}
+  skillMoneyNeeded: {fileID: 0}
+  skillAttribute: {fileID: 0}
+  skillAttrAmount: {fileID: 0}
+  m_PlayerHandler: {fileID: 0}
 --- !u!1 &173443423
 GameObject:
   m_ObjectHideFlags: 0
@@ -990,7 +1012,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &245229876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1411,6 +1433,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 507926340}
   m_CullTransparentMesh: 0
+--- !u!1 &575966036
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 575966038}
+  - component: {fileID: 575966037}
+  m_Layer: 0
+  m_Name: Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &575966037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575966036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 339b51c148688564bbba106d03e98755, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 646928792}
+  m_Canvas: {fileID: 245229878}
+--- !u!4 &575966038
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575966036}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 646928796}
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &646928791
 GameObject:
   m_ObjectHideFlags: 0
@@ -1441,13 +1509,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerName: Rambo
-  PlayerMoney: 0
   PlayerHP: 100
+  m_PlayerMoney: 0
   Attributes:
   - attribute: {fileID: 11400000, guid: 6896ca6f8a2e04e449ef008067d3f5f9, type: 2}
     amount: 100
   - attribute: {fileID: 11400000, guid: 83d51b988f328864888bb47777005591, type: 2}
     amount: 100
+  PlayerSkills: []
 --- !u!4 &646928796
 Transform:
   m_ObjectHideFlags: 0
@@ -1455,12 +1524,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 646928791}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 93.00556, y: 101.6761, z: -1.0625}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 575966038}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &663993442
 GameObject:
