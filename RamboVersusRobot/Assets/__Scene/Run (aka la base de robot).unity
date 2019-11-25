@@ -1524,7 +1524,7 @@ MonoBehaviour:
   - {fileID: 1434848910}
   - {fileID: 1103201401}
   energieBar: {fileID: 1432429995}
-  live: 7
+  live: 5
   NRG: 100
 --- !u!1 &688620988
 GameObject:
@@ -1677,7 +1677,7 @@ MonoBehaviour:
   body: {fileID: 0}
   anim: {fileID: 0}
   health: 10
-  knockbackValue: 100
+  knockbackValue: 50
 --- !u!114 &696240363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1715,7 +1715,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 696240359}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9ae80dab3d52f7e47a414b97fcc35a17, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -4299,9 +4299,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36c6e60f4612b9947bc8d0c21ac33ec2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 20
-  wallJumpForce: 15
-  wallJumpHeight: 30
+  jumpForce: 45
+  wallJumpForce: 35
+  wallJumpHeight: 35
   ceillingJumpForce: 20
   runSpeed: 5
   airFriction: 6
@@ -4362,28 +4362,23 @@ MonoBehaviour:
   attackFrom: {fileID: 1398740221}
   attackLight: {fileID: 1203919331608374929, guid: 7fe0f9196d4a4ba49bd0607851e9d23a,
     type: 3}
-  attackHeavyNeutralGround: {fileID: 1203919331608374929, guid: 4400cdf47906eca49a0d62d357caf6ee,
-    type: 3}
-  attackHeavySideGround: {fileID: 1203919331608374929, guid: 4400cdf47906eca49a0d62d357caf6ee,
-    type: 3}
-  attackHeavyUpGround: {fileID: 1203919331608374929, guid: 4400cdf47906eca49a0d62d357caf6ee,
-    type: 3}
-  attackHeavyDownGround: {fileID: 1203919331608374929, guid: 4400cdf47906eca49a0d62d357caf6ee,
-    type: 3}
-  attackHeavyNeutralAir: {fileID: 1203919331608374929, guid: 4400cdf47906eca49a0d62d357caf6ee,
-    type: 3}
-  attackHeavySideAir: {fileID: 1203919331608374929, guid: 4400cdf47906eca49a0d62d357caf6ee,
-    type: 3}
-  attackHeavyUpAir: {fileID: 1203919331608374929, guid: 4400cdf47906eca49a0d62d357caf6ee,
-    type: 3}
-  attackHeavyDownAir: {fileID: 1203919331608374929, guid: 4400cdf47906eca49a0d62d357caf6ee,
-    type: 3}
-  attackLightDuration: 0.3
-  attackHeavyDuration: 1.5
-  groundHeavyUp: {x: 0, y: 30}
   rotZ: 0
-  lightAttackDash: 10
-  AirDuration: 1
+  lightAttackDash: {x: 10, y: 0}
+  attackLightDuration: 0.3
+  attackHeavyNeutral: {fileID: 1203919331608374929, guid: 4400cdf47906eca49a0d62d357caf6ee,
+    type: 3}
+  airNeutralTime: 1
+  attackHeavyNeutralDuration: 0.8
+  attackHeavySide: {fileID: 7698298301457664109, guid: dee48c1322728524cb3f2e979947dcfb,
+    type: 3}
+  airSideTime: 1.2
+  attackHeavySideDuration: 1
+  attackHeavyUp: {fileID: 8852770581966534224, guid: e2c634568d9e67146b364f2b835dd42b,
+    type: 3}
+  attackHeavyUpDuration: 1.5
+  attackHeavyDown: {fileID: 1395229078095264524, guid: 466f9da11b153bd47bfe063c5b01ea82,
+    type: 3}
+  attackHeavyDownDuration: 1.5
 --- !u!114 &1619806524
 MonoBehaviour:
   m_ObjectHideFlags: 0

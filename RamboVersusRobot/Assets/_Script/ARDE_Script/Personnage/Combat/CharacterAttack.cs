@@ -4,39 +4,37 @@ using UnityEngine;
 
 public class CharacterAttack : MonoBehaviour
 {
-    [SerializeField] CharacterInput input = null;
-    [SerializeField] CharacterState state = null;
+    [SerializeField] CharacterInput input = default;
+    [SerializeField] CharacterState state = default;
 
     [Header("Attaque")]
-    [SerializeField] private Transform attackFrom = null;
+    [SerializeField] private Transform attackFrom = default;
 
     [HeaderAttribute("Classique")]
-    [SerializeField] private GameObject attackLight = null;
-    
-    [HeaderAttribute("Grounded")]
-    [SerializeField] private GameObject attackHeavyNeutralGround = null;
-    [SerializeField] private GameObject attackHeavySideGround = null;
-    [SerializeField] private GameObject attackHeavyUpGround = null;
-    [SerializeField] private GameObject attackHeavyDownGround = null;
-
-    [HeaderAttribute("Aerial")]
-    [SerializeField] private GameObject attackHeavyNeutralAir = null;
-    [SerializeField] private GameObject attackHeavySideAir = null;
-    [SerializeField] private GameObject attackHeavyUpAir = null;
-    [SerializeField] private GameObject attackHeavyDownAir = null;
-
-    [HeaderAttribute("Recovery Time")]
-    [SerializeField] private float attackLightDuration = 0.3f;
-    [SerializeField] private float attackHeavyDuration = 1.5f;
-
-    public Vector2 groundHeavyUp = new Vector2(0, 30);
-
+    [SerializeField] private GameObject attackLight = default;
     [SerializeField] private float rotZ;
+    [SerializeField] private Vector2 lightAttackDash = new Vector2(10f,0f);
+    [SerializeField] private float attackLightDuration = 0.3f;
 
-    [SerializeField] private float lightAttackDash = 10f;
+    [HeaderAttribute("Spécial")]
+    [HeaderAttribute("Neutral")]
+    [SerializeField] private GameObject attackHeavyNeutral = default;
+    [SerializeField] private float airNeutralTime = 1f;
+    [SerializeField] private float attackHeavyNeutralDuration = 1.5f;
 
-    //Up B Ground
-    [SerializeField] private float AirDuration = 1f;
+    [HeaderAttribute("Side")]
+    [SerializeField] private GameObject attackHeavySide = default;
+    [SerializeField] private float airSideTime = 1f;
+    [SerializeField] private float attackHeavySideDuration = 1.5f;
+
+    [HeaderAttribute("Up")]
+    [SerializeField] private GameObject attackHeavyUp = default;
+    [SerializeField] private float attackHeavyUpDuration = 1.5f;
+
+    [HeaderAttribute("Down")]
+    [SerializeField] private GameObject attackHeavyDown = default;
+    [SerializeField] private float attackHeavyDownDuration = 1.5f;
+
 
 
     void Update()
@@ -56,10 +54,10 @@ public class CharacterAttack : MonoBehaviour
 
     void defaultAttack()
     {
+        state.canAttack = false;
+
         //conversion en angle le l'axe du stick
         rotZ = Mathf.Atan2(input.stickY, input.stickX) * Mathf.Rad2Deg;
-
-        state.canAttack = false;
 
         //si le stick est immobile
         if (input.stickY == 0 && input.stickX == 0)
@@ -68,12 +66,13 @@ public class CharacterAttack : MonoBehaviour
             if (input.lookingRight < 0)
             {
                 attackFrom.transform.rotation = Quaternion.Euler(0f, 0f, rotZ + 180f);
-                state.body.velocity += new Vector2(-10, 5);
+                state.body.velocity += new Vector2(-lightAttackDash.x, lightAttackDash.y);
             }
+            //s'il regarde à droite
             else
             {
                 attackFrom.transform.rotation = Quaternion.Euler(0f, 0f, rotZ);
-                state.body.velocity += new Vector2(10, 5);
+                state.body.velocity += lightAttackDash;
             }
         }
         else  
@@ -91,84 +90,47 @@ public class CharacterAttack : MonoBehaviour
     {
         state.canAttack = false;
 
-        if (state.isOnGround)
+        //Neutral Spécial
+        if (input.stickXabs < 0.3 && input.stickYabs < 0.3)
         {
-            
-            if (input.stickXabs < 0.3 && input.stickYabs < 0.3 )
-            {
-                Instantiate(attackHeavyNeutralGround, attackFrom);
-            }
-            else if(input.stickXabs > 0.3 && input.stickXabs > input.stickYabs)
-            {
-                Instantiate(attackHeavySideGround, attackFrom);
-
-            }
-            else if (input.stickYabs > 0.3 && input.stickYabs > input.stickXabs && input.stickY > 0)
-            {
-                Instantiate(attackHeavyUpGround, attackFrom);
-                state.body.velocity += groundHeavyUp;
-
-            }
-            else if (input.stickYabs > 0.3 && input.stickYabs > input.stickXabs && input.stickY < 0)
-            {
-                Instantiate(attackHeavyDownGround, attackFrom);
-
-            }
-            else
-            {
-                Instantiate(attackHeavyNeutralGround, attackFrom);
-            }
-            
+            Instantiate(attackHeavyNeutral, attackFrom);
+            StartCoroutine(AirMaintain(airNeutralTime));
+            StartCoroutine(activateAttackIn(attackHeavyNeutralDuration));
         }
-        else
+        //Side Spécial
+        else if (input.stickXabs > 0.3 && input.stickXabs > input.stickYabs)
         {
-            if (input.stickXabs < 0.3 && input.stickYabs < 0.3)
-            {
-                Instantiate(attackHeavyNeutralAir, attackFrom);
-                StartCoroutine(AirMaintain(AirDuration));
-            }
-            else if (input.stickXabs > 0.3 && input.stickXabs > input.stickYabs)
-            {
-                Instantiate(attackHeavySideAir, attackFrom);
-
-            }
-            else if (input.stickYabs > 0.3 && input.stickYabs > input.stickXabs && input.stickY > 0)
-            {
-                Instantiate(attackHeavyUpAir, attackFrom);
-
-            }
-            else if (input.stickYabs > 0.3 && input.stickYabs > input.stickXabs && input.stickY < 0)
-            {
-                Instantiate(attackHeavyDownAir, attackFrom);
-
-            }
-            else
-            {
-                Instantiate(attackHeavyNeutralAir, attackFrom);
-            }
+            Instantiate(attackHeavySide, attackFrom);
+            StartCoroutine(AirMaintain(airSideTime));
+            StartCoroutine(activateAttackIn(attackHeavySideDuration));
         }
-
-        StartCoroutine(activateAttackIn(attackHeavyDuration));
-
+        // Up Spécial
+        else if (input.stickYabs > 0.3 && input.stickYabs > input.stickXabs && input.stickY > 0)
+        {
+            Instantiate(attackHeavyUp, attackFrom);
+            StartCoroutine(activateAttackIn(attackHeavyUpDuration));
+        }
+        // Down Spécial
+        else if (input.stickYabs > 0.3 && input.stickYabs > input.stickXabs && input.stickY < 0)
+        {
+            Instantiate(attackHeavyDown, attackFrom);
+            StartCoroutine(activateAttackIn(attackHeavyDownDuration));
+        }
     }
 
     IEnumerator activateAttackIn(float time)
     {
-        if (state.canAttack == false)
-        {
-            yield return new WaitForSeconds(time);
-
-            state.canAttack = true;
-        }
+        yield return new WaitForSeconds(time);
+        state.canAttack = true;
     }
 
-    IEnumerator AirMaintain(float AirDuration)
+    IEnumerator AirMaintain(float airMaintienTime)
     {
         float time = 0f;
         
-        while (AirDuration > time) //appel la boucle à chaque frame du dash
+        while (time < 1f) //appel la boucle à chaque frame du dash
         {
-            time += Time.deltaTime;
+            time += Time.deltaTime * (1/ airMaintienTime);
             state.body.velocity = new Vector2(0f, 1f); //boost appliqué à chaque frame
             yield return 0; //va à la prochaine frame
         }

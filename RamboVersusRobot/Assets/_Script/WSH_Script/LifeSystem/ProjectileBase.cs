@@ -9,6 +9,7 @@ public class ProjectileBase : MonoBehaviour
     private float Cooldown = 2;
 
     public LayerMask Player;
+    public Vector2 direction;
 
     public float speed;
 
@@ -24,14 +25,14 @@ public class ProjectileBase : MonoBehaviour
         dirx = player.position.x;
         diry = player.position.y;
 
-        
+        direction = new Vector2((dirx - transform.position.x), (diry - transform.position.y)) * speed;
     }
 
     private void FixedUpdate()
     {
 
         //On fait bouger le projectile vers la position du joueur sauvegardé au lancement
-        srb.velocity = new Vector2((dirx - transform.position.x), (diry - transform.position.y)) * speed;
+        srb.velocity = direction;
 
 
         Cooldown -= Time.deltaTime;
