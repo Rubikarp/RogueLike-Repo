@@ -7,7 +7,8 @@ public class EnemyFly1 : EnemyBase
 
 
     public GameObject projectile;
-    
+    public GameObject bulletContainer;
+
 
     public CircleCollider2D myCollider = null;
     public LayerMask TerrainLayerMask;
@@ -41,7 +42,7 @@ public class EnemyFly1 : EnemyBase
     protected override void Attack()
     {
 
-        Instantiate(projectile, transform);
+        Instantiate(projectile,transform.position, transform.rotation, bulletContainer.transform);
 
     }
 

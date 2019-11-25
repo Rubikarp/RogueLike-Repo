@@ -1525,7 +1525,7 @@ MonoBehaviour:
   - {fileID: 1103201401}
   energieBar: {fileID: 1432429995}
   live: 5
-  NRG: 80
+  NRG: 100
 --- !u!1 &688620988
 GameObject:
   m_ObjectHideFlags: 0
@@ -1677,7 +1677,7 @@ MonoBehaviour:
   body: {fileID: 0}
   anim: {fileID: 0}
   health: 10
-  knockbackValue: 100
+  knockbackValue: 50
 --- !u!114 &696240363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1715,7 +1715,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 696240359}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9ae80dab3d52f7e47a414b97fcc35a17, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -4206,9 +4206,9 @@ GameObject:
   - component: {fileID: 1619806517}
   - component: {fileID: 1619806521}
   - component: {fileID: 1619806524}
-  - component: {fileID: 1619806522}
   - component: {fileID: 1619806520}
   - component: {fileID: 1619806523}
+  - component: {fileID: 1619806519}
   m_Layer: 13
   m_Name: Character
   m_TagString: Untagged
@@ -4270,6 +4270,23 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &1619806519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619806515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e08ff08ab1ae2141a2ad682e40e8f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1619806515}
+  anim: {fileID: 1637994680}
+  spriteRender: {fileID: 1637994679}
+  health: 5
+  energie: 5
 --- !u!114 &1619806520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4279,7 +4296,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1619806515}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa3aecf7dc67ab943b4fbc79de71fb20, type: 3}
+  m_Script: {fileID: 11500000, guid: 36c6e60f4612b9947bc8d0c21ac33ec2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 45
@@ -4290,13 +4307,13 @@ MonoBehaviour:
   airFriction: 6
   wallFriction: 2
   ceillingFriction: 2.5
-  boostSpeed: {x: 15, y: 0}
-  dashDuration: 0.2
+  boostSpeed: {x: 20, y: 0}
+  dashDuration: 0.3
   dashCooldown: 1
   speedX: 0
   speedY: 0
   maxSpeedX: 35
-  maxSpeedY: 50
+  maxSpeedY: 40
 --- !u!114 &1619806521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4306,7 +4323,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1619806515}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb8efa4818579f1449348239056b682e, type: 3}
+  m_Script: {fileID: 11500000, guid: 02b37b41b768f9341bd96e7118479e47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 1637994679}
@@ -4328,45 +4345,6 @@ MonoBehaviour:
   attackHeavy: 0
   attackHeavyExit: 0
   lookingRight: 1
---- !u!114 &1619806522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1619806515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87f41475265f4a44aa0850c021eb6f15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  input: {fileID: 1619806521}
-  state: {fileID: 1619806524}
-  attackFrom: {fileID: 1398740221}
-  attackLight: {fileID: 1203919331608374929, guid: 7fe0f9196d4a4ba49bd0607851e9d23a,
-    type: 3}
-  attackHeavyNeutralGround: {fileID: 1203919331608374929, guid: 4400cdf47906eca49a0d62d357caf6ee,
-    type: 3}
-  attackHeavySideGround: {fileID: 1203919331608374929, guid: 4400cdf47906eca49a0d62d357caf6ee,
-    type: 3}
-  attackHeavyUpGround: {fileID: 1203919331608374929, guid: 4400cdf47906eca49a0d62d357caf6ee,
-    type: 3}
-  attackHeavyDownGround: {fileID: 1203919331608374929, guid: 4400cdf47906eca49a0d62d357caf6ee,
-    type: 3}
-  attackHeavyNeutralAir: {fileID: 1203919331608374929, guid: 4400cdf47906eca49a0d62d357caf6ee,
-    type: 3}
-  attackHeavySideAir: {fileID: 1203919331608374929, guid: 4400cdf47906eca49a0d62d357caf6ee,
-    type: 3}
-  attackHeavyUpAir: {fileID: 1203919331608374929, guid: 4400cdf47906eca49a0d62d357caf6ee,
-    type: 3}
-  attackHeavyDownAir: {fileID: 1203919331608374929, guid: 4400cdf47906eca49a0d62d357caf6ee,
-    type: 3}
-  attackLightDuration: 0.3
-  attackHeavyDuration: 0.9
-  groundHeavyUp: {x: 0, y: 30}
-  rotZ: 0
-  lightAttackDash: 10
-  AirDuration: 1.42
 --- !u!114 &1619806523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4376,11 +4354,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 1619806515}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99f4605cd1bab04499552286ed11ea31, type: 3}
+  m_Script: {fileID: 11500000, guid: 88db421cad19a9c44818875efb8bcfdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallFactor: 5
-  lowJumpFactor: 1.42
+  input: {fileID: 1619806521}
+  state: {fileID: 1619806524}
+  attackFrom: {fileID: 1398740221}
+  attackLight: {fileID: 1203919331608374929, guid: 7fe0f9196d4a4ba49bd0607851e9d23a,
+    type: 3}
+  rotZ: 0
+  lightAttackDash: {x: 10, y: 0}
+  attackLightDuration: 0.3
+  attackHeavyNeutral: {fileID: 1203919331608374929, guid: 4400cdf47906eca49a0d62d357caf6ee,
+    type: 3}
+  airNeutralTime: 1
+  attackHeavyNeutralDuration: 0.8
+  attackHeavySide: {fileID: 7698298301457664109, guid: dee48c1322728524cb3f2e979947dcfb,
+    type: 3}
+  airSideTime: 1.2
+  attackHeavySideDuration: 1
+  attackHeavyUp: {fileID: 8852770581966534224, guid: e2c634568d9e67146b364f2b835dd42b,
+    type: 3}
+  attackHeavyUpDuration: 1.5
+  attackHeavyDown: {fileID: 1395229078095264524, guid: 466f9da11b153bd47bfe063c5b01ea82,
+    type: 3}
+  attackHeavyDownDuration: 1.5
 --- !u!114 &1619806524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4602,7 +4600,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1637994677}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eabe51279126686499c6e5e298a5dc3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4aec1ca4539ad1a468e9e5b6e81227bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 1619806521}

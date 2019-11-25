@@ -8,9 +8,9 @@ public class CharacterMovement : MonoBehaviour
     CharacterState state;
 
     [Header("saut")]
-    [SerializeField] private float jumpForce = 20f;
-    [SerializeField] private float wallJumpForce = 15f;
-    [SerializeField] private float wallJumpHeight = 30f;
+    [SerializeField] private float jumpForce = 45f;
+    [SerializeField] private float wallJumpForce = 35f;
+    [SerializeField] private float wallJumpHeight = 35f;
     [SerializeField] private float ceillingJumpForce = 20f;
 
     [Header("course")]
@@ -20,15 +20,15 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private float ceillingFriction = 2.5f;
 
     [Header("dash")]
-    [SerializeField] private Vector2 boostSpeed = new Vector2(20, 0);
-    [SerializeField] private float dashDuration = 0.3f;
-    [SerializeField] private float dashCooldown = 1f;
+    [SerializeField] private Vector2 boostSpeed = new Vector2(15, 0);
+    [SerializeField] private float dashDuration = 0.2f;
+    [SerializeField] private float dashCooldown = 0.8f;
 
     [Header("Speed")]
     [SerializeField] private float speedX;
     [SerializeField] private float speedY;
     [SerializeField] private float maxSpeedX = 35f;
-    [SerializeField] private float maxSpeedY = 40f;
+    [SerializeField] private float maxSpeedY = 50f;
 
 
     private void Awake()
