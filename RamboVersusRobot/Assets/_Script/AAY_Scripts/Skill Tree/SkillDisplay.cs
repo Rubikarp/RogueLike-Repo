@@ -23,7 +23,7 @@ namespace SkillTree
         void Start()
         {
             m_PlayerHandler = this.GetComponentInParent<PlayerHandler>().Player;
-            m_PlayerHandler.onMoneyChange += ReactToChange;
+            //m_PlayerHandler.onMoneyChange += ReactToChange;
 
             if (skill)
                 skill.SetValues(this.gameObject, m_PlayerHandler);

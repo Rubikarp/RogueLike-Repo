@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/__Scene/Scene Test/Scene Test Arthur.unity
+    guid: 498900c0f5734594d86e2c2c85cfa4ff
+  - enabled: 1
+    path: Assets/__Scene/Run (aka la base de robot).unity
+    guid: ee52cb7b781331544a09335c8611245b
   m_configObjects: {}

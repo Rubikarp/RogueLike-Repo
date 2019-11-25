@@ -40,7 +40,7 @@ public class CharacterLifeSystem : MonoBehaviour
             WaitForSeconds(tpDeL'animation);
             */
 
-            Destroy(this.gameObject);
+            Debug.Log("Destroy(this.gameObject);");
 
 
         }
