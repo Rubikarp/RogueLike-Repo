@@ -847,12 +847,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill: {fileID: 0}
-  skillName: {fileID: 0}
-  skillDescription: {fileID: 0}
-  skillIcon: {fileID: 0}
-  skillMoneyNeeded: {fileID: 0}
-  skillAttribute: {fileID: 0}
-  skillAttrAmount: {fileID: 0}
+  skillName: {fileID: 2014247480}
+  skillDescription: {fileID: 830700185}
+  skillIcon: {fileID: 946531287}
+  skillMoneyNeeded: {fileID: 981694026}
+  skillAttribute: {fileID: 485194135}
+  skillAttrAmount: {fileID: 1359514314}
   m_PlayerHandler: {fileID: 0}
 --- !u!114 &222558984
 MonoBehaviour:
@@ -1487,12 +1487,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill: {fileID: 0}
-  skillName: {fileID: 0}
-  skillDescription: {fileID: 0}
-  skillIcon: {fileID: 0}
-  skillMoneyNeeded: {fileID: 0}
-  skillAttribute: {fileID: 0}
-  skillAttrAmount: {fileID: 0}
+  skillName: {fileID: 1486989588}
+  skillDescription: {fileID: 413928744}
+  skillIcon: {fileID: 1172450263}
+  skillMoneyNeeded: {fileID: 968741164}
+  skillAttribute: {fileID: 1893083529}
+  skillAttrAmount: {fileID: 778938322}
   m_PlayerHandler: {fileID: 0}
 --- !u!114 &296432445
 MonoBehaviour:
@@ -1627,12 +1627,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill: {fileID: 0}
-  skillName: {fileID: 0}
-  skillDescription: {fileID: 0}
-  skillIcon: {fileID: 0}
-  skillMoneyNeeded: {fileID: 0}
-  skillAttribute: {fileID: 0}
-  skillAttrAmount: {fileID: 0}
+  skillName: {fileID: 1162565242}
+  skillDescription: {fileID: 1955415895}
+  skillIcon: {fileID: 114074076}
+  skillMoneyNeeded: {fileID: 1672069272}
+  skillAttribute: {fileID: 2014749519}
+  skillAttrAmount: {fileID: 105580833}
   m_PlayerHandler: {fileID: 0}
 --- !u!114 &314872626
 MonoBehaviour:
@@ -2491,12 +2491,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill: {fileID: 0}
-  skillName: {fileID: 0}
-  skillDescription: {fileID: 0}
-  skillIcon: {fileID: 0}
-  skillMoneyNeeded: {fileID: 0}
-  skillAttribute: {fileID: 0}
-  skillAttrAmount: {fileID: 0}
+  skillName: {fileID: 862403311}
+  skillDescription: {fileID: 1449943622}
+  skillIcon: {fileID: 1107447369}
+  skillMoneyNeeded: {fileID: 788759970}
+  skillAttribute: {fileID: 816738177}
+  skillAttrAmount: {fileID: 1913289828}
   m_PlayerHandler: {fileID: 0}
 --- !u!114 &529667771
 MonoBehaviour:
@@ -2825,13 +2825,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b893134ac30006246b9aa67859cb6095, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skill: {fileID: 0}
-  skillName: {fileID: 0}
-  skillDescription: {fileID: 0}
-  skillIcon: {fileID: 0}
-  skillMoneyNeeded: {fileID: 0}
-  skillAttribute: {fileID: 0}
-  skillAttrAmount: {fileID: 0}
+  skill: {fileID: 11400000, guid: d91ca7c76dbe6bc4795201256a3ad7d0, type: 2}
+  skillName: {fileID: 1125290899}
+  skillDescription: {fileID: 1482014257}
+  skillIcon: {fileID: 283827425}
+  skillMoneyNeeded: {fileID: 2078993449}
+  skillAttribute: {fileID: 1011173237}
+  skillAttrAmount: {fileID: 805615132}
   m_PlayerHandler: {fileID: 0}
 --- !u!114 &622420792
 MonoBehaviour:
@@ -5727,12 +5727,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill: {fileID: 0}
-  skillName: {fileID: 0}
-  skillDescription: {fileID: 0}
-  skillIcon: {fileID: 0}
-  skillMoneyNeeded: {fileID: 0}
-  skillAttribute: {fileID: 0}
-  skillAttrAmount: {fileID: 0}
+  skillName: {fileID: 1745381973}
+  skillDescription: {fileID: 1042407385}
+  skillIcon: {fileID: 882514041}
+  skillMoneyNeeded: {fileID: 736807054}
+  skillAttribute: {fileID: 415163110}
+  skillAttrAmount: {fileID: 266946014}
   m_PlayerHandler: {fileID: 0}
 --- !u!114 &1368761732
 MonoBehaviour:
@@ -5867,12 +5867,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill: {fileID: 0}
-  skillName: {fileID: 0}
-  skillDescription: {fileID: 0}
-  skillIcon: {fileID: 0}
-  skillMoneyNeeded: {fileID: 0}
-  skillAttribute: {fileID: 0}
-  skillAttrAmount: {fileID: 0}
+  skillName: {fileID: 142954910}
+  skillDescription: {fileID: 132421616}
+  skillIcon: {fileID: 1406282935}
+  skillMoneyNeeded: {fileID: 246168697}
+  skillAttribute: {fileID: 1595828634}
+  skillAttrAmount: {fileID: 965640557}
   m_PlayerHandler: {fileID: 0}
 --- !u!114 &1369865619
 MonoBehaviour:
@@ -6310,12 +6310,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill: {fileID: 0}
-  skillName: {fileID: 0}
-  skillDescription: {fileID: 0}
-  skillIcon: {fileID: 0}
-  skillMoneyNeeded: {fileID: 0}
-  skillAttribute: {fileID: 0}
-  skillAttrAmount: {fileID: 0}
+  skillName: {fileID: 2123924079}
+  skillDescription: {fileID: 1220106087}
+  skillIcon: {fileID: 563086172}
+  skillMoneyNeeded: {fileID: 597745397}
+  skillAttribute: {fileID: 1546517625}
+  skillAttrAmount: {fileID: 975389240}
   m_PlayerHandler: {fileID: 0}
 --- !u!114 &1419331358
 MonoBehaviour:
@@ -7750,12 +7750,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill: {fileID: 0}
-  skillName: {fileID: 0}
-  skillDescription: {fileID: 0}
-  skillIcon: {fileID: 0}
-  skillMoneyNeeded: {fileID: 0}
-  skillAttribute: {fileID: 0}
-  skillAttrAmount: {fileID: 0}
+  skillName: {fileID: 1706500196}
+  skillDescription: {fileID: 1623171056}
+  skillIcon: {fileID: 232713733}
+  skillMoneyNeeded: {fileID: 1415343658}
+  skillAttribute: {fileID: 1597642545}
+  skillAttrAmount: {fileID: 423225534}
   m_PlayerHandler: {fileID: 0}
 --- !u!114 &1756928004
 MonoBehaviour:
@@ -8991,12 +8991,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill: {fileID: 0}
-  skillName: {fileID: 0}
-  skillDescription: {fileID: 0}
-  skillIcon: {fileID: 0}
-  skillMoneyNeeded: {fileID: 0}
-  skillAttribute: {fileID: 0}
-  skillAttrAmount: {fileID: 0}
+  skillName: {fileID: 775659007}
+  skillDescription: {fileID: 1407400507}
+  skillIcon: {fileID: 2042906651}
+  skillMoneyNeeded: {fileID: 197251490}
+  skillAttribute: {fileID: 321239247}
+  skillAttrAmount: {fileID: 1785276476}
   m_PlayerHandler: {fileID: 0}
 --- !u!114 &2074693241
 MonoBehaviour:
@@ -9208,12 +9208,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skill: {fileID: 0}
-  skillName: {fileID: 0}
-  skillDescription: {fileID: 0}
-  skillIcon: {fileID: 0}
-  skillMoneyNeeded: {fileID: 0}
-  skillAttribute: {fileID: 0}
-  skillAttrAmount: {fileID: 0}
+  skillName: {fileID: 2065516271}
+  skillDescription: {fileID: 2100151536}
+  skillIcon: {fileID: 495241610}
+  skillMoneyNeeded: {fileID: 760019755}
+  skillAttribute: {fileID: 1890122423}
+  skillAttrAmount: {fileID: 479783700}
   m_PlayerHandler: {fileID: 0}
 --- !u!114 &2090880409
 MonoBehaviour:
