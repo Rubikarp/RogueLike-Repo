@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dda845c365a47a6449fb0c2a4df7e321, type: 3}
-  m_Name: New Skills
+  m_Name: HP Boost
   m_EditorClassIdentifier: 
   Description: 
   Icon: {fileID: 0}

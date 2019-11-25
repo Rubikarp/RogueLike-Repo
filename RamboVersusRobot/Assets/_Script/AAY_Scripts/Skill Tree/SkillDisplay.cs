@@ -5,8 +5,6 @@ using UnityEngine;
 
 namespace SkillTree
 {
-
-
     public class SkillDisplay : MonoBehaviour
     {
         public Skills skill;
@@ -29,13 +27,58 @@ namespace SkillTree
 
             if (skill)
                 skill.SetValues(this.gameObject, m_PlayerHandler);
-        }
-                
 
-        // Update is called once per frame
-        void Update()
+            EnableSkills();
+        }
+
+        public void EnableSkills()
         {
-        
+            if (m_PlayerHandler && skill && skill.CheckSkills(m_PlayerHandler))
+            {
+                TurnOnSkillIcon();
+            }
+
+            else if (m_PlayerHandler && skill && skill.CheckSkills(m_PlayerHandler))
+            {
+                this.GetComponent<Button>().interactable = true;
+                this.transform.Find("IconParent").Find("Disabled").gameObject.SetActive(false);
+
+            }
+            else
+            {
+                TurnOffSkillIcon();
+            }
+        }
+
+        public void OnEnable()
+        {
+            EnableSkills();           
+        }
+
+        public void GetSkill()
+        {
+            if (skill.GetSkill(m_PlayerHandler))
+            {
+                TurnOnSkillIcon();
+            }
+        }
+
+        public void TurnOnSkillIcon()
+        {
+            this.GetComponent<Button>().interactable = false;
+            this.transform.Find("IconParent").Find("Available").gameObject.SetActive(false);
+            this.transform.Find("IconParent").Find("Disabled").gameObject.SetActive(false);
+        }
+
+        public void TurnOffSkillIcon()
+        {
+            this.transform.Find("IconParent").Find("Available").gameObject.SetActive(true);
+            this.transform.Find("IconParent").Find("Disabled").gameObject.SetActive(true);
+        }
+
+        void ReactToChange()
+        {
+            EnableSkills();
         }
     }
 }
