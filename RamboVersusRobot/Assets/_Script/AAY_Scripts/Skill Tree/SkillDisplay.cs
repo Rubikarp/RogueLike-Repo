@@ -11,7 +11,6 @@ namespace SkillTree
         public Text skillName;
         public Text skillDescription;
         public Image skillIcon;
-        public Text skillLevel;
         public Text skillMoneyNeeded;
         public Text skillAttribute;
         public Text skillAttrAmount;
