@@ -6,86 +6,81 @@ Preset:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CharacterMovement
+  m_Name: FontImporter
   m_TargetType:
-    m_NativeTypeID: 114
-    m_ManagedTypePPtr: {fileID: 11500000, guid: 36c6e60f4612b9947bc8d0c21ac33ec2,
-      type: 3}
+    m_NativeTypeID: 1042
+    m_ManagedTypePPtr: {fileID: 0}
     m_ManagedTypeFallback: 
   m_Properties:
   - target: {fileID: 0}
-    propertyPath: m_Enabled
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: m_EditorHideFlags
+    propertyPath: m_ExternalObjects.Array.size
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: m_EditorClassIdentifier
+    propertyPath: m_FontSize
+    value: 100
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_ForceTextureCase
+    value: -1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_CharacterSpacing
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_CharacterPadding
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_IncludeFontData
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_FontName
+    value: Good Times
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_FontNames.Array.size
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_FontNames.Array.data[0]
+    value: Good Times
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_FallbackFontReferences.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_CustomCharacters
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: jumpForce
-    value: 45
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: wallJumpForce
-    value: 35
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: wallJumpHeight
-    value: 35
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: ceillingJumpForce
-    value: 20
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: runSpeed
-    value: 5
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: airFriction
-    value: 6
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: wallFriction
+    propertyPath: m_FontRenderingMode
     value: 2
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: ceillingFriction
-    value: 2.5
+    propertyPath: m_AscentCalculationMode
+    value: 2
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: boostSpeed.x
-    value: 15
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: boostSpeed.y
+    propertyPath: m_UseLegacyBoundsCalculation
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: dashDuration
-    value: 0.2
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: dashCooldown
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: speedX
+    propertyPath: m_ShouldRoundAdvanceValue
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: speedY
-    value: 0
+    propertyPath: m_UserData
+    value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: maxSpeedX
-    value: 35
+    propertyPath: m_AssetBundleName
+    value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: maxSpeedY
-    value: 50
+    propertyPath: m_AssetBundleVariant
+    value: 
     objectReference: {fileID: 0}

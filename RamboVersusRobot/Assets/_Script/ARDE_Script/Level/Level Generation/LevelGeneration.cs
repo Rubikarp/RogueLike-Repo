@@ -59,8 +59,7 @@ public class LevelGeneration : MonoBehaviour
 
     private void Initialisation()
     {
-        Instantiate(staringRoom, roomsContainer);
-
+        Instantiate(roomsLeftRight[Random.Range(0, roomsLeftRight.Length)], roomGenerator.position, new Quaternion(0, 0, 0, 0), roomsContainer);
 
         //commence vers la droite
         nextDirection = Direction.Right;
@@ -108,20 +107,20 @@ public class LevelGeneration : MonoBehaviour
 
     private Direction DirectionRoll(Direction dir)
     {
-        diceRoll = Random.Range(1, 6);
+        diceRoll = Random.Range(1, 7);
 
-        //Gauche 40%
+        //Gauche 33%
         if (diceRoll == 1 || diceRoll == 2)
         {
             dir = Direction.Left;
         }
-        //Gauche 40%
+        //Gauche 33%
         else if (diceRoll == 3 || diceRoll == 4)
         {
             dir = Direction.Right;
         }
-        //Gauche 20%
-        else if (diceRoll == 5)
+        //Gauche 33%
+        else if (diceRoll == 5 || diceRoll == 6)
         {
             dir = Direction.Down;
         }
@@ -184,11 +183,11 @@ public class LevelGeneration : MonoBehaviour
         {
             if (nextDirection == Direction.Right)
             {
-                Instantiate(roomsLeftRight[0], roomGenerator.position, new Quaternion(0, 0, 0, 0), roomsContainer);
+                Instantiate(roomsLeftRight[Random.Range(0, roomsLeftRight.Length)], roomGenerator.position, new Quaternion(0, 0, 0, 0), roomsContainer);
             }
             else if (nextDirection == Direction.Down)
             {
-                Instantiate(roomsDownLeft[0], roomGenerator.position, new Quaternion(0, 0, 0, 0), roomsContainer);
+                Instantiate(roomsDownLeft[Random.Range(0, roomsDownLeft.Length)], roomGenerator.position, new Quaternion(0, 0, 0, 0), roomsContainer);
             }
 
         }
@@ -196,11 +195,11 @@ public class LevelGeneration : MonoBehaviour
         {
             if (nextDirection == Direction.Left)
             {
-                Instantiate(roomsLeftRight[0], roomGenerator.position, new Quaternion(0, 0, 0, 0), roomsContainer);
+                Instantiate(roomsLeftRight[Random.Range(0, roomsLeftRight.Length)], roomGenerator.position, new Quaternion(0, 0, 0, 0), roomsContainer);
             }
             else if (nextDirection == Direction.Down)
             {
-                Instantiate(roomsDownRight[0], roomGenerator.position, new Quaternion(0, 0, 0, 0), roomsContainer);
+                Instantiate(roomsDownRight[Random.Range(0, roomsDownRight.Length)], roomGenerator.position, new Quaternion(0, 0, 0, 0), roomsContainer);
             }
 
         }
@@ -208,15 +207,15 @@ public class LevelGeneration : MonoBehaviour
         {
             if (nextDirection == Direction.Left)
             {
-                Instantiate(roomsUpLeft[0], roomGenerator.position, new Quaternion(0, 0, 0, 0), roomsContainer);
+                Instantiate(roomsUpLeft[Random.Range(0, roomsUpLeft.Length)], roomGenerator.position, new Quaternion(0, 0, 0, 0), roomsContainer);
             }
             else if (nextDirection == Direction.Right)
             {
-                Instantiate(roomsUpRight[0], roomGenerator.position, new Quaternion(0, 0, 0, 0), roomsContainer);
+                Instantiate(roomsUpRight[Random.Range(0, roomsUpRight.Length)], roomGenerator.position, new Quaternion(0, 0, 0, 0), roomsContainer);
             }
             else if (nextDirection == Direction.Down)
             {
-                Instantiate(roomsUpDown[0], roomGenerator.position, new Quaternion (0,0,0,0), roomsContainer);
+                Instantiate(roomsUpDown[Random.Range(0, roomsUpDown.Length)], roomGenerator.position, new Quaternion (0,0,0,0), roomsContainer);
 
             }
         }
