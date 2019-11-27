@@ -9598,6 +9598,8 @@ MonoBehaviour:
     amount: 100
   - attribute: {fileID: 11400000, guid: 83d51b988f328864888bb47777005591, type: 2}
     amount: 100
+  - attribute: {fileID: 11400000, guid: 95a2dde9de2d86047b7bf4663db4b8db, type: 2}
+    amount: 0
   PlayerSkills: []
 --- !u!114 &2058210850
 MonoBehaviour:

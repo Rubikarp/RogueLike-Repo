@@ -31,8 +31,7 @@ public class PlayerStats : MonoBehaviour
 
         [Header("Player Skills Enabled")]
         public List<Skills> PlayerSkills = new List<Skills>();
-
-       
+     
         public delegate void OnMoneyChange();
         public event OnMoneyChange onMoneyChange;
 
