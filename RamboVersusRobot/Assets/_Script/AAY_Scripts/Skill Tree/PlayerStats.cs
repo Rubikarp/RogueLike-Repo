@@ -10,7 +10,6 @@ public class PlayerStats : MonoBehaviour
 
         [Header("Main Player Stats")]
         public string PlayerName;
-        public int PlayerHP = 100;
 
         [SerializeField]
         private int m_PlayerMoney = 0;
