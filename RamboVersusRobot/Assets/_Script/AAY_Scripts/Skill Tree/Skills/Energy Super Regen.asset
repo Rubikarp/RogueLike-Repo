@@ -9,8 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ce6fb44aa25961459fbb9d629d2c14a, type: 3}
-  m_Name: HP
+  m_Script: {fileID: 11500000, guid: dda845c365a47a6449fb0c2a4df7e321, type: 3}
+  m_Name: Energy Super Regen
   m_EditorClassIdentifier: 
-  Description: You lose if this drops to zero !
-  Thumbnail: {fileID: 21300000, guid: 28c66dc5b3f75a844b8521ff2b346538, type: 3}
+  Description: 
+  Icon: {fileID: 0}
+  MoneyNeeded: 0
+  AffectedAttributes:
+  - attribute: {fileID: 11400000, guid: 83d51b988f328864888bb47777005591, type: 2}
+    amount: 0

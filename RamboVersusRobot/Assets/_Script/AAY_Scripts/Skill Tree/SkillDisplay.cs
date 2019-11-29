@@ -11,7 +11,6 @@ namespace SkillTree
         public Text skillName;
         public Text skillDescription;
         public Image skillIcon;
-        public Text skillLevel;
         public Text skillMoneyNeeded;
         public Text skillAttribute;
         public Text skillAttrAmount;
@@ -23,7 +22,6 @@ namespace SkillTree
         void Start()
         {
             m_PlayerHandler = this.GetComponentInParent<PlayerHandler>().Player;
-            //m_PlayerHandler.onMoneyChange += ReactToChange;
 
             if (skill)
                 skill.SetValues(this.gameObject, m_PlayerHandler);

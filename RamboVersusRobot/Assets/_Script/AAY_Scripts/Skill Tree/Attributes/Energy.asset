@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ce6fb44aa25961459fbb9d629d2c14a, type: 3}
   m_Name: Energy
   m_EditorClassIdentifier: 
-  Description: Get more energy
+  Description: The attribute used to perform special moves !
   Thumbnail: {fileID: 21300000, guid: 3c8fafd0cd2ccfc4197fb1f787b8c961, type: 3}

@@ -10,7 +10,6 @@ public class PlayerStats : MonoBehaviour
 
         [Header("Main Player Stats")]
         public string PlayerName;
-        public int PlayerHP = 100;
 
         [SerializeField]
         private int m_PlayerMoney = 0;
@@ -31,8 +30,7 @@ public class PlayerStats : MonoBehaviour
 
         [Header("Player Skills Enabled")]
         public List<Skills> PlayerSkills = new List<Skills>();
-
-       
+     
         public delegate void OnMoneyChange();
         public event OnMoneyChange onMoneyChange;
 

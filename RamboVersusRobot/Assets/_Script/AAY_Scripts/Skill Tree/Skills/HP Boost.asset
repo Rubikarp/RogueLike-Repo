@@ -15,4 +15,6 @@ MonoBehaviour:
   Description: 
   Icon: {fileID: 0}
   MoneyNeeded: 0
-  AffectedAttributes: []
+  AffectedAttributes:
+  - attribute: {fileID: 11400000, guid: 6896ca6f8a2e04e449ef008067d3f5f9, type: 2}
+    amount: 50
