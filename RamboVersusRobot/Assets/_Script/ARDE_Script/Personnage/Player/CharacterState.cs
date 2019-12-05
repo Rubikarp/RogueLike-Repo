@@ -16,6 +16,7 @@ public class CharacterState : MonoBehaviour
     #region Statuts
 
     [Header("Can")]
+    public bool canMove = true;
     public bool canRun = true;
     public bool canJump = true;
     public bool canDash = true;
@@ -25,7 +26,8 @@ public class CharacterState : MonoBehaviour
     public bool isLookingRight = true;
     public bool isSpeedLimit = true;
 
-    public bool isMoving ;
+    public bool isMoving;
+    public bool isWallJumping;
     public bool isRuning ;
     public bool isJumping ;
     public bool isDashing ;
