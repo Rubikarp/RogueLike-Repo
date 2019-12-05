@@ -6,8 +6,9 @@ public class ProjectileBase : MonoBehaviour
 {
     [SerializeField] public Transform player;
     [SerializeField] public Rigidbody2D srb;
-    private float Cooldown = 2;
+    public float Cooldown = 2;
 
+    private Vector2 direction;
     public LayerMask Player;
     public Vector2 direction;
 

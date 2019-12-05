@@ -60,12 +60,12 @@ public class GlobalLifeSystem : MonoBehaviour
 
 
     //Fonction Appelée pour infliger un knockback
-    public void TakeKnockBack(float Knockback, Transform attackFrom)
+    public void TakeKnockBack(float KnockbackForce, Transform attackFrom)
     {
 
         Vector2 knockBack = me.position - attackFrom.position;
         knockBack.Normalize();
-        body.velocity = knockBack * knockback;
+        body.velocity = knockBack * KnockbackForce;
 
     }
 
