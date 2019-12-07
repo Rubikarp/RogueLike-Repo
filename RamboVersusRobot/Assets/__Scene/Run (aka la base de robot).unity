@@ -6879,7 +6879,7 @@ GameObject:
   - component: {fileID: 1619806520}
   m_Layer: 13
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8342,6 +8342,36 @@ CompositeCollider2D:
   m_GenerationType: 0
   m_EdgeRadius: 0
   m_ColliderPaths:
+  - m_Collider: {fileID: 1044827698}
+    m_ColliderPaths:
+    - - X: 1422000000
+        Y: -387971040
+      - X: 1399095936
+        Y: -387971040
+      - X: 1399095936
+        Y: -690348992
+      - X: 1422000000
+        Y: -690348992
+  - m_Collider: {fileID: 85153887}
+    m_ColliderPaths:
+    - - X: 481699968
+        Y: -388045056
+      - X: 458796000
+        Y: -388045056
+      - X: 458795968
+        Y: -679955008
+      - X: 481699968
+        Y: -679955008
+  - m_Collider: {fileID: 1325305500}
+    m_ColliderPaths:
+    - - X: 1250930048
+        Y: -561428992
+      - X: 600308224
+        Y: -561428928
+      - X: 600308224
+        Y: -791570944
+      - X: 1250930048
+        Y: -791571072
   - m_Collider: {fileID: 505330819}
     m_ColliderPaths:
     - - X: 1422000128
@@ -8382,36 +8412,6 @@ CompositeCollider2D:
         Y: -792032832
       - X: -93999984
         Y: -792032832
-  - m_Collider: {fileID: 1044827698}
-    m_ColliderPaths:
-    - - X: 1422000000
-        Y: -387971040
-      - X: 1399095936
-        Y: -387971040
-      - X: 1399095936
-        Y: -690348992
-      - X: 1422000000
-        Y: -690348992
-  - m_Collider: {fileID: 85153887}
-    m_ColliderPaths:
-    - - X: 481699968
-        Y: -388045056
-      - X: 458796000
-        Y: -388045056
-      - X: 458795968
-        Y: -679955008
-      - X: 481699968
-        Y: -679955008
-  - m_Collider: {fileID: 1325305500}
-    m_ColliderPaths:
-    - - X: 1250930048
-        Y: -561428992
-      - X: 600308224
-        Y: -561428928
-      - X: 600308224
-        Y: -791570944
-      - X: 1250930048
-        Y: -791571072
   m_CompositePaths:
     m_Paths:
     - - {x: -2.3409176, y: -36}

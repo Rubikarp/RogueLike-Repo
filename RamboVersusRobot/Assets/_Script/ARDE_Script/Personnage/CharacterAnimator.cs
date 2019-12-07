@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class characterAnimator : MonoBehaviour
+public class CharacterAnimator : MonoBehaviour
 {
     [SerializeField] CharacterInput input = null;
     [SerializeField] CharacterState state = null;

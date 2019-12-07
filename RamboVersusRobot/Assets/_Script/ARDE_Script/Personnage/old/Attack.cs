@@ -5,10 +5,16 @@ using UnityEngine;
 public class Attack : MonoBehaviour
 {
     [Header ("information")]
-    [SerializeField] private float lifeTime = 0.3f;
-    public float damage = 1f;
+    public float lifeTime = 0.3f;
+    public int damage = 1;
+    public float knockback = 40f;
 
     void Update()
+    {
+        SelfDestructionIn(lifeTime);
+    }
+
+    private void SelfDestructionIn(float lifeTime)
     {
         //Si je ne suis trop vieux
         if (lifeTime > 0)
@@ -19,13 +25,8 @@ public class Attack : MonoBehaviour
         else //sinon
         {
             //je meurt
-            SelfDestruction();
-        } 
-    }
-
-    void SelfDestruction()
-    {
-        Destroy(gameObject);
+            Destroy(gameObject);
+        }
     }
 
 }

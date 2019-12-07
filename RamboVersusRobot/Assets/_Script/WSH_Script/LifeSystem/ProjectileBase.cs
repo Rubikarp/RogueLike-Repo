@@ -8,7 +8,6 @@ public class ProjectileBase : MonoBehaviour
     [SerializeField] public Rigidbody2D srb;
     public float Cooldown = 2;
 
-    private Vector2 direction;
     public LayerMask Player;
     public Vector2 direction;
 
