@@ -17,7 +17,6 @@ public class FlyingEnnemiBehavior : MonoBehaviour
 
     //Private Values
     [SerializeField] private Vector2 playerDirection;
-    [SerializeField] private Vector2 playerMoveTo;
     [SerializeField] private float playerDistance;
 
     [SerializeField] private float flyForce = 1f;
