@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterInput : MonoBehaviour
 {
-    [SerializeField] SpriteRenderer sprite = null;
+    public SpriteRenderer sprite = null;
 
     #region Input
     [Header("Inputs")]
@@ -34,6 +34,11 @@ public class CharacterInput : MonoBehaviour
     public bool attackHeavyEnter;
     public bool attackHeavy;
     public bool attackHeavyExit;
+
+    [HeaderAttribute("Grab")]
+    public bool grabEnter;
+    public bool grab;
+    public bool grabExit;
     #endregion
 
     [Header("Herited")]
@@ -67,6 +72,10 @@ public class CharacterInput : MonoBehaviour
         attackHeavy        = Input.GetButton("attackHeavy");
         attackHeavyEnter   = Input.GetButtonDown("attackHeavy");
         attackHeavyExit    = Input.GetButtonUp("attackHeavy");
+
+        grab = Input.GetButton("Grab");
+        grabEnter = Input.GetButtonDown("Grab");
+        grabExit = Input.GetButtonUp("Grab");
         #endregion
 
         IslookingRight();

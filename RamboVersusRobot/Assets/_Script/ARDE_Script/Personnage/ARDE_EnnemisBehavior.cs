@@ -5,34 +5,34 @@ using UnityEngine;
 public class ARDE_EnnemisBehavior : MonoBehaviour
 {
     [Header("Auto")]
-    protected Transform mySelf = null;
-    protected Rigidbody2D myBody = null;
-    protected CircleCollider2D myCollider = null;
+    public Transform mySelf = null;
+    public Rigidbody2D myBody = null;
+    public CircleCollider2D myCollider = null;
     public Transform player = null;
 
     [Header("à def")]
     public LayerMask TerrainLayerMask;
 
     [Header("tweaking")]
-    public float speed;
+    public float speed = 10;
 
     [Space(10)]
-    public float detectionRange;
-    public float ToNearDistance;
-    public float ToFarDistance;
+    public float detectionRange = 40;
+    public float ToFarDistance = 20;
+    public float ToNearDistance = 10;
 
     [Header("inside")]
     //Private Values
-    [SerializeField] protected Vector2 playerDirection;
-    [SerializeField] protected float playerDistance;
+    [SerializeField] public Vector2 playerDirection;
+    [SerializeField] public float playerDistance;
 
     [Space(10)]
-    [SerializeField] protected bool playerDetecting;
-    [SerializeField] protected bool playerToNear;
-    [SerializeField] protected bool playerToFar;
+    [SerializeField] public bool playerDetecting;
+    [SerializeField] public bool playerToNear;
+    [SerializeField] public bool playerToFar;
 
     [Space(10)]
-    [SerializeField] protected bool IsAttacking;
+    [SerializeField] public bool IsAttacking;
 
 
     private void Start()
@@ -44,7 +44,7 @@ public class ARDE_EnnemisBehavior : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         #region Variables
 
@@ -65,13 +65,13 @@ public class ARDE_EnnemisBehavior : MonoBehaviour
         {
             playerDetecting = true;
 
-            //je m'approche le joueur s'il est trop loin
-            if (playerDistance > ToNearDistance)
+            //je m'approche le joueur s'il est trop proche
+            if (playerDistance < ToNearDistance)
             {
                 playerToNear = true;
             }
-            //je m'eloigne du joueur s'il est trop proche
-            else if (playerDistance < ToFarDistance)
+            //je m'eloigne du joueur s'il est trop loin
+            else if (playerDistance > ToFarDistance)
             {
                 playerToNear = false;
                 playerToFar = true;

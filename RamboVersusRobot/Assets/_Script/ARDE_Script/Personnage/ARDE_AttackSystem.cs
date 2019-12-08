@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class ARDE_AttackSystem : MonoBehaviour
 {
-    public Transform mySelf = null;
+    public Transform mySelf = default;
     public int damage = 1;
-    public float lifeTime = 0.3f;
     public float knockback = 40f;
+
+    public bool haveLifeTime = true;
+    public float lifeTime = 0.3f;
 
     private void Start()
     {
@@ -16,21 +18,15 @@ public class ARDE_AttackSystem : MonoBehaviour
 
     void Update()
     {
-        SelfDestructionIn(lifeTime);
-    }
-
-    private void SelfDestructionIn(float lifeTime)
-    {
-        //Si je ne suis trop vieux
-        if (lifeTime > 0)
+        if (haveLifeTime)
         {
-            //je vis
             lifeTime -= Time.deltaTime;
-        }
-        else //sinon
-        {
-            //je meurt
-            Destroy(gameObject);
+            if (lifeTime < 0)
+            {
+                //je meurt
+                Destroy(gameObject);
+            }
+
         }
     }
 

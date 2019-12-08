@@ -11,21 +11,12 @@ public class Attack : MonoBehaviour
 
     void Update()
     {
-        SelfDestructionIn(lifeTime);
-    }
+        lifeTime -= Time.deltaTime;
 
-    private void SelfDestructionIn(float lifeTime)
-    {
-        //Si je ne suis trop vieux
-        if (lifeTime > 0)
-        {
-            //je vis
-            lifeTime -= Time.deltaTime;
-        }
-        else //sinon
+        if (lifeTime < 0)
         {
             //je meurt
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
     }
 
