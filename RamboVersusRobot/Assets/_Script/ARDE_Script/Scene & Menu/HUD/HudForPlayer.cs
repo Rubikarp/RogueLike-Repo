@@ -6,24 +6,16 @@ using UnityEngine.UI;
 
 public class HudForPlayer : MonoBehaviour
 {
-    //CharacterLifeSystem playerLife = null;
+    [SerializeField] ARDE_CharacterLifeSystem playerLifeSystem = default;
 
-    [SerializeField] Image[] coeur = null;
-    [SerializeField] Slider energieBar = null;
-
-    [Range(0, 7)]   public int live = 5;
-    [Range(0, 100)] public int NRG = 80;
-
-
+    [SerializeField] Image[] coeur = default;
+    [SerializeField] Slider energieBar = default;
 
     void Update()
     {
-        //lifeBarUpdate(playerLife.health);
-        lifeBarUpdate(live);
-
-        EnergieJauge(NRG);
+        lifeBarUpdate(playerLifeSystem.health);
+        EnergieJauge(playerLifeSystem.energie);
     }
-
 
     private void lifeBarUpdate(int health)
     {
@@ -119,7 +111,6 @@ public class HudForPlayer : MonoBehaviour
                 }
                 break;
         }
-
     }
 
     private void EnergieJauge(int energie)

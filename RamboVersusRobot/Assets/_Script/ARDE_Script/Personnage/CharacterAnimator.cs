@@ -4,9 +4,18 @@ using UnityEngine;
 
 public class CharacterAnimator : MonoBehaviour
 {
-    [SerializeField] CharacterInput input = null;
-    [SerializeField] CharacterState state = null;
-    [SerializeField] Animator animator = null;
+    [SerializeField] Animator animator = default;
+    [SerializeField] CharacterInput input = default;
+    [SerializeField] CharacterState state = default;
+    [SerializeField] ARDE_CharacterLifeSystem lifeSystem = default;
+
+    private void Start()
+    {
+        animator = this.GetComponentInParent<Animator>();
+        input = this.GetComponentInParent<CharacterInput>();
+        state = this.GetComponentInParent<CharacterState>();
+        lifeSystem = this.GetComponentInParent<ARDE_CharacterLifeSystem>();
+    }
 
     void Update()
     {

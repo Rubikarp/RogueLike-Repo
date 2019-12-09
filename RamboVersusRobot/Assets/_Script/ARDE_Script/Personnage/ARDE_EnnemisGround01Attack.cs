@@ -14,9 +14,9 @@ public class ARDE_EnnemisGround01Attack : ARDE_AttackSystem
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         playerDirectionNorm = (player.position - transform.position).normalized;
-        
+
         //Attaque vers le jouer avec un offset
-        mySelf.position = mySelf.position + playerDirectionNorm * attackOffSet;
+        attackPos.position = attackPos.position + playerDirectionNorm * attackOffSet;
 
         //calcul l'angle pour faire face au joueur
         rotZ = Mathf.Atan2(playerDirectionNorm.y, playerDirectionNorm.x) * Mathf.Rad2Deg;

@@ -7,6 +7,7 @@ public class ARDE_EnnemisFlying01 : ARDE_EnnemisBehavior
     [Header("Flying Base")]
     public float flyForce = 1f;
     public float detectDist = 5f;
+    public float EnnemisHeight = 2f;
 
     public GameObject bullet;
     public Transform bulletContainer;
@@ -29,12 +30,9 @@ public class ARDE_EnnemisFlying01 : ARDE_EnnemisBehavior
         DontCrash();
         TrackPlayer();
 
-        if (haveShoot)
+        if (!haveShoot)
         {
-            if (playerDetecting)
-            {
-                StartCoroutine(Attack(shootCoolDown));
-            }
+            StartCoroutine(Attack(shootCoolDown));
         }
 
     }
@@ -65,22 +63,33 @@ public class ARDE_EnnemisFlying01 : ARDE_EnnemisBehavior
     {
         if (playerDetecting)
         {
-
             if (playerToNear)
             {
-                myBody.velocity = -playerDirection * speed;
+                myBody.velocity += Vector2.Lerp(Vector2.zero, -playerDirection.normalized * speed, Time.deltaTime);
             }
-            else 
+            else
             if (playerToFar)
             {
-                myBody.velocity = playerDirection * speed;
+                myBody.velocity += Vector2.Lerp(Vector2.zero, playerDirection.normalized * speed, Time.deltaTime);
+            }
+            else
+            {
+                myBody.velocity += -myBody.velocity.normalized * 5f * Time.deltaTime;
             }
         }
+        else
+        {
+            myBody.velocity = Vector2.zero;
+            myBody.velocity += -myBody.velocity.normalized * 15f * Time.deltaTime;
+        }
+
+        myBody.velocity += -myBody.velocity.normalized * 5f * Time.deltaTime;
+
     }
 
     IEnumerator Attack(float CoolDown)
     {
-        Instantiate(bullet, mySelf.position, mySelf.rotation, bulletContainer);
+        Instantiate(bullet, mySelf.position + playerDirection.normalized * EnnemisHeight, mySelf.rotation, bulletContainer);
 
         haveShoot = true;
 
@@ -90,4 +99,10 @@ public class ARDE_EnnemisFlying01 : ARDE_EnnemisBehavior
 
     }
 
+    private void OnDrawGizmos()
+    {
+        Debug.DrawRay(transform.position, playerDirection.normalized * detectionRange, Color.blue);
+        Debug.DrawRay(transform.position, playerDirection.normalized * ToFarDistance, Color.red);
+        Debug.DrawRay(transform.position, playerDirection.normalized * ToNearDistance, Color.green);
+    }
 }

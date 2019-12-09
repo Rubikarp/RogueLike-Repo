@@ -79,6 +79,7 @@ public class PerlinCameraShake : MonoBehaviour
         get => _trauma;
         set => OnNewTrauma(value);
     }
+
     [Header("CURRENT TRAUMA (for testing):")]
     [SerializeField]
     [Range(0, 1)]

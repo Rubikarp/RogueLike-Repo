@@ -20,6 +20,13 @@ public class ARDE_Projectile : ARDE_EnnemisBehavior
     void Start()
     {
         mySelf = this.transform;
+        myBody = this.GetComponent<Rigidbody2D>();
+        myCollider = this.GetComponent<CircleCollider2D>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        //defini à chaque frame dans quel direction est le joueur
+        playerDirection = (player.position - mySelf.position).normalized;
+
         initialPos = mySelf.position;
         shootingDir = playerDirection;
 
@@ -37,13 +44,9 @@ public class ARDE_Projectile : ARDE_EnnemisBehavior
         //Quand le projectile entre en contact et si c'est le joueur, alors le joueur prend des dégâts et du knockback
         if (other.CompareTag("Player"))
         {
-
-            other.GetComponent<ARDE_LifeSystem>().TakeDamage(damage);
-            other.GetComponent<ARDE_LifeSystem>().TakeKnockBack(knockback, mySelf);
-
             Destroy(this.gameObject);
         }
-        else if (other.CompareTag("Terrain"))
+        else if (other.IsTouchingLayers(10)) //Layer 10 = Terrain
         {
             Destroy(this.gameObject);
         }

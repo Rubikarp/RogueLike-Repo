@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3128419909771898752}
   m_Layer: 0
   m_Name: AttackHeavyNeutral
-  m_TagString: damage
+  m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,10 +42,10 @@ GameObject:
   - component: {fileID: 2656703778770542938}
   - component: {fileID: 5187976635904471128}
   - component: {fileID: 7629061804254971830}
-  - component: {fileID: 3005494133318114564}
+  - component: {fileID: 4688797532585944128}
   m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
+  m_Name: HitBox
+  m_TagString: damage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,7 +58,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6835373150218026027}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: 2, z: 0}
+  m_LocalPosition: {x: 4, y: 0, z: 0}
   m_LocalScale: {x: 6, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 3128419909771898752}
@@ -138,7 +138,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3005494133318114564
+--- !u!114 &4688797532585944128
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,8 +147,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6835373150218026027}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1002f679b216d384cbe8136b94461753, type: 3}
+  m_Script: {fileID: 11500000, guid: ec14ecaf45e9b54449fc2b8058b7a1b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 1.8
-  damage: 3
+  attack: {fileID: 1203919331608374929}
+  attackPos: {fileID: 0}
+  damage: 2
+  knockback: 40
+  haveLifeTime: 1
+  lifeTime: 1.5

@@ -9,10 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3128419909771898752}
-  - component: {fileID: 1510413709486117283}
   m_Layer: 13
   m_Name: AttackLight
-  m_TagString: damage
+  m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,21 +31,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1510413709486117283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1203919331608374929}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1002f679b216d384cbe8136b94461753, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifeTime: 0.3
-  damage: 1
-  knockback: 40
 --- !u!1 &5347609806064522519
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,6 +42,7 @@ GameObject:
   - component: {fileID: 2452242324515858734}
   - component: {fileID: 3570508805817250396}
   - component: {fileID: 875371594669621792}
+  - component: {fileID: 3589539972642515899}
   m_Layer: 13
   m_Name: Hitbox
   m_TagString: damage
@@ -153,6 +138,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &3589539972642515899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5347609806064522519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec14ecaf45e9b54449fc2b8058b7a1b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attack: {fileID: 1203919331608374929}
+  attackPos: {fileID: 0}
+  damage: 1
+  knockback: 40
+  haveLifeTime: 1
+  lifeTime: 0.3
 --- !u!1 &6325076065616346624
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,7 +167,7 @@ GameObject:
   - component: {fileID: 8309360309877095958}
   m_Layer: 13
   m_Name: AttackPos
-  m_TagString: damage
+  m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

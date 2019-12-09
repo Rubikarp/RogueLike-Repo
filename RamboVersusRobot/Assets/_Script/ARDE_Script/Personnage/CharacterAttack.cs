@@ -4,38 +4,52 @@ using UnityEngine;
 
 public class CharacterAttack : MonoBehaviour
 {
-    [SerializeField] CharacterInput input = default;
-    [SerializeField] CharacterState state = default;
+    CharacterInput input = default;
+    CharacterState state = default;
+    Transform attackFrom = default;
+    ARDE_CharacterLifeSystem lifeSystem = default;
 
-    [Header("Attaque")]
-    [SerializeField] private Transform attackFrom = default;
-
-    [HeaderAttribute("Classique")]
-    [SerializeField] private GameObject attackLight = default;
+    [Header("Classique")]
+    public GameObject attackLight = default;
+    public int lightEnergieCost = 5;
+    public float attackLightDuration = 0.3f;
+    public Vector2 lightAttackDash = new Vector2(10f, 0f);
     [SerializeField] private float rotZ;
-    [SerializeField] private Vector2 lightAttackDash = new Vector2(10f,0f);
-    [SerializeField] private float attackLightDuration = 0.3f;
+    [Space(10)]
 
-    [HeaderAttribute("Spécial")]
-    [HeaderAttribute("Neutral")]
-    [SerializeField] private GameObject attackHeavyNeutral = default;
-    [SerializeField] private float airNeutralTime = 1f;
-    [SerializeField] private float attackHeavyNeutralDuration = 1.5f;
+    [Header("Neutral")]
+    public GameObject attackHeavyNeutral = default;
+    public float airNeutralTime = 1f;
+    public int heavyNeutralEnergieCost = 15;
+    public float attackHeavyNeutralDuration = 1.5f;
+    [Space(10)]
 
-    [HeaderAttribute("Side")]
-    [SerializeField] private GameObject attackHeavySide = default;
-    [SerializeField] private float airSideTime = 1f;
-    [SerializeField] private float attackHeavySideDuration = 1.5f;
+    [Header("Side")]
+    public GameObject attackHeavySide = default;
+    public float airSideTime = 1f;
+    public int heavySideEnergieCost = 15;
+    public float attackHeavySideDuration = 1.5f;
+    [Space(10)]
 
-    [HeaderAttribute("Up")]
-    [SerializeField] private GameObject attackHeavyUp = default;
-    [SerializeField] private float attackHeavyUpDuration = 1.5f;
+    [Header("Up")]
+    public GameObject attackHeavyUp = default;
+    public int heavyUpEnergieCost = 15;
+    public float attackHeavyUpDuration = 1.5f;
+    [Space(10)]
 
-    [HeaderAttribute("Down")]
-    [SerializeField] private GameObject attackHeavyDown = default;
-    [SerializeField] private float attackHeavyDownDuration = 1.5f;
+    [Header("Down")]
+    public GameObject attackHeavyDown = default;
+    public int heavyDownEnergieCost = 15;
+    public float attackHeavyDownDuration = 1.5f;
 
+    void Start()
+    {
+        attackFrom = this.transform;
+        input = GetComponentInParent<CharacterInput>();
+        state = GetComponentInParent<CharacterState>();
+        lifeSystem = this.GetComponentInParent<ARDE_CharacterLifeSystem>();
 
+    }
 
     void Update()
     {
@@ -44,7 +58,9 @@ public class CharacterAttack : MonoBehaviour
             if (input.attackLightEnter)
             {
                 defaultAttack();
-            }else if (input.attackHeavyEnter)
+            }
+            else 
+            if (input.attackHeavyEnter)
             {
                 specialAttack();
             }
@@ -81,6 +97,8 @@ public class CharacterAttack : MonoBehaviour
             state.body.velocity += input.stickDirection * lightAttackDash;
         }
 
+        lifeSystem.energieAttack(lightEnergieCost);
+
         Instantiate(attackLight, attackFrom);
 
         StartCoroutine(activateAttackIn(attackLightDuration));
@@ -93,6 +111,8 @@ public class CharacterAttack : MonoBehaviour
         //Neutral Spécial
         if (input.stickXabs < 0.3 && input.stickYabs < 0.3)
         {
+            lifeSystem.energieAttack(heavyNeutralEnergieCost);
+
             Instantiate(attackHeavyNeutral, attackFrom);
             StartCoroutine(AirMaintain(airNeutralTime));
             StartCoroutine(activateAttackIn(attackHeavyNeutralDuration));
@@ -100,6 +120,8 @@ public class CharacterAttack : MonoBehaviour
         //Side Spécial
         else if (input.stickXabs > 0.3 && input.stickXabs > input.stickYabs)
         {
+            lifeSystem.energieAttack(heavySideEnergieCost);
+
             Instantiate(attackHeavySide, attackFrom);
             StartCoroutine(AirMaintain(airSideTime));
             StartCoroutine(activateAttackIn(attackHeavySideDuration));
@@ -107,12 +129,16 @@ public class CharacterAttack : MonoBehaviour
         // Up Spécial
         else if (input.stickYabs > 0.3 && input.stickYabs > input.stickXabs && input.stickY > 0)
         {
+            lifeSystem.energieAttack(heavyUpEnergieCost);
+
             Instantiate(attackHeavyUp, attackFrom);
             StartCoroutine(activateAttackIn(attackHeavyUpDuration));
         }
         // Down Spécial
         else if (input.stickYabs > 0.3 && input.stickYabs > input.stickXabs && input.stickY < 0)
         {
+            lifeSystem.energieAttack(heavyDownEnergieCost);
+
             Instantiate(attackHeavyDown, attackFrom);
             StartCoroutine(activateAttackIn(attackHeavyDownDuration));
         }

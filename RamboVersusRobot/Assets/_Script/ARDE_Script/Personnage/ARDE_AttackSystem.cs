@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ARDE_AttackSystem : MonoBehaviour
 {
-    public Transform mySelf = default;
+    public GameObject attack = default;
+    [HideInInspector] public Transform attackPos = default;
+
     public int damage = 1;
     public float knockback = 40f;
 
@@ -13,7 +15,7 @@ public class ARDE_AttackSystem : MonoBehaviour
 
     private void Start()
     {
-        mySelf = this.GetComponent<Transform>();
+        attackPos = this.transform;
     }
 
     void Update()
@@ -24,7 +26,7 @@ public class ARDE_AttackSystem : MonoBehaviour
             if (lifeTime < 0)
             {
                 //je meurt
-                Destroy(gameObject);
+                Destroy(attack);
             }
 
         }

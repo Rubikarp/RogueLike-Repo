@@ -71,6 +71,10 @@ public class ARDE_EnnemisFlying02 : ARDE_EnnemisBehavior
             {
                 myBody.velocity += Vector2.Lerp(Vector2.zero, playerDirection.normalized * speed, Time.deltaTime);
             }
+            else
+            {
+                myBody.velocity += -myBody.velocity.normalized * 5f * Time.deltaTime;
+            }
         }
         else
         {

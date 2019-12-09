@@ -5,10 +5,10 @@ using UnityEngine;
 public class ARDE_EnnemisBehavior : MonoBehaviour
 {
     [Header("Auto")]
-    public Transform mySelf = null;
-    public Rigidbody2D myBody = null;
-    public CircleCollider2D myCollider = null;
-    public Transform player = null;
+    protected Transform mySelf = null;
+    protected Rigidbody2D myBody = null;
+    protected CircleCollider2D myCollider = null;
+    protected Transform player = null;
 
     [Header("à def")]
     public LayerMask TerrainLayerMask;
@@ -23,16 +23,16 @@ public class ARDE_EnnemisBehavior : MonoBehaviour
 
     [Header("inside")]
     //Private Values
-    [SerializeField] public Vector2 playerDirection;
+    [SerializeField] public Vector3 playerDirection;
     [SerializeField] public float playerDistance;
 
     [Space(10)]
-    [SerializeField] public bool playerDetecting;
-    [SerializeField] public bool playerToNear;
-    [SerializeField] public bool playerToFar;
+    public bool playerDetecting;
+    public bool playerToNear;
+    public bool playerToFar;
 
     [Space(10)]
-    [SerializeField] public bool IsAttacking;
+    public bool IsAttacking;
 
 
     private void Start()

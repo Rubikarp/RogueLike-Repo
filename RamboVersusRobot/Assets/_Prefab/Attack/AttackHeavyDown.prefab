@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1395229078095264524}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.57402515, y: 0.51960164, z: 0.10096974}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4998480417512644959}
@@ -42,10 +42,10 @@ GameObject:
   - component: {fileID: 4998480417512644959}
   - component: {fileID: 8054367836888945975}
   - component: {fileID: 299856387991689352}
-  - component: {fileID: 619603733124123398}
+  - component: {fileID: 8517754147300741795}
   m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
+  m_Name: HitBox
+  m_TagString: damage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,7 +138,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &619603733124123398
+--- !u!114 &8517754147300741795
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,8 +147,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5230975130500967701}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1002f679b216d384cbe8136b94461753, type: 3}
+  m_Script: {fileID: 11500000, guid: ec14ecaf45e9b54449fc2b8058b7a1b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 1.8
-  damage: 3
+  attack: {fileID: 1395229078095264524}
+  attackPos: {fileID: 0}
+  damage: 1
+  knockback: 40
+  haveLifeTime: 1
+  lifeTime: 1.5
