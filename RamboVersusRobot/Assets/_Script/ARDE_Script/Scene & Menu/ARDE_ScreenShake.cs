@@ -8,11 +8,12 @@ public class ARDE_ScreenShake : MonoBehaviour
 
     [Range(0, 1)] public float trauma;
     [Range(0, 1)] public float cameraShake;
+
     [Range(1, 4)] public float traumaMultiply = 2;
-    [Range(1, 60)] public float traumaFrequency = 30;
-    [Range(0, 10)] public float traumaMagnitudeTranslate = 1.5f;
-    [Range(0, 90)] public float traumaMagnitudeRotation = 15f;
-    [Range(0, 3)] public float traumaFallFactor = 1.5f;
+    [Range(1, 60)] public float traumaFrequency = 12;
+    [Range(0, 10)] public float traumaMagnitudeTranslate = 12f;
+    [Range(0, 90)] public float traumaMagnitudeRotation = 18f;
+    [Range(0, 3)] public float traumaFallFactor = 1.24f;
 
     float cameraTime = 0;
 

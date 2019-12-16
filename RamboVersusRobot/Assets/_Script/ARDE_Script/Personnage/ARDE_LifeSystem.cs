@@ -7,42 +7,84 @@ public class ARDE_LifeSystem : MonoBehaviour
     protected Transform mySelf = default;
     protected Rigidbody2D myBody = default;
     protected GameObject Me = default;
-
+    public ARDE_ScreenShake cameraShake = default;
+    public bool haveTakeDamage = false;
     public int health = 5;
+
+    [Range(0,1)]
+    public float bulletScreenShake = 0.2f, attackScreenShake = 0.4f;
+
 
     private void Start()
     {
         mySelf = this.transform;
         myBody = this.GetComponent<Rigidbody2D>();
         Me = this.gameObject;
+
+        GameObject cam = GameObject.FindGameObjectWithTag("MainCamera");
+        cameraShake = cam.GetComponent<ARDE_ScreenShake>();
     }
 
     void Update()
     {
         //meurt si PV = 0
-        isAlive(Me);
+        isAlive(Me, 0.3f);
     }
 
     //Se prend des dégâts
     private void OnTriggerEnter2D(Collider2D hit)
     {
-        if (hit.CompareTag("damage"))
+        if (!haveTakeDamage)
         {
+            if (hit.CompareTag("damage"))
+            {
             GameObject objectAttack = hit.gameObject;
             ARDE_AttackSystem attack = objectAttack.GetComponentInParent<ARDE_AttackSystem>();
 
+            //S'il s'agit d'un projectile
+            if (attack == null)
+            {
+                ARDE_Projectile bullet = objectAttack.GetComponentInParent<ARDE_Projectile>();
+                TakeDamage(bullet.damage);
+                TakeKnockBack(bullet.knockback, bullet.mySelf);
+                cameraShake.trauma += bulletScreenShake;
+
+                StartCoroutine(damageInvulnerabilty(0.1f));
+
+                return;
+            }
+
             TakeDamage(attack.damage);
             TakeKnockBack(attack.knockback, attack.attackPos);
+            cameraShake.trauma += attackScreenShake;
+
+            StartCoroutine(damageInvulnerabilty(0.1f));
+            }
         }
     }
 
+
+
     //Fonctions interne
-    protected void isAlive(GameObject Me)
+    protected void isAlive(GameObject Me, float DeathScrennShake)
     {
         if (health <= 0)
         {
+            cameraShake.trauma += DeathScrennShake;
+
+
             Destroy(Me);
         }
+    }
+
+    protected IEnumerator damageInvulnerabilty (float duration)
+    {
+        haveTakeDamage = true;
+
+        yield return new WaitForSeconds(duration);
+
+        haveTakeDamage = false;
+
     }
 
     //Fonctions Accessible

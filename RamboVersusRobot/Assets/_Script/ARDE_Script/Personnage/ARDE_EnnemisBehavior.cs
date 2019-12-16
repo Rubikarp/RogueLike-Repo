@@ -5,7 +5,8 @@ using UnityEngine;
 public class ARDE_EnnemisBehavior : MonoBehaviour
 {
     [Header("Auto")]
-    protected Transform mySelf = null;
+    [HideInInspector]
+    public Transform mySelf = null;
     protected Rigidbody2D myBody = null;
     protected CircleCollider2D myCollider = null;
     protected Transform player = null;

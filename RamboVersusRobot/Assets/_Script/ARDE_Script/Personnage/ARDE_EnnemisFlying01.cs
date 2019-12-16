@@ -7,7 +7,7 @@ public class ARDE_EnnemisFlying01 : ARDE_EnnemisBehavior
     [Header("Flying Base")]
     public float flyForce = 1f;
     public float detectDist = 5f;
-    public float EnnemisHeight = 2f;
+    public float startBulletDistance = 2f;
 
     public GameObject bullet;
     public Transform bulletContainer;
@@ -89,7 +89,7 @@ public class ARDE_EnnemisFlying01 : ARDE_EnnemisBehavior
 
     IEnumerator Attack(float CoolDown)
     {
-        Instantiate(bullet, mySelf.position + playerDirection.normalized * EnnemisHeight, mySelf.rotation, bulletContainer);
+        Instantiate(bullet, mySelf.position + playerDirection.normalized * startBulletDistance, mySelf.rotation, bulletContainer);
 
         haveShoot = true;
 
