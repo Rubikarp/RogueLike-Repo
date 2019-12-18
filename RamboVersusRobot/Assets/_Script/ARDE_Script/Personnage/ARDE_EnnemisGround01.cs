@@ -13,8 +13,26 @@ public class ARDE_EnnemisGround01 : ARDE_EnnemisBehavior
     
     void Update()
     {
+        #region Variables
+
+        //defini à chaque frame dans quel direction est le joueur
+        playerDirection = (player.position - transform.position);
+        //calcul la distance entre le GameObject et le joueur
+        playerDistance = Vector2.Distance(transform.position, player.position);
+
+        #endregion
+
+        PlayerRelativeToTheEnnemy(playerDistance, detectionRange, ToNearDistance, ToFarDistance);
+
         TrackPlayer();
 
+    }
+
+    private void OnDrawGizmos()
+    {
+        Debug.DrawRay(transform.position, playerDirection.normalized * detectionRange, Color.blue);
+        Debug.DrawRay(transform.position, playerDirection.normalized * ToFarDistance, Color.red);
+        Debug.DrawRay(transform.position, playerDirection.normalized * ToNearDistance, Color.green);
     }
 
     protected void TrackPlayer()
@@ -23,14 +41,27 @@ public class ARDE_EnnemisGround01 : ARDE_EnnemisBehavior
         {
             if (playerToNear)
             {
-                StartCoroutine(Attack(3));
-                myBody.velocity = new Vector2(-playerDirection.x, 0) * speed;
+                if (!haveAttack)
+                {
+                    StartCoroutine(Attack(attackCoolDown));
+                }
+
+                myBody.velocity += new Vector2(-playerDirection.normalized.x, 0) * speed/20;
             }
             else
             if (playerToFar)
             {
-                myBody.velocity = new Vector2(-playerDirection.x, 0) * speed;
+                myBody.velocity += new Vector2(+playerDirection.normalized.x, 0) * speed/30;
             }
+            else
+            {
+                if (!haveAttack)
+                {
+                    StartCoroutine(Attack(attackCoolDown));
+                }
+                myBody.velocity /= new Vector2(1.1f, 1);
+            }
+
         }
     }
 

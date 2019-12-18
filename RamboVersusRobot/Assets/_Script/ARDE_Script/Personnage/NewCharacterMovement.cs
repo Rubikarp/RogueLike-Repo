@@ -278,7 +278,7 @@ public class NewCharacterMovement : MonoBehaviour
 
         while (dashDuration > time) //we call this loop every frame while our custom dashDurationation is a higher value than the "time" variable in this coroutine
         {
-            time += Time.deltaTime; //Increase our "time" variable by the amount of time that it has been since the last update
+            time = time + Time.deltaTime; //Increase our "time" variable by the amount of time that it has been since the last update
             state.body.velocity = new Vector2(state.body.velocity.x, 0) + boostSpeed * input.lookingRight; //set our rigidbody velocity to a custom velocity every frame
             yield return 0; //go to next frame
         }

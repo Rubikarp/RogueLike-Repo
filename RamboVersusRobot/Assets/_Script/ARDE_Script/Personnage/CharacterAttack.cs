@@ -7,6 +7,8 @@ public class CharacterAttack : MonoBehaviour
     CharacterInput input = default;
     CharacterState state = default;
     Transform attackFrom = default;
+
+    [SerializeField]
     ARDE_CharacterLifeSystem lifeSystem = default;
 
     [Header("Classique")]
@@ -47,8 +49,6 @@ public class CharacterAttack : MonoBehaviour
         attackFrom = this.transform;
         input = GetComponentInParent<CharacterInput>();
         state = GetComponentInParent<CharacterState>();
-        lifeSystem = this.GetComponentInParent<ARDE_CharacterLifeSystem>();
-
     }
 
     void Update()

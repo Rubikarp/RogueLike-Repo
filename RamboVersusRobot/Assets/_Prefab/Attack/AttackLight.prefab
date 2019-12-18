@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec14ecaf45e9b54449fc2b8058b7a1b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: {fileID: 1203919331608374929}
+  attackPrefab: {fileID: 1203919331608374929}
   attackPos: {fileID: 0}
   damage: 1
   knockback: 40

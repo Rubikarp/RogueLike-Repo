@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ARDE_AttackSystem : MonoBehaviour
 {
-    public GameObject attack = default;
+    public GameObject attackPrefab = default;
     [HideInInspector] public Transform attackPos = default;
 
     public int damage = 1;
@@ -26,7 +26,7 @@ public class ARDE_AttackSystem : MonoBehaviour
             if (lifeTime < 0)
             {
                 //je meurt
-                Destroy(attack);
+                Destroy(attackPrefab);
             }
 
         }

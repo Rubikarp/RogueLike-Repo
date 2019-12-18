@@ -5,6 +5,8 @@ using UnityEngine;
 public class ARDE_CharacterLifeSystem : ARDE_LifeSystem
 {
     public GameObject player = default;
+    [SerializeField]
+    new Rigidbody2D myBody;
 
     // health already define
     private int maxHealth = 7;
@@ -19,7 +21,6 @@ public class ARDE_CharacterLifeSystem : ARDE_LifeSystem
     void Start()
     {
         mySelf = this.transform;
-        myBody = this.GetComponent<Rigidbody2D>();
 
         GameObject cam = GameObject.FindGameObjectWithTag("MainCamera");
         cameraShake = cam.GetComponent<ARDE_ScreenShake>();
@@ -96,4 +97,14 @@ public class ARDE_CharacterLifeSystem : ARDE_LifeSystem
         energie -= energieCost;
     }
 
+    new void TakeKnockBack(float knockbackPower, Transform attackSource)
+    {
+        // La direction de l'attaque
+        Vector2 knockBackDirection = mySelf.position - attackSource.position;
+        knockBackDirection.Normalize();
+
+        // Subit le recul de l'attaque
+        myBody.velocity = knockBackDirection * knockbackSensitivity * knockbackPower;
+
+    }
 }

@@ -14,6 +14,9 @@ public class ARDE_LifeSystem : MonoBehaviour
     [Range(0,1)]
     public float bulletScreenShake = 0.2f, attackScreenShake = 0.4f;
 
+    [Range(0.5f, 3)]
+    public float knockbackSensitivity = 1f;
+
 
     private void Start()
     {
@@ -100,7 +103,7 @@ public class ARDE_LifeSystem : MonoBehaviour
         knockBackDirection.Normalize();
 
         // Subit le recul de l'attaque
-        myBody.velocity = knockBackDirection * knockbackPower;
+        myBody.velocity = knockBackDirection * knockbackSensitivity * knockbackPower;
 
     }
 

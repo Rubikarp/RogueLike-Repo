@@ -12,6 +12,7 @@ public class ARDE_EnnemisGround01Attack : ARDE_AttackSystem
 
     void Start()
     {
+        attackPos = this.transform;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         playerDirectionNorm = (player.position - transform.position).normalized;
 
@@ -22,10 +23,5 @@ public class ARDE_EnnemisGround01Attack : ARDE_AttackSystem
         rotZ = Mathf.Atan2(playerDirectionNorm.y, playerDirectionNorm.x) * Mathf.Rad2Deg;
         //oriente l'object pour faire face au joueur
         transform.rotation = Quaternion.Euler(0f, 0f, rotZ);
-    }
-
-    void Update()
-    {
-
     }
 }
