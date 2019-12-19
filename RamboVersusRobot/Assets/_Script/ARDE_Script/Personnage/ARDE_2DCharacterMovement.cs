@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewCharacterMovement : MonoBehaviour
+public class ARDE_2DCharacterMovement : MonoBehaviour
 {
     CharacterInput input;
     CharacterState state;
+    ARDE_ScreenShake cameraShake;
 
     public float VelocityY;
-
 
     [Header("saut")]
     [Range(2f, 4f)] public float fallFactor = 2f;
@@ -40,18 +40,22 @@ public class NewCharacterMovement : MonoBehaviour
     public bool grabLeft = false;
     public bool grabRight = false;
     public float wallFriction = 11f;
-    public float wallSlide = 55f;
+    public float wallSlide = 45f;
 
     [Header("dash")]
     public Vector2 boostSpeed = new Vector2(15, 0);
     public float dashDuration = 0.2f;
     public float dashCooldown = 0.4f;
+    public float dashScreenShake = 0.2f;
 
 
-    private void Awake()
+    private void Start()
     {
         input = this.GetComponent<CharacterInput>();
         state = this.GetComponent<CharacterState>();
+
+        GameObject cam = GameObject.FindGameObjectWithTag("MainCamera");
+        cameraShake = cam.GetComponent<ARDE_ScreenShake>();
     }
 
     void FixedUpdate()
@@ -60,49 +64,28 @@ public class NewCharacterMovement : MonoBehaviour
 
         Falling();
 
-        //check
-        if (state.isOnGround)
-        {
-            state.isJumping = false;
-        }
-        else
-        if (state.isOnWall)
-        {
-            state.isRuning = false;
-            state.isJumping = false;
-        }
-        else
-        if (state.isOnCeilling)
-        {
-            state.isRuning = false;
-            state.isJumping = false;
-        }
-        else
-        {
-            state.isRuning = false;
-        }
-
-
         if (state.canMove)
         {
             if (state.isOnGround)
             {
+                state.isJumping = false;
+
                 Run();
                 Jump();
             }
             else
             if (state.isOnWall)
             {
+                state.isRuning = false;
+                state.isJumping = false;
+
                 GrabWall();
                 characterWallJump();
             }
             else
-            if (state.isOnCeilling)
             {
+                state.isRuning = false;
 
-            }
-            else
-            {
                 AirControl();
             }
         }
@@ -184,12 +167,12 @@ public class NewCharacterMovement : MonoBehaviour
     void AirControl()
     {
 
-        if (input.stickXabs > 0 && !state.isWallJumping)
+        if (input.stickXabs > 0 )
         {
             //Force appliqué sur l'avatar
             state.body.velocity += new Vector2(airSpeed * input.lookingRight, 0);
 
-            if (Mathf.Abs(state.body.velocity.x) > 25f)
+            if (Mathf.Abs(state.body.velocity.x) > 25f && !state.isWallJumping)
             {
                 state.body.velocity = new Vector2(maxAirSpeed * input.lookingRight, state.body.velocity.y);
             }
@@ -205,64 +188,78 @@ public class NewCharacterMovement : MonoBehaviour
 
     void GrabWall()
     {
-
-        //GRAB
-        if (state.isOnWallLeft && !state.isWallJumping && input.stickX != 1f)
+        if (input.grab)
         {
-            //augmente la force qd on est sur les mur
-            state.body.velocity += new Vector2(-wallFriction, 0);
+            if (!state.isWallJumping)
+            {
+                if (state.isOnWallLeft)
+                {
+                    //augmente la force qd on est sur les mur
+                    state.body.velocity += new Vector2(-wallFriction, 0);
+                }
+                else
+                if (state.isOnWallRight)
+                {
+                    //augmente la force qd on est sur les mur
+                    state.body.velocity += new Vector2(+wallFriction, 0);
+                }
+            }
+
+            //Slide
+            if (input.stickY < -0.6f)
+            {
+                //augmente la force qd on est sur les mur
+                state.body.velocity = new Vector2(state.body.velocity.x, -wallSlide * input.stickYabs);
+            }
 
         }
-        else if (state.isOnWallLeft && !state.isWallJumping && input.stickX == 1f)
-        {
-            state.body.velocity += new Vector2(airSpeed * input.lookingRight, 0);
-        }
-
-        else 
-        if (state.isOnWallRight && !state.isWallJumping && input.stickX != 1f)
-        {
-            //augmente la force qd on est sur les mur
-            state.body.velocity += new Vector2(+wallFriction, 0);
-
-        }
-        else if (state.isOnWallRight && !state.isWallJumping && input.stickX == 1f)
-        {
-            state.body.velocity += new Vector2(airSpeed * input.lookingRight, 0);
-        }
-
-        //Slide
-        if (input.stickY < -0.2f)
-        {
-            //augmente la force qd on est sur les mur
-            state.body.velocity = new Vector2(state.body.velocity.x, -wallSlide * input.stickYabs);
-        }
-        else
-        if (input.stickY > 0.2f)
-        {
-            //augmente la force qd on est sur les mur
-            state.body.velocity = new Vector2(state.body.velocity.x, wallSlide * input.stickYabs);
-        }
-
     }
 
     void characterWallJump()
     {
-        if (state.isOnWallLeft == true && input.jumpEnter == true)
+        if (input.jumpEnter == true)
         {
-            state.body.velocity = new Vector2(wallJumpForce + wallFriction, wallJumpHeight);
-            StartCoroutine(WallJumpCD());
+            if (state.isOnWallLeft == true)
+            {
+                StartCoroutine(WallJumpCD(1, false));
+            }
+            else if (state.isOnWallRight == true)
+            {
+                StartCoroutine(WallJumpCD(-1, true));
+            }
         }
-        else if (state.isOnWallRight == true && input.jumpEnter == true)
-        {
-            state.body.velocity = new Vector2(-wallJumpForce - wallFriction, wallJumpHeight);
-            StartCoroutine(WallJumpCD());
-        }
-
     }
 
-    IEnumerator WallJumpCD()
+    IEnumerator WallJumpCD(int direction, bool wasOnRightWall)
     {
         state.isWallJumping = true;
+
+        if (wasOnRightWall)
+        {
+            if (input.stickX < 0)
+            {
+                state.body.velocity = new Vector2(direction * wallJumpForce / 3 + wallFriction, state.body.velocity.y);
+            }
+            else
+            if (input.stickX >= 0)
+            {
+                state.body.velocity = new Vector2(direction * wallJumpForce + wallFriction, state.body.velocity.y);
+            }
+        }
+        else 
+        if (!wasOnRightWall)
+        {
+            if (input.stickX < 0)
+            {
+                state.body.velocity = new Vector2(direction * wallJumpForce + wallFriction, state.body.velocity.y);
+            }
+            else
+            {
+                state.body.velocity = new Vector2(direction * wallJumpForce / 3 + wallFriction, state.body.velocity.y);
+            }
+        }
+
+        state.body.velocity = new Vector2(state.body.velocity.x, wallJumpHeight);
 
         yield return new WaitForSeconds(wallJumpCooldown);
         state.isWallJumping = false;
@@ -275,6 +272,8 @@ public class NewCharacterMovement : MonoBehaviour
         state.canDash = false;
         state.isDashing = true;
         state.body.velocity = Vector2.zero;
+
+        cameraShake.trauma += dashScreenShake;
 
         while (dashDuration > time) //we call this loop every frame while our custom dashDurationation is a higher value than the "time" variable in this coroutine
         {
