@@ -75,9 +75,9 @@ public class ARDE_CharacterLifeSystem : ARDE_LifeSystem
 
     public void EnergieFill(int EnergieParSec)
     {
-        if (time > 1f)
+        if (time > (1f/EnergieParSec))
         {
-            energie += EnergieParSec;
+            energie ++;
             time = 0f;
         }
     }

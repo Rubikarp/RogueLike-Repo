@@ -7,6 +7,8 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
     CharacterInput input;
     CharacterState state;
     ARDE_ScreenShake cameraShake;
+    [SerializeField]
+    ARDE_CharacterLifeSystem lifeSystem = default;
 
     public float VelocityY;
 
@@ -47,6 +49,7 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
     public float dashDuration = 0.2f;
     public float dashCooldown = 0.4f;
     public float dashScreenShake = 0.2f;
+    public int dashEnergieCost = 20;
 
 
     private void Start()
@@ -92,7 +95,7 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
 
         if (state.canDash)
         {
-            if (input.dashEnter)
+            if (input.dashEnter && lifeSystem.energie > dashEnergieCost)
             {
                 StartCoroutine(Dash(dashDuration));
             }
@@ -166,7 +169,6 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
 
     void AirControl()
     {
-
         if (input.stickXabs > 0 )
         {
             //Force appliqué sur l'avatar
@@ -183,7 +185,6 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
             state.body.velocity /= new Vector2(1.1f, 1);
 
         }
-
     }
 
     void GrabWall()
@@ -213,6 +214,21 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
             }
 
         }
+
+        if (!state.isWallJumping)
+        {
+            if (state.isOnWallLeft && input.stickX > 0)
+            {
+                //augmente la force qd on est sur les mur
+                state.body.velocity += new Vector2(wallFriction, 0);
+            }
+            else
+            if (state.isOnWallRight && input.stickX < 0)
+            {
+                //augmente la force qd on est sur les mur
+                state.body.velocity += new Vector2(-wallFriction, 0);
+            }
+        }
     }
 
     void characterWallJump()
@@ -238,24 +254,25 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
         {
             if (input.stickX < 0)
             {
-                state.body.velocity = new Vector2(direction * wallJumpForce / 3 + wallFriction, state.body.velocity.y);
+                state.body.velocity = new Vector2(direction * wallJumpForce /3, state.body.velocity.y);
             }
             else
             if (input.stickX >= 0)
             {
-                state.body.velocity = new Vector2(direction * wallJumpForce + wallFriction, state.body.velocity.y);
+                state.body.velocity = new Vector2(direction * wallJumpForce + wallFriction * 1.5f, state.body.velocity.y);
             }
         }
         else 
         if (!wasOnRightWall)
         {
-            if (input.stickX < 0)
+            if (input.stickX > 0)
             {
-                state.body.velocity = new Vector2(direction * wallJumpForce + wallFriction, state.body.velocity.y);
+                state.body.velocity = new Vector2(direction * wallJumpForce /3, state.body.velocity.y);
             }
             else
+            if (input.stickX <= 0)
             {
-                state.body.velocity = new Vector2(direction * wallJumpForce / 3 + wallFriction, state.body.velocity.y);
+                state.body.velocity = new Vector2(direction * wallJumpForce + wallFriction * 1.5f, state.body.velocity.y);
             }
         }
 
@@ -274,11 +291,12 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
         state.body.velocity = Vector2.zero;
 
         cameraShake.trauma += dashScreenShake;
+        lifeSystem.energieAttack(dashEnergieCost);
 
         while (dashDuration > time) //we call this loop every frame while our custom dashDurationation is a higher value than the "time" variable in this coroutine
         {
             time = time + Time.deltaTime; //Increase our "time" variable by the amount of time that it has been since the last update
-            state.body.velocity = new Vector2(state.body.velocity.x, 0) + boostSpeed * input.lookingRight; //set our rigidbody velocity to a custom velocity every frame
+            state.body.velocity = new Vector2(state.body.velocity.x, 1) + boostSpeed * input.lookingRight; //set our rigidbody velocity to a custom velocity every frame
             yield return 0; //go to next frame
         }
 

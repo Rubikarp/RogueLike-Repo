@@ -13,6 +13,9 @@ public class CharacterState : MonoBehaviour
     public Transform checkPosCeilling;
     public LayerMask TerrainLayerMask;
 
+    [SerializeField]
+    public CharacterInput input;
+
     #region Statuts
 
     [Header("Can")]
@@ -58,17 +61,27 @@ public class CharacterState : MonoBehaviour
         //detection sol & mur & plafond
         CheckingPos();
 
-        
 
-        if(!isOnWallLeft && !isOnWallRight)
+        if(input.lookingRight == 1)
+        {
+            isLookingRight = true;
+        }
+        else
+        if (input.lookingRight == -1)
+        {
+            isLookingRight = false;
+        }
+
+
+        if (!isOnWallLeft && !isOnWallRight)
         {
             isOnWall = false;
         }
+        else
         if (isOnWallLeft || isOnWallRight)
         {
             isOnWall = true;
         }
-
 
     }
 
@@ -76,9 +89,9 @@ public class CharacterState : MonoBehaviour
     {
         //Le calcul (x et y inversé je sais pas pourquoi)
         isOnGround    = Physics2D.OverlapBox(checkPosFloor.position,    new Vector2(collid.size.x - 0.2f, -groundDetectDist)  , 0, TerrainLayerMask);
-        isOnWallLeft  = Physics2D.OverlapBox(checkPosWallLeft.position, new Vector2(wallDetectDist, -(collid.size.y - 0.2f))    , 0, TerrainLayerMask);
-        isOnWallRight = Physics2D.OverlapBox(checkPosWallRight.position,new Vector2(wallDetectDist, collid.size.y - 0.2f)    , 0, TerrainLayerMask);
-        isOnCeilling  = Physics2D.OverlapBox(checkPosCeilling.position, new Vector2(collid.size.x - 0.2f, ceillingDetectDist), 0, TerrainLayerMask);
+        isOnWallLeft  = Physics2D.OverlapBox(checkPosWallLeft.position, new Vector2( -wallDetectDist, collid.size.y - 0.2f), 0, TerrainLayerMask);
+        isOnWallRight = Physics2D.OverlapBox(checkPosWallRight.position,new Vector2( wallDetectDist, collid.size.y - 0.2f)    , 0, TerrainLayerMask);
+        isOnCeilling  = Physics2D.OverlapBox(checkPosCeilling.position, new Vector2(collid.size.x - 0.2f, ceillingDetectDist) , 0, TerrainLayerMask);
 
         #region color gestion
         //Couleur

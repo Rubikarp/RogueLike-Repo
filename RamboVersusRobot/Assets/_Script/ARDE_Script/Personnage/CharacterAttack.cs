@@ -11,9 +11,12 @@ public class CharacterAttack : MonoBehaviour
     [SerializeField]
     ARDE_CharacterLifeSystem lifeSystem = default;
 
+    enum Attack {Neutral, Side, Up, Down }
+    Attack attackDirection = default;
+
     [Header("Classique")]
     public GameObject attackLight = default;
-    public int lightEnergieCost = 5;
+    public int lightEnergieCost = 1;
     public float attackLightDuration = 0.3f;
     public Vector2 lightAttackDash = new Vector2(10f, 0f);
     [SerializeField] private float rotZ;
@@ -97,55 +100,63 @@ public class CharacterAttack : MonoBehaviour
             state.body.velocity += input.stickDirection * lightAttackDash;
         }
 
-        lifeSystem.energieAttack(lightEnergieCost);
-
         Instantiate(attackLight, attackFrom);
+        lifeSystem.energieAttack(lightEnergieCost);
 
         StartCoroutine(activateAttackIn(attackLightDuration));
     }
 
     void specialAttack()
     {
-        state.canAttack = false;
-
         //Neutral Spécial
-        if (input.stickXabs < 0.3 && input.stickYabs < 0.3)
+        if (input.stickXabs < 0.3 && input.stickYabs < 0.3 && lifeSystem.energie > heavyNeutralEnergieCost)
         {
             lifeSystem.energieAttack(heavyNeutralEnergieCost);
 
+            attackFrom.transform.rotation = Quaternion.Euler(0f, state.isLookingRight?0f:180f, 0f);
             Instantiate(attackHeavyNeutral, attackFrom);
+
             StartCoroutine(AirMaintain(airNeutralTime));
+
             StartCoroutine(activateAttackIn(attackHeavyNeutralDuration));
         }
         //Side Spécial
-        else if (input.stickXabs > 0.3 && input.stickXabs > input.stickYabs)
+        else if (input.stickXabs > 0.3 && input.stickXabs > input.stickYabs && lifeSystem.energie > heavySideEnergieCost)
         {
             lifeSystem.energieAttack(heavySideEnergieCost);
 
+            attackFrom.transform.rotation = Quaternion.Euler(0f, state.isLookingRight ? 0f : 180f, 0f);
             Instantiate(attackHeavySide, attackFrom);
+
             StartCoroutine(AirMaintain(airSideTime));
+
             StartCoroutine(activateAttackIn(attackHeavySideDuration));
         }
         // Up Spécial
-        else if (input.stickYabs > 0.3 && input.stickYabs > input.stickXabs && input.stickY > 0)
+        else if (input.stickYabs > 0.3 && input.stickYabs > input.stickXabs && input.stickY > 0 && lifeSystem.energie > heavyUpEnergieCost)
         {
             lifeSystem.energieAttack(heavyUpEnergieCost);
 
+            attackFrom.transform.rotation = Quaternion.Euler(0f, state.isLookingRight ? 0f : 180f, 0f);
             Instantiate(attackHeavyUp, attackFrom);
+
             StartCoroutine(activateAttackIn(attackHeavyUpDuration));
         }
         // Down Spécial
-        else if (input.stickYabs > 0.3 && input.stickYabs > input.stickXabs && input.stickY < 0)
+        else if (input.stickYabs > 0.3 && input.stickYabs > input.stickXabs && input.stickY < 0 && lifeSystem.energie > heavyDownEnergieCost)
         {
             lifeSystem.energieAttack(heavyDownEnergieCost);
 
+            attackFrom.transform.rotation = Quaternion.Euler(0f, state.isLookingRight ? 0f : 180f, 0f);
             Instantiate(attackHeavyDown, attackFrom);
+
             StartCoroutine(activateAttackIn(attackHeavyDownDuration));
         }
     }
 
     IEnumerator activateAttackIn(float time)
     {
+        state.canAttack = false;
         yield return new WaitForSeconds(time);
         state.canAttack = true;
     }
@@ -160,5 +171,10 @@ public class CharacterAttack : MonoBehaviour
             state.body.velocity = new Vector2(0f, 1f); //boost appliqué à chaque frame
             yield return 0; //va à la prochaine frame
         }
+    }
+
+    void DetermineAttackDirection(float stickX, float stickY)
+    {
+
     }
 }
