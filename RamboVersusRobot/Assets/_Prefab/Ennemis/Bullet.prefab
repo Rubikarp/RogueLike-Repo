@@ -266,3 +266,6 @@ MonoBehaviour:
   shootingDir: {x: 0, y: 0}
   distanceMade: 0
   maxRange: 50
+  collisionLayer:
+    serializedVersion: 2
+    m_Bits: 1024

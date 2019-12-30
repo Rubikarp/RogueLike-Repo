@@ -9,6 +9,13 @@ public class CharacterAnimator : MonoBehaviour
     [SerializeField] CharacterState state = default;
     [SerializeField] ARDE_CharacterLifeSystem lifeSystem = default;
 
+
+    [Space(30)]
+    [SerializeField] ParticleSystem dashParticleLeft = default;
+    [SerializeField] ParticleSystem dashParticleRight = default;
+    [SerializeField] ParticleSystem dustFall = default;
+    [SerializeField] ParticleSystem dustJump = default;
+
     private void Start()
     {
         animator = this.GetComponentInParent<Animator>();
@@ -31,7 +38,28 @@ public class CharacterAnimator : MonoBehaviour
         animator.SetBool("attackLightButton", input.attackLightEnter);
         animator.SetBool("attackHeavyButton", input.attackHeavyEnter);
 
+        animator.SetBool("AttackingLight", state.isAttackingLight);
+        animator.SetBool("AttackingUp", state.isAttackingUp);
+        animator.SetBool("AttackingDown", state.isAttackingDown);
+        animator.SetBool("AttackingNeutral", state.isAttackingNeutral);
+        animator.SetBool("AttackingSide", state.isAttackingSide);
+
+        animator.SetBool("IsDashing", state.isDashing);
+
         animator.SetBool("IsOnWall", state.isOnWall);
         animator.SetBool("IsOnGround", state.isOnGround);
+
+        if (!state.isDashing)
+        {
+            if (state.isLookingRight)
+            {
+                dashParticleLeft.Play();
+            }
+            else
+            {
+                dashParticleRight.Play();
+            }
+        }
+
     }
 }

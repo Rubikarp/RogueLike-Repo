@@ -30,7 +30,7 @@ public class ARDE_EnnemisFlying01 : ARDE_EnnemisBehavior
         DontCrash();
         TrackPlayer();
 
-        if (!haveShoot)
+        if (!haveShoot && playerDetecting)
         {
             StartCoroutine(Attack(shootCoolDown));
         }

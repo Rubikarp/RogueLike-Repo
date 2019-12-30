@@ -34,7 +34,12 @@ public class CharacterState : MonoBehaviour
     public bool isRuning ;
     public bool isJumping ;
     public bool isDashing ;
-    public bool isAttacking ;
+
+    public bool isAttackingLight;
+    public bool isAttackingUp;
+    public bool isAttackingDown;
+    public bool isAttackingNeutral;
+    public bool isAttackingSide;
 
     public bool isOnGround;
     public bool isOnWall;

@@ -1,12 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
 
 public class ARDE_Projectile : ARDE_EnnemisBehavior
 {
+    [Header("ICI ")]
     public int damage = 1;
     public float knockback = 20;
 
@@ -15,6 +14,8 @@ public class ARDE_Projectile : ARDE_EnnemisBehavior
 
     public float distanceMade;
     public float maxRange = 20f;
+
+    public LayerMask collisionLayer = default;
 
 
     void Start()
@@ -41,15 +42,17 @@ public class ARDE_Projectile : ARDE_EnnemisBehavior
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        /*
         //Quand le projectile entre en contact et si c'est le joueur, alors le joueur prend des dégâts et du knockback
         if (other.CompareTag("Player"))
         {
             Destroy(this.gameObject);
         }
-        else if (other.IsTouchingLayers(10)) //Layer 10 = Terrain
+        else if (other.gameObject.layer.Equals(collisionLayer.value))
         {
-            Destroy(this.gameObject);
         }
+        */
+        Destroy(this.gameObject);
     }
 
     void FaceShootingDirection()

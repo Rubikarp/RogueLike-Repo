@@ -84,6 +84,17 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -95,14 +106,14 @@ TextureImporter:
         y: 0
         width: 110
         height: 40
-      alignment: 9
-      pivot: {x: 0.5, y: 0.75}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b006fe07a09f4a5418251711f52cb571
+      spriteID: 2bb4eadc21dce614996db1a67d8846c7
       vertices: []
       indices: 
       edges: []
@@ -115,14 +126,14 @@ TextureImporter:
         y: 0
         width: 110
         height: 40
-      alignment: 9
-      pivot: {x: 0.5, y: 0.75}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2aead0d9b6caf06428d96bded6403e4a
+      spriteID: ea0754ac7c40328458e8d7dd2f2467db
       vertices: []
       indices: 
       edges: []
@@ -133,16 +144,16 @@ TextureImporter:
         serializedVersion: 2
         x: 220
         y: 0
-        width: 111
+        width: 110
         height: 40
-      alignment: 9
-      pivot: {x: 0.5, y: 0.75}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1db60952d0f53ff43aa4686662f9be52
+      spriteID: 15656321e6434434b82a51bacdbc0c3a
       vertices: []
       indices: 
       edges: []
@@ -151,18 +162,18 @@ TextureImporter:
       name: sheet_Dash_3
       rect:
         serializedVersion: 2
-        x: 331
+        x: 330
         y: 0
-        width: 109
+        width: 110
         height: 40
-      alignment: 9
-      pivot: {x: 0.5, y: 0.75}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2602488469f7711409a42f52796445e9
+      spriteID: 8e14c154c3912c442923364620ef21e6
       vertices: []
       indices: 
       edges: []

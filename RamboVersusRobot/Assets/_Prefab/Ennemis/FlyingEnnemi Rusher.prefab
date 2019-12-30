@@ -402,7 +402,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   speed: 20
-  detectionRange: 60
+  detectionRange: 40
   ToFarDistance: 19
   ToNearDistance: 17
   playerDirection: {x: 0, y: 0, z: 0}

@@ -181,8 +181,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   speed: 20
-  detectionRange: 60
-  ToFarDistance: 35
+  detectionRange: 40
+  ToFarDistance: 22
   ToNearDistance: 20
   playerDirection: {x: 0, y: 0, z: 0}
   playerDistance: 0
@@ -215,3 +215,4 @@ MonoBehaviour:
   health: 1
   bulletScreenShake: 0.2
   attackScreenShake: 0.4
+  knockbackSensitivity: 1

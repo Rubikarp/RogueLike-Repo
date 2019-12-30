@@ -182,14 +182,16 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
         else
         {
             //pour que le personnage retombe droit si le stick est relaché
-            state.body.velocity /= new Vector2(1.1f, 1);
+            state.body.velocity /= new Vector2(1.01f, 1);
 
         }
     }
 
     void GrabWall()
     {
-        if (input.grab)
+        if (!state.isWallJumping)
+        {
+            if (input.grab)
         {
             if (!state.isWallJumping)
             {
@@ -215,8 +217,6 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
 
         }
 
-        if (!state.isWallJumping)
-        {
             if (state.isOnWallLeft && input.stickX > 0)
             {
                 //augmente la force qd on est sur les mur
@@ -250,36 +250,15 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
     {
         state.isWallJumping = true;
 
-        if (wasOnRightWall)
-        {
-            if (input.stickX < 0)
-            {
-                state.body.velocity = new Vector2(direction * wallJumpForce /3, state.body.velocity.y);
-            }
-            else
-            if (input.stickX >= 0)
-            {
-                state.body.velocity = new Vector2(direction * wallJumpForce + wallFriction * 1.5f, state.body.velocity.y);
-            }
-        }
-        else 
-        if (!wasOnRightWall)
-        {
-            if (input.stickX > 0)
-            {
-                state.body.velocity = new Vector2(direction * wallJumpForce /3, state.body.velocity.y);
-            }
-            else
-            if (input.stickX <= 0)
-            {
-                state.body.velocity = new Vector2(direction * wallJumpForce + wallFriction * 1.5f, state.body.velocity.y);
-            }
-        }
-
         state.body.velocity = new Vector2(state.body.velocity.x, wallJumpHeight);
 
-        yield return new WaitForSeconds(wallJumpCooldown);
+        yield return new WaitForSeconds(0.2f);
+
         state.isWallJumping = false;
+
+        yield return new WaitForSeconds(wallJumpCooldown - 0.2f);
+
+        state.canJump = true;
     }
 
     IEnumerator Dash(float dashDuration)
