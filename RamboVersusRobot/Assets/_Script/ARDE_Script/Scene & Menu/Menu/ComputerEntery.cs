@@ -5,7 +5,7 @@ using UnityEngine;
 public class ComputerEntery : MonoBehaviour
 {
     public GameObject A_Button, Menu;
-    public CharacterMovement CharacterMovement;
+    public ARDE_2DCharacterMovement CharacterMovement;
     public bool isInMenu = false;
 
     void Start()
