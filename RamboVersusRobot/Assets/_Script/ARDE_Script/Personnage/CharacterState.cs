@@ -15,6 +15,8 @@ public class CharacterState : MonoBehaviour
 
     [SerializeField]
     public CharacterInput input;
+    [SerializeField]
+    public ARDE_SoundManager soundManager = default;
 
     #region Statuts
 
@@ -59,6 +61,7 @@ public class CharacterState : MonoBehaviour
     {
         body = this.GetComponent<Rigidbody2D>();
         collid = this.GetComponent<CapsuleCollider2D>();
+        soundManager.Play("LaRun");
     }
 
     private void Update()
@@ -76,7 +79,6 @@ public class CharacterState : MonoBehaviour
         {
             isLookingRight = false;
         }
-
 
         if (!isOnWallLeft && !isOnWallRight)
         {

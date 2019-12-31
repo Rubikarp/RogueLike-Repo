@@ -7,8 +7,10 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
     CharacterInput input;
     CharacterState state;
     ARDE_ScreenShake cameraShake;
-    [SerializeField]
-    ARDE_CharacterLifeSystem lifeSystem = default;
+
+    [SerializeField] ARDE_CharacterLifeSystem lifeSystem = default;
+
+    public ARDE_SoundManager soundManager = default;
 
     public float VelocityY;
 
@@ -32,6 +34,9 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
     [SerializeField] float runDeceleration = 0f;
     float runAccelerationTimer = 0.0f;
     float runDecelerationTimer = 0.0f;
+    float runSoundTimer = 0f;
+    [SerializeField] float runSoundCadence = 0.4f;
+    bool runSoundIsPlay = false;
 
     [Header("airControl")]
     public float maxAirSpeed = 35f;
@@ -56,6 +61,7 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
     {
         input = this.GetComponent<CharacterInput>();
         state = this.GetComponent<CharacterState>();
+        soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<ARDE_SoundManager>();
 
         GameObject cam = GameObject.FindGameObjectWithTag("MainCamera");
         cameraShake = cam.GetComponent<ARDE_ScreenShake>();
@@ -134,6 +140,28 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
             {
                 state.isRuning = false;
             }
+        }
+
+        if (state.isRuning)
+        {
+            if (!runSoundIsPlay)
+            {
+                runSoundIsPlay = true;
+                state.soundManager.Play("Course");
+            }
+            else
+            {
+                runSoundTimer += Time.deltaTime;
+                if(runSoundTimer > runSoundCadence)
+                {
+                    runSoundIsPlay = false;
+                    runSoundTimer = 0;
+                }
+            }
+        }
+        else
+        {
+            runSoundTimer = 0;
         }
     }
 
@@ -271,6 +299,7 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
 
         cameraShake.trauma += dashScreenShake;
         lifeSystem.energieAttack(dashEnergieCost);
+        state.soundManager.Play("Dash");
 
         while (dashDuration > time) //we call this loop every frame while our custom dashDurationation is a higher value than the "time" variable in this coroutine
         {

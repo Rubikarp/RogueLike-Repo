@@ -9,6 +9,7 @@ TagManager:
   - Ennemis
   - Decor Interactif
   - damage
+  - SoundManager
   layers:
   - Default
   - TransparentFX

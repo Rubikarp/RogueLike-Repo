@@ -6,7 +6,7 @@ public class ARDE_CharacterLifeSystem : ARDE_LifeSystem
 {
     public GameObject player = default;
     [SerializeField]
-    new Rigidbody2D myBody;
+    CharacterState state = default;
 
     // health already define
     private int maxHealth = 7;
@@ -21,6 +21,7 @@ public class ARDE_CharacterLifeSystem : ARDE_LifeSystem
     void Start()
     {
         mySelf = this.transform;
+        myBody = GetComponentInParent<Rigidbody2D>();
 
         GameObject cam = GameObject.FindGameObjectWithTag("MainCamera");
         cameraShake = cam.GetComponent<ARDE_ScreenShake>();
@@ -85,6 +86,8 @@ public class ARDE_CharacterLifeSystem : ARDE_LifeSystem
     public void gainLife(int bonusHealth)
     {
         health += bonusHealth;
+        state.soundManager.Play("Loot");
+
     }
 
     public int ClampInt(int value, int MaxValue)
@@ -105,6 +108,8 @@ public class ARDE_CharacterLifeSystem : ARDE_LifeSystem
 
         // Subit le recul de l'attaque
         myBody.velocity = knockBackDirection * knockbackSensitivity * knockbackPower;
+
+        state.soundManager.Play("Mort");
 
     }
 }

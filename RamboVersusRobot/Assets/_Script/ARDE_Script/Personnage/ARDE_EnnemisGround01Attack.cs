@@ -23,5 +23,17 @@ public class ARDE_EnnemisGround01Attack : ARDE_AttackSystem
         rotZ = Mathf.Atan2(playerDirectionNorm.y, playerDirectionNorm.x) * Mathf.Rad2Deg;
         //oriente l'object pour faire face au joueur
         transform.rotation = Quaternion.Euler(0f, 0f, rotZ);
+
+        /*
+        if (playerDirectionNorm.x < 0)
+        {
+            transform.rotation = Quaternion.Euler(0f, 0f, 180f);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        }
+        */
+
     }
 }

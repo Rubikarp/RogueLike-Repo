@@ -54,11 +54,15 @@ public class CharacterAttack : MonoBehaviour
         if (input.attackLightEnter)
         {
             defaultAttack();
+            state.soundManager.Play("AttackLight");
+
         }
         else
         if (input.attackHeavyEnter)
         {
             specialAttack();
+            state.soundManager.Play("AttackSpé");
+
         }
     }
 

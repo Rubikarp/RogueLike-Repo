@@ -325,7 +325,6 @@ Transform:
   - {fileID: 3278969362239054569}
   - {fileID: 3148406105428134145}
   - {fileID: 6973602506520195074}
-  - {fileID: 4956967602168149099}
   - {fileID: 8359100379728214911}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -694,7 +693,7 @@ PrefabInstance:
     - target: {fileID: 7340589684179513230, guid: c45f3983f410de8468c12b465bf53811,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7340589684179513230, guid: c45f3983f410de8468c12b465bf53811,
         type: 3}
@@ -723,81 +722,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7340589684179513230, guid: c45f3983f410de8468c12b465bf53811,
     type: 3}
   m_PrefabInstance: {fileID: 1287606100667061489}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1384148299826668029
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 6772135754352294175}
-    m_Modifications:
-    - target: {fileID: 6341020235826140561, guid: 33a69670bc926cd4480fafd5af44097d,
-        type: 3}
-      propertyPath: m_Name
-      value: FlyingEnnemi Shooter
-      objectReference: {fileID: 0}
-    - target: {fileID: 6341020235826140566, guid: 33a69670bc926cd4480fafd5af44097d,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 31.68606
-      objectReference: {fileID: 0}
-    - target: {fileID: 6341020235826140566, guid: 33a69670bc926cd4480fafd5af44097d,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 10.734882
-      objectReference: {fileID: 0}
-    - target: {fileID: 6341020235826140566, guid: 33a69670bc926cd4480fafd5af44097d,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6341020235826140566, guid: 33a69670bc926cd4480fafd5af44097d,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6341020235826140566, guid: 33a69670bc926cd4480fafd5af44097d,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6341020235826140566, guid: 33a69670bc926cd4480fafd5af44097d,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6341020235826140566, guid: 33a69670bc926cd4480fafd5af44097d,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6341020235826140566, guid: 33a69670bc926cd4480fafd5af44097d,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6341020235826140566, guid: 33a69670bc926cd4480fafd5af44097d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6341020235826140566, guid: 33a69670bc926cd4480fafd5af44097d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6341020235826140566, guid: 33a69670bc926cd4480fafd5af44097d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 33a69670bc926cd4480fafd5af44097d, type: 3}
---- !u!4 &4956967602168149099 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6341020235826140566, guid: 33a69670bc926cd4480fafd5af44097d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1384148299826668029}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4975897480107603043
 PrefabInstance:
