@@ -11,7 +11,7 @@ public class ARDE_SoundManager : MonoBehaviour
     /// 
     /// soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<ARDE_SoundManager>();
     /// 
-    /// FindObjectOfType<ARDE_SoundManager>().Play("name");
+    /// soundManager.Play("name");
     /// 
     /// </summary>
 

@@ -88,6 +88,7 @@ public class ARDE_EnnemisFlying02 : ARDE_EnnemisBehavior
 
         attackZone.SetActive(true);
         haveAttack = true;
+        soundManager.Play("RobotAttack");
 
 
         while (attackDuration > time) 

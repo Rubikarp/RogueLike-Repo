@@ -90,6 +90,7 @@ public class ARDE_EnnemisFlying01 : ARDE_EnnemisBehavior
     IEnumerator Attack(float CoolDown)
     {
         Instantiate(bullet, mySelf.position + playerDirection.normalized * startBulletDistance, mySelf.rotation, bulletContainer);
+        soundManager.Play("RobotShoot");
 
         haveShoot = true;
 

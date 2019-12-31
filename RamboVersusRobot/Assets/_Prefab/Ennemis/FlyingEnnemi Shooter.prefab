@@ -180,7 +180,7 @@ MonoBehaviour:
   TerrainLayerMask:
     serializedVersion: 2
     m_Bits: 1024
-  speed: 20
+  speed: 15
   detectionRange: 40
   ToFarDistance: 22
   ToNearDistance: 20
@@ -213,6 +213,7 @@ MonoBehaviour:
   cameraShake: {fileID: 0}
   haveTakeDamage: 0
   health: 1
+  soundManager: {fileID: 0}
   bulletScreenShake: 0.2
   attackScreenShake: 0.2
   knockbackSensitivity: 1

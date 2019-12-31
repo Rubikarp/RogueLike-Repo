@@ -10,6 +10,7 @@ public class ARDE_LifeSystem : MonoBehaviour
     public ARDE_ScreenShake cameraShake = default;
     public bool haveTakeDamage = false;
     public int health = 5;
+    public ARDE_SoundManager soundManager = default;
 
     [Range(0,1)]
     public float bulletScreenShake = 0.2f, attackScreenShake = 0.4f;
@@ -23,6 +24,7 @@ public class ARDE_LifeSystem : MonoBehaviour
         mySelf = this.transform;
         myBody = this.GetComponent<Rigidbody2D>();
         Me = this.gameObject;
+        soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<ARDE_SoundManager>();
 
         GameObject cam = GameObject.FindGameObjectWithTag("MainCamera");
         cameraShake = cam.GetComponent<ARDE_ScreenShake>();
@@ -75,7 +77,7 @@ public class ARDE_LifeSystem : MonoBehaviour
         {
             cameraShake.trauma += DeathScrennShake;
 
-
+            soundManager.Play("RobotDeath");
             Destroy(Me);
         }
     }
@@ -94,6 +96,7 @@ public class ARDE_LifeSystem : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+        soundManager.Play("RobotHit");
     }
 
     public void TakeKnockBack(float knockbackPower, Transform attackSource)

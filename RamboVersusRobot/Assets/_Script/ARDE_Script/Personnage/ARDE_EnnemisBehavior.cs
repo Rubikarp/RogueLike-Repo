@@ -10,6 +10,7 @@ public class ARDE_EnnemisBehavior : MonoBehaviour
     protected Rigidbody2D myBody = null;
     protected CircleCollider2D myCollider = null;
     protected Transform player = null;
+    protected ARDE_SoundManager soundManager = default;
 
     [Header("à def")]
     public LayerMask TerrainLayerMask;
@@ -42,6 +43,7 @@ public class ARDE_EnnemisBehavior : MonoBehaviour
         myBody = this.GetComponent<Rigidbody2D>();
         myCollider = this.GetComponent<CircleCollider2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<ARDE_SoundManager>();
     }
 
     // Update is called once per frame

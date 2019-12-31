@@ -218,75 +218,6 @@ Transform:
   m_Father: {fileID: 1925537195}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &50382700
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 791466591}
-    m_Modifications:
-    - target: {fileID: 6341020235826140561, guid: 33a69670bc926cd4480fafd5af44097d,
-        type: 3}
-      propertyPath: m_Name
-      value: FlyingEnnemi Shooter
-      objectReference: {fileID: 0}
-    - target: {fileID: 6341020235826140566, guid: 33a69670bc926cd4480fafd5af44097d,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 102.897835
-      objectReference: {fileID: 0}
-    - target: {fileID: 6341020235826140566, guid: 33a69670bc926cd4480fafd5af44097d,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 6.6712174
-      objectReference: {fileID: 0}
-    - target: {fileID: 6341020235826140566, guid: 33a69670bc926cd4480fafd5af44097d,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6341020235826140566, guid: 33a69670bc926cd4480fafd5af44097d,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6341020235826140566, guid: 33a69670bc926cd4480fafd5af44097d,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6341020235826140566, guid: 33a69670bc926cd4480fafd5af44097d,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6341020235826140566, guid: 33a69670bc926cd4480fafd5af44097d,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6341020235826140566, guid: 33a69670bc926cd4480fafd5af44097d,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6341020235826140566, guid: 33a69670bc926cd4480fafd5af44097d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6341020235826140566, guid: 33a69670bc926cd4480fafd5af44097d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6341020235826140566, guid: 33a69670bc926cd4480fafd5af44097d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 33a69670bc926cd4480fafd5af44097d, type: 3}
 --- !u!1 &58370078
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,12 +352,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 102266494}
   m_CullTransparentMesh: 0
---- !u!4 &103344966 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6341020235826140566, guid: 33a69670bc926cd4480fafd5af44097d,
-    type: 3}
-  m_PrefabInstance: {fileID: 50382700}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &136099060
 GameObject:
   m_ObjectHideFlags: 0
@@ -1365,31 +1290,31 @@ MonoBehaviour:
   sounds:
   - name: Course
     clip: {fileID: 8300000, guid: 8002f9276b8599c43ae6d2b7dd2c1d5d, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 1
+    volume: 0.03
+    pitch: 0.85
+    loop: 0
     source: {fileID: 0}
   - name: AttackLight
     clip: {fileID: 8300000, guid: 4b46b2b6c188d744e96b2f4d171f2d0d, type: 3}
-    volume: 1
-    pitch: 1
+    volume: 0.2
+    pitch: 0.75
     loop: 0
     source: {fileID: 0}
   - name: "AttackSp\xE9"
     clip: {fileID: 8300000, guid: 25c343035dda52a4abf99d0eb712310b, type: 3}
-    volume: 1
-    pitch: 1
+    volume: 0.2
+    pitch: 1.8
     loop: 0
     source: {fileID: 0}
   - name: Dash
     clip: {fileID: 8300000, guid: 25c343035dda52a4abf99d0eb712310b, type: 3}
-    volume: 1
-    pitch: 1
+    volume: 0.1
+    pitch: 2
     loop: 0
     source: {fileID: 0}
   - name: Mort
     clip: {fileID: 8300000, guid: 9c042dc81f56ab443b4636e8df1aefe0, type: 3}
-    volume: 1
+    volume: 0.05
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -1398,6 +1323,12 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    source: {fileID: 0}
+  - name: LaRun
+    clip: {fileID: 8300000, guid: e53a59870af17404688110d61f432d34, type: 3}
+    volume: 0.02
+    pitch: 0.99
+    loop: 1
     source: {fileID: 0}
 --- !u!1 &494638345
 GameObject:
@@ -7059,7 +6990,6 @@ Transform:
   m_Children:
   - {fileID: 268955156}
   - {fileID: 696240360}
-  - {fileID: 103344966}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7404,7 +7334,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944650448}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -28.5, y: 47.55052, z: -10}
+  m_LocalPosition: {x: -28.3, y: 46.25052, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1459924108}
@@ -7491,11 +7421,12 @@ MonoBehaviour:
   cameraShake: {fileID: 0}
   haveTakeDamage: 0
   health: 7
+  soundManager: {fileID: 0}
   bulletScreenShake: 0.3
   attackScreenShake: 0.4
   knockbackSensitivity: 1
   player: {fileID: 1619806515}
-  myBody: {fileID: 1619806518}
+  state: {fileID: 1619806524}
   energie: 75
   energieParSec: 5
 --- !u!61 &978850035
@@ -7707,7 +7638,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1043705961}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -28.5, y: 47.55052, z: -10}
+  m_LocalPosition: {x: -28.3, y: 46.25052, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1213297850}
@@ -13055,34 +12986,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: Run
-    clip: {fileID: 8300000, guid: e53a59870af17404688110d61f432d34, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 1
+  - name: delete
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
     source: {fileID: 0}
   - name: RobotHit
     clip: {fileID: 8300000, guid: 520ca59799f45ae479c4ce7d98c116ab, type: 3}
-    volume: 1
-    pitch: 1
+    volume: 0.3
+    pitch: 1.2
     loop: 0
     source: {fileID: 0}
   - name: RobotShoot
     clip: {fileID: 8300000, guid: 42d263071a4f4574e8b9843588853e39, type: 3}
-    volume: 1
-    pitch: 1
+    volume: 0.02
+    pitch: 3
     loop: 0
     source: {fileID: 0}
   - name: RobotDeath
     clip: {fileID: 8300000, guid: 05b35b4b4de37da46b99fa0074d59ae1, type: 3}
-    volume: 1
-    pitch: 1
+    volume: 0.1
+    pitch: 3
     loop: 0
     source: {fileID: 0}
   - name: RobotAttack
-    clip: {fileID: 8300000, guid: 4b46b2b6c188d744e96b2f4d171f2d0d, type: 3}
-    volume: 1
-    pitch: 1
+    clip: {fileID: 8300000, guid: 520ca59799f45ae479c4ce7d98c116ab, type: 3}
+    volume: 0.2
+    pitch: 3
     loop: 0
     source: {fileID: 0}
 --- !u!1 &1356667349
@@ -13671,7 +13602,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1459924108}
   - component: {fileID: 1459924110}
-  - component: {fileID: 1459924109}
   - component: {fileID: 1459924113}
   - component: {fileID: 1459924112}
   - component: {fileID: 1459924111}
@@ -13696,14 +13626,6 @@ Transform:
   m_Father: {fileID: 944650449}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &1459924109
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1459924107}
-  m_Enabled: 1
 --- !u!20 &1459924110
 Camera:
   m_ObjectHideFlags: 0
@@ -14138,6 +14060,7 @@ GameObject:
   - component: {fileID: 1619806521}
   - component: {fileID: 1619806524}
   - component: {fileID: 1619806520}
+  - component: {fileID: 1619806519}
   m_Layer: 13
   m_Name: Character
   m_TagString: Player
@@ -14153,7 +14076,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619806515}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -28.5, y: 40.4, z: 0}
+  m_LocalPosition: {x: -28.3, y: 39.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1398740221}
@@ -14201,6 +14124,14 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!81 &1619806519
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619806515}
+  m_Enabled: 1
 --- !u!114 &1619806520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14230,6 +14161,7 @@ MonoBehaviour:
   runDecelerationTime: 0.3
   runAcceleration: 0
   runDeceleration: 0
+  runSoundCadence: 0.275
   maxAirSpeed: 20
   airSpeed: 3
   airDecelerationTime: 0.5
@@ -14298,6 +14230,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   input: {fileID: 1619806521}
+  soundManager: {fileID: 415512278}
   canMove: 1
   canRun: 1
   canJump: 1

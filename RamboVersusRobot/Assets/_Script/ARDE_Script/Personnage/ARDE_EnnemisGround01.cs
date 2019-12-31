@@ -69,6 +69,7 @@ public class ARDE_EnnemisGround01 : ARDE_EnnemisBehavior
     {
         Instantiate(attack, mySelf.position, mySelf.rotation, attackContainer);
         haveAttack = true;
+        soundManager.Play("RobotAttack");
 
         yield return new WaitForSeconds(CoolDown);
         haveAttack = false;
