@@ -1,12 +1,15 @@
 fileFormatVersion: 2
-guid: 72580d8313d536e4e884e06d5d213ee6
+guid: 812af6b5ad210c24f9654335d12f3436
 TextureImporter:
   fileIDToRecycleName:
-    21300000: sheet_AttackFx_0
-    21300002: sheet_AttackFx_1
-    21300004: sheet_AttackFx_2
-    21300006: sheet_AttackFx_3
-    21300008: sheet_AttackFx_4
+    21300000: energie_0
+    21300002: energie_1
+    21300004: energie_2
+    21300006: energie_3
+    21300008: energie_4
+    21300010: energie_5
+    21300012: energie_6
+    21300014: energie_7
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -89,13 +92,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sheet_AttackFx_0
+      name: energie_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 160
-        height: 112
+        width: 7
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -103,19 +106,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72e8dbf97f358774cba3ee7f807cd49b
+      spriteID: 3f251fe691a850445a0f7721397bbbcb
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_AttackFx_1
+      name: energie_1
       rect:
         serializedVersion: 2
-        x: 160
+        x: 7
         y: 0
-        width: 160
-        height: 112
+        width: 7
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -123,19 +126,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52813176d34fc1d42a37b77744bdd920
+      spriteID: 148d2789883082d4aad8ca57754a8bb3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_AttackFx_2
+      name: energie_2
       rect:
         serializedVersion: 2
-        x: 320
+        x: 14
         y: 0
-        width: 160
-        height: 112
+        width: 7
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,19 +146,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e030203ad00881d449b65b12dea66ccc
+      spriteID: e8e6d7a3802af8b4f95ca99632fcd952
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_AttackFx_3
+      name: energie_3
       rect:
         serializedVersion: 2
-        x: 480
+        x: 21
         y: 0
-        width: 160
-        height: 112
+        width: 7
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,19 +166,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 302506f28f72b3b4186a47e4c5c92ea1
+      spriteID: 014dcc8b87b04f74fad6f12c96ae54f6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_AttackFx_4
+      name: energie_4
       rect:
         serializedVersion: 2
-        x: 640
+        x: 28
         y: 0
-        width: 160
-        height: 112
+        width: 7
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,7 +186,67 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3df83df4d03d0be489764200c45c7a46
+      spriteID: f2327e2797bf88d48b49a38bb1cbce48
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: energie_5
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 0
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9dfc5384880f3541acc0e2f6c4255b3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: energie_6
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 0
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 380d52915aec3e6479588da9ad5da9bc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: energie_7
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 0
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9d41921264ca164c9f054fcb3d933c5
       vertices: []
       indices: 
       edges: []
