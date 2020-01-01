@@ -57,7 +57,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &6341020235826140570
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -192,7 +192,7 @@ MonoBehaviour:
   IsAttacking: 0
   flyForce: 10
   detectDist: 5
-  startBulletDistance: 4
+  startBulletDistance: 6
   bullet: {fileID: 6726061814755497180, guid: af82aecaa0c7dc24ebf5d9a3e6c1b77a, type: 3}
   bulletContainer: {fileID: 0}
   shootCoolDown: 1.2

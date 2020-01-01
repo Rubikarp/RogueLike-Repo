@@ -26,7 +26,6 @@ public class ARDE_EnnemisFlying02 : ARDE_EnnemisBehavior
 
         PlayerRelativeToTheEnnemy(playerDistance, detectionRange, ToNearDistance, ToFarDistance);
 
-        FacePlayer();
         DontCrash();
         RushPlayer();
 
