@@ -362,7 +362,7 @@ MonoBehaviour:
   TerrainLayerMask:
     serializedVersion: 2
     m_Bits: 1024
-  speed: 12
+  speed: 18
   detectionRange: 35
   ToFarDistance: 6
   ToNearDistance: 6
@@ -374,8 +374,8 @@ MonoBehaviour:
   IsAttacking: 0
   attack: {fileID: 3226919073785898862}
   attackContainer: {fileID: 7340589684179513230}
-  attackCoolDown: 1
-  attackDuration: 0.5
+  attackCoolDown: 1.5
+  attackDuration: 0.3
   haveAttack: 0
   attackDistance: 10
 --- !u!114 &7340589684179513224

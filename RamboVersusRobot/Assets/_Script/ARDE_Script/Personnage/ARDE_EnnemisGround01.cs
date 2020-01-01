@@ -66,7 +66,7 @@ public class ARDE_EnnemisGround01 : ARDE_EnnemisBehavior
             }
         }
 
-        if (playerDistance < attackDistance)
+        if ((Mathf.Abs(player.position.x - transform.position.x)) < attackDistance)
         {
             if (!haveAttack)
             {
@@ -80,14 +80,15 @@ public class ARDE_EnnemisGround01 : ARDE_EnnemisBehavior
         attack.SetActive(true);
         haveAttack = true;
         soundManager.Play("RobotAttack");
-        //myBody.constraints = RigidbodyConstraints2D.FreezePosition;
+        myBody.constraints = RigidbodyConstraints2D.FreezePosition;
 
         yield return new WaitForSeconds(attackDuration);
         attack.SetActive(false);
-
-        yield return new WaitForSeconds(CoolDown - attackDuration);
         myBody.constraints = RigidbodyConstraints2D.None;
         myBody.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+        yield return new WaitForSeconds(CoolDown - attackDuration);
+
 
         haveAttack = false;
 
