@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10797,6 +10797,10 @@ MonoBehaviour:
   input: {fileID: 2058210848}
   state: {fileID: 2058210845}
   lifeSystem: {fileID: 0}
+  dashParticleLeft: {fileID: 0}
+  dashParticleRight: {fileID: 0}
+  dustFall: {fileID: 0}
+  dustJump: {fileID: 0}
 --- !u!95 &1971003237
 Animator:
   serializedVersion: 3
@@ -11483,7 +11487,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.36044857, g: 0.75042063, b: 0.9433962, a: 1}
+  m_BackGroundColor: {r: 0.44152722, g: 0.6681923, b: 0.7735849, a: 1}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -11703,6 +11707,7 @@ MonoBehaviour:
   TerrainLayerMask:
     serializedVersion: 2
     m_Bits: 1024
+  input: {fileID: 0}
   canMove: 1
   canRun: 1
   canJump: 1
@@ -11715,7 +11720,11 @@ MonoBehaviour:
   isRuning: 0
   isJumping: 0
   isDashing: 0
-  isAttacking: 0
+  isAttackingLight: 0
+  isAttackingUp: 0
+  isAttackingDown: 0
+  isAttackingNeutral: 0
+  isAttackingSide: 0
   isOnGround: 0
   isOnWall: 0
   isOnWallLeft: 0

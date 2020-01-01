@@ -1,12 +1,10 @@
 fileFormatVersion: 2
-guid: 72580d8313d536e4e884e06d5d213ee6
+guid: b4f761c9b44c9554c8ea2718311444f3
 TextureImporter:
   fileIDToRecycleName:
-    21300000: sheet_AttackFx_0
-    21300002: sheet_AttackFx_1
-    21300004: sheet_AttackFx_2
-    21300006: sheet_AttackFx_3
-    21300008: sheet_AttackFx_4
+    21300000: sheet_robotFlyPropeller_0
+    21300002: sheet_robotFlyPropeller_1
+    21300004: sheet_robotFlyPropeller_2
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -89,101 +87,61 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sheet_AttackFx_0
+      name: sheet_robotFlyPropeller_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 160
-        height: 112
+        width: 17
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72e8dbf97f358774cba3ee7f807cd49b
+      spriteID: a2777637a5aa396409954603685689e0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_AttackFx_1
+      name: sheet_robotFlyPropeller_1
       rect:
         serializedVersion: 2
-        x: 160
+        x: 17
         y: 0
-        width: 160
-        height: 112
+        width: 17
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52813176d34fc1d42a37b77744bdd920
+      spriteID: 2b337d05a58296e4e8eb9ef9de64982c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_AttackFx_2
+      name: sheet_robotFlyPropeller_2
       rect:
         serializedVersion: 2
-        x: 320
+        x: 34
         y: 0
-        width: 160
-        height: 112
+        width: 17
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e030203ad00881d449b65b12dea66ccc
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sheet_AttackFx_3
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 0
-        width: 160
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 302506f28f72b3b4186a47e4c5c92ea1
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sheet_AttackFx_4
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 0
-        width: 160
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3df83df4d03d0be489764200c45c7a46
+      spriteID: 2e58ad3549df32b4b8f5a135e9eaed07
       vertices: []
       indices: 
       edges: []

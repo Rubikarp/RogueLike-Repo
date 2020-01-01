@@ -1,12 +1,11 @@
 fileFormatVersion: 2
-guid: 72580d8313d536e4e884e06d5d213ee6
+guid: 5e0020a2f1dae1e4dbfc9340dae06226
 TextureImporter:
   fileIDToRecycleName:
-    21300000: sheet_AttackFx_0
-    21300002: sheet_AttackFx_1
-    21300004: sheet_AttackFx_2
-    21300006: sheet_AttackFx_3
-    21300008: sheet_AttackFx_4
+    21300000: sheet_robotFlyWeapon_OffToOn_0
+    21300002: sheet_robotFlyWeapon_OffToOn_1
+    21300004: sheet_robotFlyWeapon_OffToOn_2
+    21300006: sheet_robotFlyWeapon_OffToOn_3
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -68,7 +67,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -79,7 +78,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -89,101 +88,81 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sheet_AttackFx_0
+      name: sheet_robotFlyWeapon_OffToOn_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 160
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 38
+        height: 66
+      alignment: 9
+      pivot: {x: 0.55263156, y: 0.9545455}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72e8dbf97f358774cba3ee7f807cd49b
+      spriteID: 990b549f14ce7c74ab2ba201a30a2b0f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_AttackFx_1
+      name: sheet_robotFlyWeapon_OffToOn_1
       rect:
         serializedVersion: 2
-        x: 160
+        x: 38
         y: 0
-        width: 160
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 38
+        height: 66
+      alignment: 9
+      pivot: {x: 0.55263156, y: 0.9545455}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52813176d34fc1d42a37b77744bdd920
+      spriteID: bf3b4421cc833b34c98129d6b49d9cd3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_AttackFx_2
+      name: sheet_robotFlyWeapon_OffToOn_2
       rect:
         serializedVersion: 2
-        x: 320
+        x: 76
         y: 0
-        width: 160
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 38
+        height: 66
+      alignment: 9
+      pivot: {x: 0.55263156, y: 0.9545455}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e030203ad00881d449b65b12dea66ccc
+      spriteID: 89387ad6deabdb14ab002c9b72fc7d17
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_AttackFx_3
+      name: sheet_robotFlyWeapon_OffToOn_3
       rect:
         serializedVersion: 2
-        x: 480
+        x: 114
         y: 0
-        width: 160
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 38
+        height: 66
+      alignment: 9
+      pivot: {x: 0.55263156, y: 0.9545455}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 302506f28f72b3b4186a47e4c5c92ea1
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sheet_AttackFx_4
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 0
-        width: 160
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3df83df4d03d0be489764200c45c7a46
+      spriteID: 21bd82afc7f08ae48b496dcef0352ccf
       vertices: []
       indices: 
       edges: []

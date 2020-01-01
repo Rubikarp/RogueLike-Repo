@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: 72580d8313d536e4e884e06d5d213ee6
+guid: ae0347a9b1a1937469e25c2766dc8b43
 TextureImporter:
   fileIDToRecycleName:
-    21300000: sheet_AttackFx_0
-    21300002: sheet_AttackFx_1
-    21300004: sheet_AttackFx_2
-    21300006: sheet_AttackFx_3
-    21300008: sheet_AttackFx_4
+    21300000: sheet_robotFloorHit_0
+    21300002: sheet_robotFloorHit_1
+    21300004: sheet_robotFloorHit_2
+    21300006: sheet_robotFloorHit_3
+    21300008: sheet_robotFloorHit_4
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -89,101 +89,101 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sheet_AttackFx_0
+      name: sheet_robotFloorHit_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 160
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 103
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72e8dbf97f358774cba3ee7f807cd49b
+      spriteID: 1b43d0750e34278488b16b8061bdefda
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_AttackFx_1
+      name: sheet_robotFloorHit_1
       rect:
         serializedVersion: 2
-        x: 160
+        x: 103
         y: 0
-        width: 160
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 103
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52813176d34fc1d42a37b77744bdd920
+      spriteID: d0fad696409fd69489664afd71d78111
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_AttackFx_2
+      name: sheet_robotFloorHit_2
       rect:
         serializedVersion: 2
-        x: 320
+        x: 206
         y: 0
-        width: 160
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 103
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e030203ad00881d449b65b12dea66ccc
+      spriteID: 2a0a383fe706e894baf45adbf54ca8b6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_AttackFx_3
+      name: sheet_robotFloorHit_3
       rect:
         serializedVersion: 2
-        x: 480
+        x: 309
         y: 0
-        width: 160
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 103
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 302506f28f72b3b4186a47e4c5c92ea1
+      spriteID: 822ba2fbc94a770419fbd0af83092d2d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_AttackFx_4
+      name: sheet_robotFloorHit_4
       rect:
         serializedVersion: 2
-        x: 640
+        x: 412
         y: 0
-        width: 160
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 103
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3df83df4d03d0be489764200c45c7a46
+      spriteID: c382532546a3e0f45a44eaa799a75a6c
       vertices: []
       indices: 
       edges: []

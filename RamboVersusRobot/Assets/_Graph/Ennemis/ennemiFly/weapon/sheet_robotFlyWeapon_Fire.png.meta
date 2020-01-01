@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: 72580d8313d536e4e884e06d5d213ee6
+guid: aa65743b367a89f4fb94b7ca97209c70
 TextureImporter:
   fileIDToRecycleName:
-    21300000: sheet_AttackFx_0
-    21300002: sheet_AttackFx_1
-    21300004: sheet_AttackFx_2
-    21300006: sheet_AttackFx_3
-    21300008: sheet_AttackFx_4
+    21300000: sheet_robotFlyWeapon_Fire_0
+    21300002: sheet_robotFlyWeapon_Fire_1
+    21300004: sheet_robotFlyWeapon_Fire_2
+    21300006: sheet_robotFlyWeapon_Fire_3
+    21300008: sheet_robotFlyWeapon_Fire_4
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -89,101 +89,101 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sheet_AttackFx_0
+      name: sheet_robotFlyWeapon_Fire_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 160
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 38
+        height: 66
+      alignment: 9
+      pivot: {x: 0.55263156, y: 0.9545455}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72e8dbf97f358774cba3ee7f807cd49b
+      spriteID: 1306df1ddde9f0e41af5b8c5d408f211
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_AttackFx_1
+      name: sheet_robotFlyWeapon_Fire_1
       rect:
         serializedVersion: 2
-        x: 160
+        x: 38
         y: 0
-        width: 160
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 38
+        height: 66
+      alignment: 9
+      pivot: {x: 0.55263156, y: 0.9545455}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52813176d34fc1d42a37b77744bdd920
+      spriteID: 252934eba9f2ba34c9de5584c480d213
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_AttackFx_2
+      name: sheet_robotFlyWeapon_Fire_2
       rect:
         serializedVersion: 2
-        x: 320
+        x: 76
         y: 0
-        width: 160
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 38
+        height: 66
+      alignment: 9
+      pivot: {x: 0.55263156, y: 0.9545455}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e030203ad00881d449b65b12dea66ccc
+      spriteID: a98600010af8fb041a21339a355ab2dc
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_AttackFx_3
+      name: sheet_robotFlyWeapon_Fire_3
       rect:
         serializedVersion: 2
-        x: 480
+        x: 114
         y: 0
-        width: 160
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 38
+        height: 66
+      alignment: 9
+      pivot: {x: 0.55263156, y: 0.9545455}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 302506f28f72b3b4186a47e4c5c92ea1
+      spriteID: 0c6b0c8544c5da24c821f54e67bc7391
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_AttackFx_4
+      name: sheet_robotFlyWeapon_Fire_4
       rect:
         serializedVersion: 2
-        x: 640
+        x: 152
         y: 0
-        width: 160
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 38
+        height: 66
+      alignment: 9
+      pivot: {x: 0.55263156, y: 0.9545455}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3df83df4d03d0be489764200c45c7a46
+      spriteID: 079625757137f5d4582c2eadf4ac069b
       vertices: []
       indices: 
       edges: []
