@@ -798,7 +798,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomGenerator: {fileID: 275261826}
   roomsContainer: {fileID: 1222299975}
-  roomCounterLimite: 30
+  roomCounterLimite: 66
   moveIncrementHorizontal: 76
   moveIncrementVertical: 34
   staringRoom: {fileID: 634677718879681491, guid: b43fddb0e1588d84a94e625a3d28544e,
@@ -1323,7 +1323,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 405785909}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 38.26, y: -7.38, z: 0}
+  m_LocalPosition: {x: 35, y: -7.38, z: 0}
   m_LocalScale: {x: 4, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 240221495}
@@ -1667,7 +1667,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 494638345}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 26.3, y: 5.6, z: 0}
+  m_LocalPosition: {x: 22, y: 5.6, z: 0}
   m_LocalScale: {x: 2, y: 1.14, z: 1}
   m_Children: []
   m_Father: {fileID: 240221495}
@@ -7878,12 +7878,13 @@ MonoBehaviour:
   cameraShake: {fileID: 0}
   haveTakeDamage: 0
   health: 7
-  soundManager: {fileID: 0}
+  soundManager: {fileID: 415512278}
   bulletScreenShake: 0.3
   attackScreenShake: 0.4
   knockbackSensitivity: 1
   player: {fileID: 1619806515}
-  mouv: {fileID: 0}
+  soundManager: {fileID: 415512278}
+  mouv: {fileID: 1619806520}
   state: {fileID: 1619806524}
   energie: 75
   energieParSec: 5
@@ -16213,23 +16214,23 @@ CompositeCollider2D:
         Y: -40000080
   - m_Collider: {fileID: 405785912}
     m_ColliderPaths:
-    - - X: 432599968
+    - - X: 400000000
         Y: 6199999
-      - X: 352599968
+      - X: 320000000
         Y: 6199999
-      - X: 352599968
+      - X: 320000000
         Y: -153800000
-      - X: 432599968
+      - X: 400000000
         Y: -153800000
   - m_Collider: {fileID: 494638346}
     m_ColliderPaths:
-    - - X: 293000000
+    - - X: 250000000
         Y: 170000000
-      - X: 253000000
+      - X: 210000000
         Y: 170000000
-      - X: 253000000
+      - X: 210000000
         Y: -57999996
-      - X: 293000000
+      - X: 250000000
         Y: -57999996
   m_CompositePaths:
     m_Paths:
@@ -16246,20 +16247,20 @@ CompositeCollider2D:
       - {x: -38, y: -17}
       - {x: 114, y: -17}
       - {x: 114, y: -15}
-      - {x: 43.26, y: -15}
-      - {x: 43.26, y: 0.6199999}
-      - {x: 35.26, y: 0.6199999}
-      - {x: 35.26, y: -15}
+      - {x: 40, y: -15}
+      - {x: 40, y: 0.6199999}
+      - {x: 32, y: 0.6199999}
+      - {x: 32, y: -15}
       - {x: -36, y: -15}
       - {x: -36, y: 15}
       - {x: -32, y: 15}
       - {x: -32, y: 43}
       - {x: -24, y: 43}
       - {x: -24, y: 15}
-      - {x: 25.300001, y: 15}
-      - {x: 25.300001, y: -5.7999997}
-      - {x: 29.300001, y: -5.7999997}
-      - {x: 29.300001, y: 15}
+      - {x: 21, y: 15}
+      - {x: 21, y: -5.7999997}
+      - {x: 25, y: -5.7999997}
+      - {x: 25, y: 15}
       - {x: 112, y: 15}
   m_VertexDistance: 0.0005
 --- !u!50 &2090543717

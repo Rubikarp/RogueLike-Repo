@@ -217,7 +217,8 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
 
     void GrabWall()
     {
-
+        if(input.grab)
+        { 
         //GRAB
         if (state.isOnWallLeft && !state.isWallJumping && input.stickX != 1f)
         {
@@ -241,7 +242,8 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
         {
             state.body.velocity += new Vector2(airSpeed * input.lookingRight, 0);
         }
-
+        }
+        
         //Slide
         if (input.stickY < -0.2f)
         {

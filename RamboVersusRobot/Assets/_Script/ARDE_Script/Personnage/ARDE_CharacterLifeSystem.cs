@@ -1,10 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ARDE_CharacterLifeSystem : ARDE_LifeSystem
 {
     public GameObject player = default;
+    public new ARDE_SoundManager soundManager = default;
+   
     public ARDE_2DCharacterMovement mouv = default;
     [SerializeField]
     CharacterState state = default;
@@ -118,4 +119,17 @@ public class ARDE_CharacterLifeSystem : ARDE_LifeSystem
         state.soundManager.Play("Mort");
     }
 
+    new void isAlive(GameObject Me, float DeathScrennShake)
+    {
+        if (health <= 0)
+        {
+            cameraShake.trauma += DeathScrennShake;
+
+            soundManager.Play("Mort");
+
+            new WaitForSeconds(0.3f);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+
+        }
+    }
 }

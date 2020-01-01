@@ -8,8 +8,6 @@ public class ARDE_HelicoMouvement : MonoBehaviour
     CharacterState state;
     ARDE_ScreenShake cameraShake;
 
-    [SerializeField] ARDE_CharacterLifeSystem lifeSystem = default;
-
     public ARDE_SoundManager soundManager = default;
 
     public float VelocityY;
