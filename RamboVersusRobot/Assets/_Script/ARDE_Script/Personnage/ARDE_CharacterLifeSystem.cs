@@ -108,7 +108,7 @@ public class ARDE_CharacterLifeSystem : ARDE_LifeSystem
         knockBackDirection.Normalize();
 
         // Subit le recul de l'attaque
-        myBody.velocity = knockBackDirection * knockbackSensitivity * knockbackPower + new Vector2(0,5);
+        myBody.velocity = knockBackDirection * knockbackSensitivity * knockbackPower + new Vector2(0,10);
 
     }
 
