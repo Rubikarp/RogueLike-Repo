@@ -7,9 +7,21 @@ public class ARDE_EnnemisGround01 : ARDE_EnnemisBehavior
     [Header("Ground Base")]
     public GameObject attack;
     public Transform attackContainer;
-    public float attackCoolDown = 0.3f;
+    public float attackCoolDown = 0.8f;
+    public float attackDuration = 0.3f;
     public bool haveAttack = false;
 
+    public float attackDistance = 10f;
+
+    void Start()
+    {
+        mySelf = this.transform;
+        myBody = this.GetComponent<Rigidbody2D>();
+        myCollider = this.GetComponent<CircleCollider2D>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<ARDE_SoundManager>();
+        attack.SetActive(false);
+    }
     
     void Update()
     {
@@ -41,11 +53,6 @@ public class ARDE_EnnemisGround01 : ARDE_EnnemisBehavior
         {
             if (playerToNear)
             {
-                if (!haveAttack)
-                {
-                    StartCoroutine(Attack(attackCoolDown));
-                }
-
                 myBody.velocity += new Vector2(-playerDirection.normalized.x, 0) * speed/20;
             }
             else
@@ -55,23 +62,33 @@ public class ARDE_EnnemisGround01 : ARDE_EnnemisBehavior
             }
             else
             {
-                if (!haveAttack)
-                {
-                    StartCoroutine(Attack(attackCoolDown));
-                }
                 myBody.velocity /= new Vector2(1.1f, 1);
             }
+        }
 
+        if (playerDistance < attackDistance)
+        {
+            if (!haveAttack)
+            {
+                StartCoroutine(Attack(attackCoolDown, attackDuration));
+            }
         }
     }
 
-    IEnumerator Attack(float CoolDown)
+    IEnumerator Attack(float CoolDown, float attackDuration)
     {
-        Instantiate(attack, mySelf.position, mySelf.rotation, attackContainer);
+        attack.SetActive(true);
         haveAttack = true;
         soundManager.Play("RobotAttack");
+        //myBody.constraints = RigidbodyConstraints2D.FreezePosition;
 
-        yield return new WaitForSeconds(CoolDown);
+        yield return new WaitForSeconds(attackDuration);
+        attack.SetActive(false);
+
+        yield return new WaitForSeconds(CoolDown - attackDuration);
+        myBody.constraints = RigidbodyConstraints2D.None;
+        myBody.constraints = RigidbodyConstraints2D.FreezeRotation;
+
         haveAttack = false;
 
     }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class ARDE_CharacterLifeSystem : ARDE_LifeSystem
 {
     public GameObject player = default;
+    public ARDE_2DCharacterMovement mouv = default;
     [SerializeField]
     CharacterState state = default;
 
@@ -107,9 +108,14 @@ public class ARDE_CharacterLifeSystem : ARDE_LifeSystem
         knockBackDirection.Normalize();
 
         // Subit le recul de l'attaque
-        myBody.velocity = knockBackDirection * knockbackSensitivity * knockbackPower;
-
-        state.soundManager.Play("Mort");
+        myBody.velocity = knockBackDirection * knockbackSensitivity * knockbackPower + new Vector2(0,5);
 
     }
+
+    new void TakeDamage(int damage)
+    {
+        health -= damage;
+        state.soundManager.Play("Mort");
+    }
+
 }

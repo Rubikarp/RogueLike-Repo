@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class PlayerLookAhead : MonoBehaviour
 {
+    protected Transform player = null;
     //pour voir l'input sur l'axe X
     [SerializeField] private float direction = 0;
 
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
     private void Update()
     {
-        direction = Input.GetAxisRaw("Horizontal");
+        Vector2 playerDirection = (player.position - transform.position);
+        direction = playerDirection.x;
 
         lookAhead();
     }
