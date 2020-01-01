@@ -217,68 +217,58 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
 
     void GrabWall()
     {
-        if (!state.isWallJumping)
-        {
-            if (input.grab)
-        {
-            if (!state.isWallJumping)
-            {
-                if (state.isOnWallLeft)
-                {
-                    //augmente la force qd on est sur les mur
-                    state.body.velocity += new Vector2(-wallFriction, 0);
-                }
-                else
-                if (state.isOnWallRight)
-                {
-                    //augmente la force qd on est sur les mur
-                    state.body.velocity += new Vector2(+wallFriction, 0);
-                }
-            }
 
-            //Slide
-            if (input.stickY < -0.6f)
-            {
-                //augmente la force qd on est sur les mur
-                state.body.velocity = new Vector2(state.body.velocity.x, -wallSlide * input.stickYabs);
-            }
+        //GRAB
+        if (state.isOnWallLeft && !state.isWallJumping && input.stickX != 1f)
+        {
+            //augmente la force qd on est sur les mur
+            state.body.velocity += new Vector2(-wallFriction, 0);
 
         }
-
-            if (state.isOnWallLeft && input.stickX > 0)
-            {
-                //augmente la force qd on est sur les mur
-                state.body.velocity += new Vector2(wallFriction, 0);
-            }
-            else
-            if (state.isOnWallRight && input.stickX < 0)
-            {
-                //augmente la force qd on est sur les mur
-                state.body.velocity += new Vector2(-wallFriction, 0);
-            }
+        else if (state.isOnWallLeft && !state.isWallJumping && input.stickX == 1f)
+        {
+            state.body.velocity += new Vector2(airSpeed * input.lookingRight, 0);
         }
+
+        else
+        if (state.isOnWallRight && !state.isWallJumping && input.stickX != 1f)
+        {
+            //augmente la force qd on est sur les mur
+            state.body.velocity += new Vector2(+wallFriction, 0);
+
+        }
+        else if (state.isOnWallRight && !state.isWallJumping && input.stickX == 1f)
+        {
+            state.body.velocity += new Vector2(airSpeed * input.lookingRight, 0);
+        }
+
+        //Slide
+        if (input.stickY < -0.2f)
+        {
+            //augmente la force qd on est sur les mur
+            state.body.velocity = new Vector2(state.body.velocity.x, -wallSlide * input.stickYabs);
+        }
+
     }
 
     void characterWallJump()
     {
-        if (input.jumpEnter == true)
+        if (state.isOnWallLeft == true && input.jumpEnter == true)
         {
-            if (state.isOnWallLeft == true)
-            {
-                StartCoroutine(WallJumpCD(1, false));
-            }
-            else if (state.isOnWallRight == true)
-            {
-                StartCoroutine(WallJumpCD(-1, true));
-            }
+            state.body.velocity = new Vector2(wallJumpForce + wallFriction, wallJumpHeight);
+            StartCoroutine(WallJumpCD());
         }
+        else if (state.isOnWallRight == true && input.jumpEnter == true)
+        {
+            state.body.velocity = new Vector2(-wallJumpForce - wallFriction, wallJumpHeight);
+            StartCoroutine(WallJumpCD());
+        }
+
     }
 
-    IEnumerator WallJumpCD(int direction, bool wasOnRightWall)
+    IEnumerator WallJumpCD()
     {
         state.isWallJumping = true;
-
-        state.body.velocity = new Vector2(state.body.velocity.x, wallJumpHeight);
 
         yield return new WaitForSeconds(0.2f);
 
@@ -288,6 +278,8 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
 
         state.canJump = true;
     }
+
+
 
     IEnumerator Dash(float dashDuration)
     {
