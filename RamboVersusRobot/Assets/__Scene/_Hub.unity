@@ -4132,7 +4132,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6540e4005c03c32469d42fbe0d54bdf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeSystem: {fileID: 0}
   soundManager: {fileID: 1055477736}
   VelocityY: 0
   fallFactor: 2
@@ -19060,7 +19059,7 @@ Transform:
   m_GameObject: {fileID: 1686060859}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.013, y: 0.8, z: 0}
-  m_LocalScale: {x: 0.003, y: 0.0045845998, z: 1}
+  m_LocalScale: {x: 0.120000005, y: 0.16200002, z: 0.6}
   m_Children: []
   m_Father: {fileID: 2100907050}
   m_RootOrder: 0
@@ -19102,7 +19101,7 @@ SpriteRenderer:
   m_SortingLayerID: 1292393627
   m_SortingLayer: 7
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4b79177aa2910a444a2f29a76efd8101, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4c0e437699f70494ab41d49a11065ffe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
