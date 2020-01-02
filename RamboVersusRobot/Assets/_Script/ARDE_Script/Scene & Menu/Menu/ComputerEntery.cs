@@ -5,13 +5,21 @@ using UnityEngine;
 public class ComputerEntery : MonoBehaviour
 {
     public GameObject A_Button, Menu;
-    public ARDE_2DCharacterMovement CharacterMovement;
+    public  CharacterState perso;
     public bool isInMenu = false;
 
     void Start()
     {
         A_Button.SetActive(false);
-        //Menu.SetActive(false);
+        Menu.SetActive(false);
+    }
+
+    void Update()
+    {
+        if(isInMenu == false)
+        {
+            perso.canMove = true;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -30,7 +38,7 @@ public class ComputerEntery : MonoBehaviour
         {
             if (!isInMenu)
             {
-                CharacterMovement.enabled = !CharacterMovement.enabled;
+                perso.canMove = false;
                 Menu.SetActive(true);
                 isInMenu = true;
             }

@@ -6,7 +6,6 @@ public class ARDE_HelicoMouvement : MonoBehaviour
 {
     CharacterInput input;
     CharacterState state;
-    ARDE_ScreenShake cameraShake;
 
     public ARDE_SoundManager soundManager = default;
 
@@ -41,9 +40,6 @@ public class ARDE_HelicoMouvement : MonoBehaviour
     {
         input = this.GetComponent<CharacterInput>();
         state = this.GetComponent<CharacterState>();
-
-        GameObject cam = GameObject.FindGameObjectWithTag("MainCamera");
-        cameraShake = cam.GetComponent<ARDE_ScreenShake>();
     }
 
     void FixedUpdate()
@@ -74,7 +70,6 @@ public class ARDE_HelicoMouvement : MonoBehaviour
             }
         }
     }
-
 
     void Run()
     {
