@@ -54,7 +54,7 @@ LightmapSettings:
     m_EnableBakedLightmaps: 0
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
-    serializedVersion: 10
+    serializedVersion: 12
     m_Resolution: 2
     m_BakeResolution: 40
     m_AtlasSize: 1024
@@ -62,6 +62,7 @@ LightmapSettings:
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
     m_CompAOExponentDirect: 0
+    m_ExtractAmbientOcclusion: 0
     m_Padding: 2
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
@@ -76,10 +77,16 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
+    m_PVREnvironmentSampleCount: 500
+    m_PVREnvironmentReferencePointCount: 2048
+    m_PVRFilteringMode: 2
+    m_PVRDenoiserTypeDirect: 0
+    m_PVRDenoiserTypeIndirect: 0
+    m_PVRDenoiserTypeAO: 0
     m_PVRFilterTypeDirect: 0
     m_PVRFilterTypeIndirect: 0
     m_PVRFilterTypeAO: 0
-    m_PVRFilteringMode: 1
+    m_PVREnvironmentMIS: 0
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
@@ -87,7 +94,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
-    m_ShowResolutionOverlay: 1
+    m_ExportTrainingData: 0
+    m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -193,6 +201,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -344,7 +353,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 102266494}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -362,6 +371,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &102266497
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -470,6 +480,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -576,6 +587,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -927,7 +939,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 241897204}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -945,6 +957,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &241897207
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1030,7 +1043,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 257337532}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -1048,6 +1061,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &257337535
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1254,6 +1268,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -1354,6 +1369,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -1449,7 +1465,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 406744507}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -1467,6 +1483,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &406744510
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1551,7 +1568,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Loot
     clip: {fileID: 8300000, guid: fa1494ff0afb5e74b98f88d8c77eb6d7, type: 3}
-    volume: 1
+    volume: 0.03
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -1636,6 +1653,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -1880,6 +1898,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -1963,7 +1982,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 570155332}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -1981,6 +2000,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &570155335
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2046,6 +2066,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -2186,7 +2207,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 682807982}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_IgnoreReversedGraphics: 1
@@ -2203,7 +2224,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 682807982}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
@@ -2311,7 +2332,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 688620988}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -2329,6 +2350,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &688620991
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2506,6 +2528,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -2604,6 +2627,7 @@ ParticleSystemRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -3967,6 +3991,7 @@ ParticleSystem:
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
   UVModule:
+    serializedVersion: 2
     enabled: 0
     mode: 0
     timeMode: 0
@@ -4084,7 +4109,7 @@ ParticleSystem:
     rowIndex: 0
     cycles: 1
     uvChannelMask: -1
-    randomRow: 1
+    rowMode: 1
     sprites:
     - sprite: {fileID: 0}
     flipU: 0
@@ -4895,8 +4920,61 @@ ParticleSystem:
     inWorldSpace: 0
     randomizePerFrame: 0
   ExternalForcesModule:
+    serializedVersion: 2
     enabled: 0
-    multiplier: 8.68
+    multiplierCurve:
+      serializedVersion: 2
+      minMaxState: 0
+      scalar: 8.68
+      minScalar: 8.68
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
     influenceFilter: 0
     influenceMask:
       serializedVersion: 2
@@ -7381,6 +7459,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -7496,7 +7575,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 867878337}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -7514,6 +7593,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &867878340
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7625,6 +7705,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -7740,7 +7821,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 935828502}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -7758,6 +7839,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &935828505
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7791,7 +7873,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944650448}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -28, y: 45.15052, z: -10}
+  m_LocalPosition: {x: -19.7, y: 5.550522, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1459924108}
@@ -7877,17 +7959,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraShake: {fileID: 0}
   haveTakeDamage: 0
-  health: 7
+  health: 5
   soundManager: {fileID: 415512278}
+  player: {fileID: 1619806515}
+  mouv: {fileID: 1619806520}
+  state: {fileID: 1619806524}
+  energie: 100
+  energieParSec: 2
   bulletScreenShake: 0.3
   attackScreenShake: 0.4
   knockbackSensitivity: 1
-  player: {fileID: 1619806515}
-  soundManager: {fileID: 415512278}
-  mouv: {fileID: 1619806520}
-  state: {fileID: 1619806524}
-  energie: 75
-  energieParSec: 5
 --- !u!61 &978850035
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7901,7 +7982,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -7912,7 +7993,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 5}
+  m_Size: {x: 2, y: 6.2}
   m_EdgeRadius: 0
 --- !u!1 &1000722376
 GameObject:
@@ -7970,6 +8051,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -8091,6 +8173,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -8139,7 +8222,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1043705961}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -28, y: 45.15052, z: -10}
+  m_LocalPosition: {x: -19.7, y: 5.550522, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1213297850}
@@ -8227,7 +8310,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1103201399}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -8245,6 +8328,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1103201402
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8299,7 +8383,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1107332526}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -8317,6 +8401,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1107332529
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8371,7 +8456,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1153455486}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -8389,6 +8474,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1153455489
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8529,7 +8615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad980451443d70438faac0bc6c235a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_LookaheadTime: 0.3
+  m_LookaheadTime: 0.2
   m_LookaheadSmoothing: 3
   m_LookaheadIgnoreY: 1
   m_XDamping: 1
@@ -8657,6 +8743,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -10166,6 +10253,7 @@ ParticleSystem:
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
   UVModule:
+    serializedVersion: 2
     enabled: 0
     mode: 0
     timeMode: 0
@@ -10283,7 +10371,7 @@ ParticleSystem:
     rowIndex: 0
     cycles: 1
     uvChannelMask: -1
-    randomRow: 1
+    rowMode: 1
     sprites:
     - sprite: {fileID: 0}
     flipU: 0
@@ -11094,8 +11182,61 @@ ParticleSystem:
     inWorldSpace: 0
     randomizePerFrame: 0
   ExternalForcesModule:
+    serializedVersion: 2
     enabled: 0
-    multiplier: 8.68
+    multiplierCurve:
+      serializedVersion: 2
+      minMaxState: 0
+      scalar: 8.68
+      minScalar: 8.68
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
     influenceFilter: 0
     influenceMask:
       serializedVersion: 2
@@ -13469,6 +13610,7 @@ ParticleSystemRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -13638,7 +13780,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1356667349}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -13656,6 +13798,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1356667352
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13733,6 +13876,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -13780,7 +13924,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1398740221}
   - component: {fileID: 1398740222}
-  m_Layer: 13
+  m_Layer: 16
   m_Name: AttackSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13822,18 +13966,18 @@ MonoBehaviour:
   attackHeavyNeutral: {fileID: 1203919331608374929, guid: 4400cdf47906eca49a0d62d357caf6ee,
     type: 3}
   airNeutralTime: 1
-  heavyNeutralEnergieCost: 15
+  heavyNeutralEnergieCost: 10
   attackHeavySide: {fileID: 7698298301457664109, guid: dee48c1322728524cb3f2e979947dcfb,
     type: 3}
   airSideTime: 1.2
-  heavySideEnergieCost: 15
+  heavySideEnergieCost: 10
   attackHeavySideDuration: 1
   attackHeavyUp: {fileID: 8852770581966534224, guid: e2c634568d9e67146b364f2b835dd42b,
     type: 3}
-  heavyUpEnergieCost: 15
+  heavyUpEnergieCost: 10
   attackHeavyDown: {fileID: 1395229078095264524, guid: 466f9da11b153bd47bfe063c5b01ea82,
     type: 3}
-  heavyDownEnergieCost: 15
+  heavyDownEnergieCost: 10
 --- !u!1 &1405739181
 GameObject:
   m_ObjectHideFlags: 0
@@ -13880,7 +14024,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1405739181}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -13898,6 +14042,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1405739184
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13975,6 +14120,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -14058,7 +14204,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1432429993}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -14072,17 +14218,20 @@ MonoBehaviour:
     m_NormalColor: {r: 0.20784315, g: 0.96470594, b: 0.49411768, a: 1}
     m_HighlightedColor: {r: 0.20784315, g: 0.97647065, b: 0.49803925, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.20784315, g: 0.97647065, b: 0.49803925, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 0}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
+    m_SelectedTrigger: Highlighted
     m_DisabledTrigger: Disabled
   m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
@@ -14142,7 +14291,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1434848908}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -14160,6 +14309,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1434848911
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14220,9 +14370,10 @@ Camera:
   m_ClearFlags: 2
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_GateFitMode: 2
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -14392,7 +14543,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1472460162}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -14410,6 +14561,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1472460165
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14543,7 +14695,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1563079642}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -14561,6 +14713,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1563079645
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14662,7 +14815,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1619317065}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_IgnoreReversedGraphics: 1
@@ -14679,7 +14832,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1619317065}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
@@ -14743,7 +14896,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619806515}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -28, y: 38, z: 0}
+  m_LocalPosition: {x: -19.7, y: -1.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1398740221}
@@ -14840,7 +14993,7 @@ MonoBehaviour:
   dashDuration: 0.2
   dashCooldown: 0.1
   dashScreenShake: 0.15
-  dashEnergieCost: 15
+  dashEnergieCost: 25
 --- !u!114 &1619806521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14969,7 +15122,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1631011223}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -14987,6 +15140,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1631011226
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15056,6 +15210,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -15170,7 +15325,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1686209237}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -15188,6 +15343,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1686209240
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15249,7 +15405,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1760101832}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -15267,6 +15423,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1760101835
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15323,7 +15480,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1816144234}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -15341,6 +15498,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1816144237
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15510,7 +15668,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1915754021}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -15528,6 +15686,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1915754024
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15724,6 +15883,7 @@ TrailRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -16014,6 +16174,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -16104,165 +16265,166 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 530946515}
     m_ColliderPaths:
-    - - X: 380000000
-        Y: -150000000
-      - X: -380000000
-        Y: -150000000
-      - X: -380000000
+    - - X: 379999707
         Y: -170000000
-      - X: 380000000
+      - X: 379999707
+        Y: -150000000
+      - X: -380000000
+        Y: -150000293
+      - X: -379999707
         Y: -170000000
   - m_Collider: {fileID: 1376854648}
     m_ColliderPaths:
-    - - X: 1140000000
-        Y: -150000000
-      - X: 380000000
-        Y: -150000000
-      - X: 380000000
+    - - X: 1139999707
         Y: -170000000
-      - X: 1140000000
+      - X: 1139999707
+        Y: -150000000
+      - X: 380000000
+        Y: -150000293
+      - X: 380000293
         Y: -170000000
   - m_Collider: {fileID: 614609937}
     m_ColliderPaths:
-    - - X: -320092384
-        Y: 170000000
-      - X: -379767616
-        Y: 170000000
-      - X: -379767616
+    - - X: -320092677
         Y: 150000000
-      - X: -320092384
+      - X: -320092677
+        Y: 170000000
+      - X: -379767616
+        Y: 169999707
+      - X: -379767323
         Y: 150000000
   - m_Collider: {fileID: 35503097}
     m_ColliderPaths:
-    - - X: 384000000
-        Y: 170000000
-      - X: -224000000
-        Y: 170000000
-      - X: -224000000
+    - - X: 383999707
         Y: 150000000
-      - X: 384000000
+      - X: 383999707
+        Y: 170000000
+      - X: -224000000
+        Y: 169999707
+      - X: -223999707
         Y: 150000000
   - m_Collider: {fileID: 903147088}
     m_ColliderPaths:
-    - - X: -221100000
-        Y: 450000000
-      - X: -338900000
-        Y: 450000000
-      - X: -338900000
+    - - X: -221100293
         Y: 430000000
-      - X: -221100000
+      - X: -221100293
+        Y: 450000000
+      - X: -338900000
+        Y: 449999707
+      - X: -338899707
         Y: 430000000
   - m_Collider: {fileID: 1427862574}
     m_ColliderPaths:
-    - - X: 1140000000
-        Y: 170000000
-      - X: 380000000
-        Y: 170000000
-      - X: 380000000
+    - - X: 1139999707
         Y: 150000000
-      - X: 1140000000
+      - X: 1139999707
+        Y: 170000000
+      - X: 380000000
+        Y: 169999707
+      - X: 380000293
         Y: 150000000
   - m_Collider: {fileID: 310091764}
     m_ColliderPaths:
-    - - X: -360000000
-        Y: 150000000
-      - X: -380000000
-        Y: 150000000
-      - X: -380000000
+    - - X: -360000293
         Y: -150000000
-      - X: -360000000
+      - X: -360000293
+        Y: 150000000
+      - X: -380000000
+        Y: 149999707
+      - X: -379999707
         Y: -150000000
   - m_Collider: {fileID: 2045423922}
     m_ColliderPaths:
-    - - X: -320000000
-        Y: 450000000
-      - X: -340000000
-        Y: 450000000
-      - X: -340000000
+    - - X: -320000293
         Y: 150000000
-      - X: -320000000
+      - X: -320000293
+        Y: 450000000
+      - X: -340000000
+        Y: 449999707
+      - X: -339999707
         Y: 150000000
   - m_Collider: {fileID: 149084017}
     m_ColliderPaths:
-    - - X: -220000000
-        Y: 450000000
-      - X: -240000000
-        Y: 450000000
-      - X: -240000000
+    - - X: -220000293
         Y: 150000000
-      - X: -220000000
+      - X: -220000293
+        Y: 450000000
+      - X: -240000000
+        Y: 449999707
+      - X: -239999707
         Y: 150000000
   - m_Collider: {fileID: 164574185}
     m_ColliderPaths:
-    - - X: 1140000000
-        Y: 150000000
-      - X: 1120000000
-        Y: 150000000
-      - X: 1120000000
+    - - X: 1139999707
         Y: -50000000
-      - X: 1140000000
+      - X: 1139999707
+        Y: 150000000
+      - X: 1120000000
+        Y: 149999707
+      - X: 1120000293
         Y: -50000000
   - m_Collider: {fileID: 786730079}
     m_ColliderPaths:
-    - - X: 1140000000
-        Y: 60000080
-      - X: 1120000000
-        Y: 60000080
-      - X: 1120000000
+    - - X: 1139999707
         Y: -40000080
-      - X: 1140000000
+      - X: 1139999707
+        Y: 60000080
+      - X: 1120000000
+        Y: 59999787
+      - X: 1120000293
         Y: -40000080
   - m_Collider: {fileID: 405785912}
     m_ColliderPaths:
-    - - X: 400000000
-        Y: 6199999
-      - X: 320000000
-        Y: 6199999
-      - X: 320000000
+    - - X: 399999707
         Y: -153800000
-      - X: 400000000
+      - X: 399999707
+        Y: 6199999
+      - X: 320000000
+        Y: 6199706
+      - X: 320000293
         Y: -153800000
   - m_Collider: {fileID: 494638346}
     m_ColliderPaths:
-    - - X: 250000000
-        Y: 170000000
-      - X: 210000000
-        Y: 170000000
-      - X: 210000000
+    - - X: 249999707
         Y: -57999996
-      - X: 250000000
+      - X: 249999707
+        Y: 170000000
+      - X: 210000000
+        Y: 169999707
+      - X: 210000293
         Y: -57999996
   m_CompositePaths:
     m_Paths:
-    - - {x: 112, y: -5}
-      - {x: 114, y: -5}
-      - {x: 114, y: 17}
-      - {x: -22, y: 17}
-      - {x: -22, y: 45}
-      - {x: -34, y: 45}
-      - {x: -34, y: 17}
-      - {x: -37.97676, y: 17}
-      - {x: -37.97676, y: 15}
-      - {x: -38, y: 15}
-      - {x: -38, y: -17}
-      - {x: 114, y: -17}
-      - {x: 114, y: -15}
-      - {x: 40, y: -15}
-      - {x: 40, y: 0.6199999}
-      - {x: 32, y: 0.6199999}
-      - {x: 32, y: -15}
-      - {x: -36, y: -15}
+    - - {x: 113.99994, y: -17}
+      - {x: 113.99994, y: -15}
+      - {x: 39.999973, y: -14.999999}
+      - {x: 39.999943, y: 0.6199999}
+      - {x: 32, y: 0.6199413}
+      - {x: 32, y: -15.000002}
+      - {x: -36.00003, y: -14.999999}
       - {x: -36, y: 15}
-      - {x: -32, y: 15}
+      - {x: -32.00003, y: 15.000029}
       - {x: -32, y: 43}
-      - {x: -24, y: 43}
-      - {x: -24, y: 15}
-      - {x: 21, y: 15}
-      - {x: 21, y: -5.7999997}
-      - {x: 25, y: -5.7999997}
+      - {x: -23.999998, y: 42.999973}
+      - {x: -23.99994, y: 15}
+      - {x: 21.000004, y: 14.999971}
+      - {x: 21.00006, y: -5.7999997}
+      - {x: 24.999971, y: -5.7999706}
       - {x: 25, y: 15}
-      - {x: 112, y: 15}
+      - {x: 112, y: 14.999971}
+      - {x: 112.00007, y: -5}
+      - {x: 113.99998, y: -4.999971}
+      - {x: 113.99994, y: 17}
+      - {x: -22.000029, y: 17}
+      - {x: -22.00006, y: 45}
+      - {x: -34, y: 44.999943}
+      - {x: -34.000004, y: 16.99999}
+      - {x: -37.97676, y: 16.99994}
+      - {x: -37.97676, y: 14.999971}
+      - {x: -38, y: 14.999941}
+      - {x: -37.999943, y: -17}
   m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
 --- !u!50 &2090543717
 Rigidbody2D:
   serializedVersion: 4

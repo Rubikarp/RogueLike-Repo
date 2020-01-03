@@ -10,6 +10,8 @@ TagManager:
   - Decor Interactif
   - damage
   - SoundManager
+  - NRJ
+  - Life
   layers:
   - Default
   - TransparentFX
@@ -26,8 +28,8 @@ TagManager:
   - Ennemis
   - Player
   - Camera
-  - 
-  - 
+  - Damage
+  - PlyerDamage
   - 
   - 
   - 

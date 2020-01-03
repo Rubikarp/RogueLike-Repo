@@ -1,12 +1,19 @@
 ﻿using UnityEngine;
+using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class ARDE_CharacterLifeSystem : ARDE_LifeSystem
+public class ARDE_CharacterLifeSystem : MonoBehaviour
 {
+    protected Transform mySelf = default;
+    protected Rigidbody2D myBody = default;
+    protected GameObject Me = default;
+    public ARDE_ScreenShake cameraShake = default;
+    public bool haveTakeDamage = false;
+    public int health = 5;
+    public ARDE_SoundManager soundManager = default;
     public GameObject player = default;
-    public new ARDE_SoundManager soundManager = default;
-   
     public ARDE_2DCharacterMovement mouv = default;
+
     [SerializeField]
     CharacterState state = default;
 
@@ -19,6 +26,12 @@ public class ARDE_CharacterLifeSystem : ARDE_LifeSystem
     private int maxEnergie = 100;
 
     float time = 0f;
+
+    [Range(0, 1)]
+    public float bulletScreenShake = 0.2f, attackScreenShake = 0.4f;
+
+    [Range(0.5f, 3)]
+    public float knockbackSensitivity = 1f;
 
     void Start()
     {
@@ -63,6 +76,15 @@ public class ARDE_CharacterLifeSystem : ARDE_LifeSystem
             }
         }
 
+        if (hit.CompareTag("NRJ"))
+        {
+            gainNRJ(2);
+        }
+
+        if (hit.CompareTag("Life"))
+        {
+            gainLife(1);
+        }
     }
 
     void Update()
@@ -76,11 +98,16 @@ public class ARDE_CharacterLifeSystem : ARDE_LifeSystem
         EnergieFill(energieParSec);
     }
 
+    public int ClampInt(int value, int MaxValue)
+    {
+        return Mathf.Clamp(value, 0, MaxValue);
+    }
+
     public void EnergieFill(int EnergieParSec)
     {
-        if (time > (1f/EnergieParSec))
+        if (time > (1f / EnergieParSec))
         {
-            energie ++;
+            energie++;
             time = 0f;
         }
     }
@@ -89,12 +116,12 @@ public class ARDE_CharacterLifeSystem : ARDE_LifeSystem
     {
         health += bonusHealth;
         state.soundManager.Play("Loot");
-
     }
 
-    public int ClampInt(int value, int MaxValue)
+    public void gainNRJ(int bonusNRJ)
     {
-        return Mathf.Clamp(value, 0, MaxValue);
+        energie += bonusNRJ;
+        state.soundManager.Play("Loot");
     }
 
     public void energieAttack(int energieCost)
@@ -102,7 +129,7 @@ public class ARDE_CharacterLifeSystem : ARDE_LifeSystem
         energie -= energieCost;
     }
 
-    new void TakeKnockBack(float knockbackPower, Transform attackSource)
+    void TakeKnockBack(float knockbackPower, Transform attackSource)
     {
         // La direction de l'attaque
         Vector2 knockBackDirection = mySelf.position - attackSource.position;
@@ -113,13 +140,13 @@ public class ARDE_CharacterLifeSystem : ARDE_LifeSystem
 
     }
 
-    new void TakeDamage(int damage)
+    void TakeDamage(int damage)
     {
         health -= damage;
         state.soundManager.Play("Mort");
     }
 
-    new void isAlive(GameObject Me, float DeathScrennShake)
+    void isAlive(GameObject Me, float DeathScrennShake)
     {
         if (health <= 0)
         {
@@ -131,5 +158,15 @@ public class ARDE_CharacterLifeSystem : ARDE_LifeSystem
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
 
         }
+    }
+
+    protected IEnumerator damageInvulnerabilty(float duration)
+    {
+        haveTakeDamage = true;
+
+        yield return new WaitForSeconds(duration);
+
+        haveTakeDamage = false;
+
     }
 }

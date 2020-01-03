@@ -83,6 +83,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -214,6 +215,11 @@ MonoBehaviour:
   haveTakeDamage: 0
   health: 1
   soundManager: {fileID: 0}
+  heart: {fileID: 1754641479522917262, guid: c602880a8f047a74483293fe8a27dd75, type: 3}
+  pointNRJ: {fileID: 7217022867515649967, guid: a59ac26f607768f4eac129e51da104c8,
+    type: 3}
+  heartProba: 33
+  numberOfNRJ: 5
   bulletScreenShake: 0.2
   attackScreenShake: 0.2
   knockbackSensitivity: 1

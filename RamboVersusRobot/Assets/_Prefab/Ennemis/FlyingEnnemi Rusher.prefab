@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec14ecaf45e9b54449fc2b8058b7a1b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackPrefab: {fileID: 0}
+  attackPrefab: {fileID: 5171772973447177717}
   attackPos: {fileID: 0}
   damage: 1
   knockback: 120
@@ -65,9 +65,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.4, y: 0}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.6
+  m_Radius: 2
 --- !u!212 &5171772973447177719
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -93,6 +93,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -142,6 +143,7 @@ TrailRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -346,6 +348,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -435,6 +438,11 @@ MonoBehaviour:
   haveTakeDamage: 0
   health: 2
   soundManager: {fileID: 0}
+  heart: {fileID: 1754641479522917262, guid: c602880a8f047a74483293fe8a27dd75, type: 3}
+  pointNRJ: {fileID: 7217022867515649967, guid: a59ac26f607768f4eac129e51da104c8,
+    type: 3}
+  heartProba: 66
+  numberOfNRJ: 5
   bulletScreenShake: 0.2
   attackScreenShake: 0.2
   knockbackSensitivity: 1

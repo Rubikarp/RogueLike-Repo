@@ -12,6 +12,11 @@ public class ARDE_LifeSystem : MonoBehaviour
     public int health = 5;
     public ARDE_SoundManager soundManager = default;
 
+    public GameObject heart, pointNRJ = default;
+    [Range(0,100)]
+    public float heartProba = 0.3f;
+    public float numberOfNRJ = 5;
+
     [Range(0,1)]
     public float bulletScreenShake = 0.2f, attackScreenShake = 0.4f;
 
@@ -76,6 +81,19 @@ public class ARDE_LifeSystem : MonoBehaviour
         if (health <= 0)
         {
             cameraShake.trauma += DeathScrennShake;
+
+            for (int i = 0; i != numberOfNRJ; i++)
+            {
+                Instantiate(pointNRJ, mySelf.position, mySelf.rotation);
+            }
+
+            float alea;
+            alea = Random.Range(0f, 100f);
+            if(alea < heartProba)
+            {
+                Instantiate(heart, mySelf.position, mySelf.rotation);
+            }
+
 
             soundManager.Play("RobotDeath");
             Destroy(Me);
