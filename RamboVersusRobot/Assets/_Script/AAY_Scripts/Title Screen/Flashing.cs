@@ -1,22 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Flashing : MonoBehaviour
 {
-	public GameObject flashing_Label;
-	public float interval;
-
+    public GameObject flashing_Label;
+    public float flashInterval;
+    
     void Start()
     {
-        InvokeRepeating("FlashLabel", 0, interval);
+        InvokeRepeating("FlashLabel", 0, flashInterval);
     }
 
 	void FlashLabel()
 	{
-		if(flashing_Label.activeSelf)
-			flashing_Label.SetActive(false);
-		else
-			flashing_Label.SetActive(true);
+        flashing_Label.SetActive(!flashing_Label.activeInHierarchy);
 	}
+
 }
