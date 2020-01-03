@@ -7,11 +7,16 @@ public class ARDE_EnnemisGround01 : ARDE_EnnemisBehavior
     [Header("Ground Base")]
     public GameObject attack;
     public Transform attackContainer;
+    public Animator animator;
     public float attackCoolDown = 0.8f;
     public float attackDuration = 0.3f;
     public bool haveAttack = false;
+    bool isRunning = false;
+    bool isAttacking = false;
 
     public float attackDistance = 10f;
+
+
 
     void Start()
     {
@@ -38,6 +43,8 @@ public class ARDE_EnnemisGround01 : ARDE_EnnemisBehavior
 
         TrackPlayer();
 
+        animator.SetBool("RobotRunning", isRunning);
+        animator.SetBool("RobotAttack", IsAttacking);
     }
 
     private void OnDrawGizmos()
@@ -49,6 +56,11 @@ public class ARDE_EnnemisGround01 : ARDE_EnnemisBehavior
 
     protected void TrackPlayer()
     {
+        if (IsAttacking)
+        {
+            IsAttacking = false;
+        }
+
         if (playerDetecting)
         {
             if (playerToNear)
@@ -66,10 +78,20 @@ public class ARDE_EnnemisGround01 : ARDE_EnnemisBehavior
             }
         }
 
+        if (Mathf.Abs(myBody.velocity.x) > 2)
+        {
+            isRunning = true;
+        }
+        else
+        {
+            isRunning = false;
+        }
+
         if ((Mathf.Abs(player.position.x - transform.position.x)) < attackDistance && playerDistance < attackDistance* attackDistance)
         {
             if (!haveAttack)
             {
+                IsAttacking = true;
                 StartCoroutine(Attack(attackCoolDown, attackDuration));
             }
         }
