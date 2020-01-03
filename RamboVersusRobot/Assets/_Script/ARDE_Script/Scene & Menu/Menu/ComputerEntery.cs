@@ -34,7 +34,7 @@ public class ComputerEntery : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collision)
     {
-        if (Input.GetButtonDown("attackLight"))
+        if (Input.GetButtonDown("Saut"))
         {
             if (!isInMenu)
             {
