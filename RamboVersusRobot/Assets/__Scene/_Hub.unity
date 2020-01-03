@@ -8846,7 +8846,7 @@ MonoBehaviour:
   sounds:
   - name: Course
     clip: {fileID: 8300000, guid: 8002f9276b8599c43ae6d2b7dd2c1d5d, type: 3}
-    volume: 0.03
+    volume: 0.3
     pitch: 0.85
     loop: 0
     source: {fileID: 0}

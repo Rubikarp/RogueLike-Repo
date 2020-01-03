@@ -1538,43 +1538,43 @@ MonoBehaviour:
   sounds:
   - name: Course
     clip: {fileID: 8300000, guid: 8002f9276b8599c43ae6d2b7dd2c1d5d, type: 3}
-    volume: 0.03
+    volume: 0.3
     pitch: 0.85
     loop: 0
     source: {fileID: 0}
   - name: AttackLight
     clip: {fileID: 8300000, guid: 4b46b2b6c188d744e96b2f4d171f2d0d, type: 3}
-    volume: 0.2
+    volume: 2
     pitch: 0.75
     loop: 0
     source: {fileID: 0}
   - name: "AttackSp\xE9"
     clip: {fileID: 8300000, guid: 25c343035dda52a4abf99d0eb712310b, type: 3}
-    volume: 0.2
+    volume: 2
     pitch: 1.8
     loop: 0
     source: {fileID: 0}
   - name: Dash
     clip: {fileID: 8300000, guid: 25c343035dda52a4abf99d0eb712310b, type: 3}
-    volume: 0.1
+    volume: 1
     pitch: 2
     loop: 0
     source: {fileID: 0}
   - name: Mort
     clip: {fileID: 8300000, guid: 9c042dc81f56ab443b4636e8df1aefe0, type: 3}
-    volume: 0.05
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Loot
     clip: {fileID: 8300000, guid: fa1494ff0afb5e74b98f88d8c77eb6d7, type: 3}
-    volume: 0.03
+    volume: 0.3
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: LaRun
     clip: {fileID: 8300000, guid: e53a59870af17404688110d61f432d34, type: 3}
-    volume: 0.02
+    volume: 0.2
     pitch: 0.99
     loop: 1
     source: {fileID: 0}
@@ -13712,25 +13712,25 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: RobotHit
     clip: {fileID: 8300000, guid: 520ca59799f45ae479c4ce7d98c116ab, type: 3}
-    volume: 0.3
+    volume: 3
     pitch: 1.2
     loop: 0
     source: {fileID: 0}
   - name: RobotShoot
     clip: {fileID: 8300000, guid: 42d263071a4f4574e8b9843588853e39, type: 3}
-    volume: 0.02
+    volume: 0.2
     pitch: 3
     loop: 0
     source: {fileID: 0}
   - name: RobotDeath
     clip: {fileID: 8300000, guid: 05b35b4b4de37da46b99fa0074d59ae1, type: 3}
-    volume: 0.1
+    volume: 1
     pitch: 3
     loop: 0
     source: {fileID: 0}
   - name: RobotAttack
     clip: {fileID: 8300000, guid: 520ca59799f45ae479c4ce7d98c116ab, type: 3}
-    volume: 0.2
+    volume: 2
     pitch: 3
     loop: 0
     source: {fileID: 0}
