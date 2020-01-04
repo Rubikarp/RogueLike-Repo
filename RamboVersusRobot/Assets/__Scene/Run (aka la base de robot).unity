@@ -7873,7 +7873,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944650448}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.7, y: 5.550522, z: -10}
+  m_LocalPosition: {x: -28, y: 45.85052, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1459924108}
@@ -8222,7 +8222,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1043705961}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.7, y: 5.550522, z: -10}
+  m_LocalPosition: {x: -28, y: 45.85052, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1213297850}
@@ -13958,26 +13958,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeSystem: {fileID: 978850034}
+  lightEnergieCost: 1
+  heavyEnergieCost: 15
   attackLight: {fileID: 1203919331608374929, guid: 7fe0f9196d4a4ba49bd0607851e9d23a,
     type: 3}
-  lightEnergieCost: 1
   lightAttackDash: {x: 10, y: 0}
   rotZ: 0
   attackHeavyNeutral: {fileID: 1203919331608374929, guid: 4400cdf47906eca49a0d62d357caf6ee,
     type: 3}
   airNeutralTime: 1
-  heavyNeutralEnergieCost: 10
   attackHeavySide: {fileID: 7698298301457664109, guid: dee48c1322728524cb3f2e979947dcfb,
     type: 3}
   airSideTime: 1.2
-  heavySideEnergieCost: 10
   attackHeavySideDuration: 1
   attackHeavyUp: {fileID: 8852770581966534224, guid: e2c634568d9e67146b364f2b835dd42b,
     type: 3}
-  heavyUpEnergieCost: 10
   attackHeavyDown: {fileID: 1395229078095264524, guid: 466f9da11b153bd47bfe063c5b01ea82,
     type: 3}
-  heavyDownEnergieCost: 10
 --- !u!1 &1405739181
 GameObject:
   m_ObjectHideFlags: 0
@@ -14896,7 +14893,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619806515}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.7, y: -1.6, z: 0}
+  m_LocalPosition: {x: -28, y: 38.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1398740221}
@@ -15008,6 +15005,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 1637994679}
   stickDirection: {x: 0, y: 0}
+  stickDirectionBrut: {x: 0, y: 0}
   stickX: 0
   stickY: 0
   stickXabs: 0

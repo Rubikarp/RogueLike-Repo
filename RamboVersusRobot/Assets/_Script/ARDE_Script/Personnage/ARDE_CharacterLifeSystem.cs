@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ARDE_CharacterLifeSystem : MonoBehaviour
@@ -15,7 +15,7 @@ public class ARDE_CharacterLifeSystem : MonoBehaviour
     public ARDE_2DCharacterMovement mouv = default;
 
     [SerializeField]
-    CharacterState state = default;
+    private CharacterState state = default;
 
     // health already define
     private int maxHealth = 7;
@@ -25,7 +25,7 @@ public class ARDE_CharacterLifeSystem : MonoBehaviour
     public int energieParSec = 3;
     private int maxEnergie = 100;
 
-    float time = 0f;
+    private float time = 0f;
 
     [Range(0, 1)]
     public float bulletScreenShake = 0.2f, attackScreenShake = 0.4f;
@@ -33,46 +33,55 @@ public class ARDE_CharacterLifeSystem : MonoBehaviour
     [Range(0.5f, 3)]
     public float knockbackSensitivity = 1f;
 
-    void Start()
+    private void Start()
     {
         mySelf = this.transform;
         myBody = GetComponentInParent<Rigidbody2D>();
 
         GameObject cam = GameObject.FindGameObjectWithTag("MainCamera");
         cameraShake = cam.GetComponent<ARDE_ScreenShake>();
+    }
 
+    private void Update()
+    {
+        health = ClampInt(health, maxHealth);
+        energie = ClampInt(energie, maxEnergie);
+
+        isAlive(player, 1f);
+
+        time += Time.deltaTime;
+        EnergieFill(energieParSec);
     }
 
     private void OnTriggerEnter2D(Collider2D hit)
     {
-
         if (!haveTakeDamage)
         {
             if (hit.CompareTag("damage"))
             {
-            GameObject objectAttack = hit.gameObject;
-            ARDE_AttackSystem attack = objectAttack.GetComponentInParent<ARDE_AttackSystem>();
+                GameObject objectAttack = hit.gameObject;
+                ARDE_AttackSystem attack = objectAttack.GetComponentInParent<ARDE_AttackSystem>();
 
-            //S'il s'agit d'un projectile
-            if (attack == null)
-            {
-                ARDE_Projectile bullet = objectAttack.GetComponentInParent<ARDE_Projectile>();
-                TakeDamage(bullet.damage);
-                TakeKnockBack(bullet.knockback, bullet.mySelf);
+                //S'il s'agit d'un projectile
+                if (attack == null)
+                {
+                    ARDE_Projectile bullet = objectAttack.GetComponentInParent<ARDE_Projectile>();
+                    TakeDamage(bullet.damage);
+                    TakeKnockBack(bullet.knockback, bullet.mySelf);
 
-                cameraShake.trauma += bulletScreenShake;
+                    cameraShake.trauma += bulletScreenShake;
 
-                StartCoroutine(damageInvulnerabilty(0.2f));
+                    StartCoroutine(damageInvulnerabilty(0.2f));
 
-                return;
-            }
+                    return;
+                }
 
-            TakeDamage(attack.damage);
-            TakeKnockBack(attack.knockback, attack.attackPos);
+                TakeDamage(attack.damage);
+                TakeKnockBack(attack.knockback, attack.attackPos);
 
-            cameraShake.trauma += attackScreenShake;
+                cameraShake.trauma += attackScreenShake;
 
-            StartCoroutine(damageInvulnerabilty(0.3f));
+                StartCoroutine(damageInvulnerabilty(0.3f));
             }
         }
 
@@ -87,20 +96,22 @@ public class ARDE_CharacterLifeSystem : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        health = ClampInt(health, maxHealth);
-        energie = ClampInt(energie, maxEnergie);
-
-        isAlive(player,1f);
-
-        time += Time.deltaTime;
-        EnergieFill(energieParSec);
-    }
-
     public int ClampInt(int value, int MaxValue)
     {
         return Mathf.Clamp(value, 0, MaxValue);
+    }
+
+    private void isAlive(GameObject Me, float DeathScrennShake)
+    {
+        if (health <= 0)
+        {
+            cameraShake.trauma += DeathScrennShake;
+
+            soundManager.Play("Mort");
+
+            new WaitForSeconds(0.3f);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        }
     }
 
     public void EnergieFill(int EnergieParSec)
@@ -129,35 +140,20 @@ public class ARDE_CharacterLifeSystem : MonoBehaviour
         energie -= energieCost;
     }
 
-    void TakeKnockBack(float knockbackPower, Transform attackSource)
+    private void TakeKnockBack(float knockbackPower, Transform attackSource)
     {
         // La direction de l'attaque
         Vector2 knockBackDirection = mySelf.position - attackSource.position;
         knockBackDirection.Normalize();
 
         // Subit le recul de l'attaque
-        myBody.velocity = knockBackDirection * knockbackSensitivity * knockbackPower + new Vector2(0,10);
-
+        myBody.velocity = knockBackDirection * knockbackSensitivity * knockbackPower + new Vector2(0, 10);
     }
 
-    void TakeDamage(int damage)
+    private void TakeDamage(int damage)
     {
         health -= damage;
         state.soundManager.Play("Mort");
-    }
-
-    void isAlive(GameObject Me, float DeathScrennShake)
-    {
-        if (health <= 0)
-        {
-            cameraShake.trauma += DeathScrennShake;
-
-            soundManager.Play("Mort");
-
-            new WaitForSeconds(0.3f);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-
-        }
     }
 
     protected IEnumerator damageInvulnerabilty(float duration)
@@ -167,6 +163,5 @@ public class ARDE_CharacterLifeSystem : MonoBehaviour
         yield return new WaitForSeconds(duration);
 
         haveTakeDamage = false;
-
     }
 }

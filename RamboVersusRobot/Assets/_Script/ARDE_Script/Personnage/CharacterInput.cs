@@ -1,16 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CharacterInput : MonoBehaviour
 {
     public SpriteRenderer sprite = null;
 
     #region Input
+
     [Header("Inputs")]
     [HeaderAttribute("Stick")]
+
     //Direction du stick
     public Vector2 stickDirection;
+    public Vector2 stickDirectionBrut;
+
     //Valeur du stick sur l'axe X et Y
     public float stickX = 0, stickY = 0;
     public float stickXabs = 0, stickYabs = 0;
@@ -39,7 +41,8 @@ public class CharacterInput : MonoBehaviour
     public bool grabEnter;
     public bool grab;
     public bool grabExit;
-    #endregion
+
+    #endregion Input
 
     [Header("Herited")]
     public int lookingRight = 1;
@@ -49,34 +52,36 @@ public class CharacterInput : MonoBehaviour
         #region PrendsLesInputs
 
         //Je prends les valeurs du stick
-        stickX             = Input.GetAxis("Horizontal");
-        stickY             = Input.GetAxis("Vertical");
-        stickXabs          = Mathf.Abs(Input.GetAxisRaw("Horizontal"));
-        stickYabs          = Mathf.Abs(Input.GetAxisRaw("Vertical"));
+        stickX = Input.GetAxis("Horizontal");
+        stickY = Input.GetAxis("Vertical");
+        stickXabs = Mathf.Abs(Input.GetAxisRaw("Horizontal"));
+        stickYabs = Mathf.Abs(Input.GetAxisRaw("Vertical"));
 
-        stickDirection     = new Vector2(stickX, stickY).normalized;
+        stickDirection = new Vector2(stickX, stickY).normalized;
+        stickDirectionBrut = new Vector2(stickX, stickY);
 
         //Je prends les buttons
-        dash               = Input.GetButton("Dash");
-        dashEnter          = Input.GetButtonDown("Dash");
-        dashExit           = Input.GetButtonUp("Dash");
+        dash = Input.GetButton("Dash");
+        dashEnter = Input.GetButtonDown("Dash");
+        dashExit = Input.GetButtonUp("Dash");
 
-        jump               = Input.GetButton("Saut");
-        jumpEnter          = Input.GetButtonDown("Saut");
-        jumpExit           = Input.GetButtonUp("Saut");
+        jump = Input.GetButton("Saut");
+        jumpEnter = Input.GetButtonDown("Saut");
+        jumpExit = Input.GetButtonUp("Saut");
 
-        attackLight        = Input.GetButton("attackLight");
-        attackLightEnter   = Input.GetButtonDown("attackLight");
-        attackLightExit    = Input.GetButtonUp("attackLight");
+        attackLight = Input.GetButton("attackLight");
+        attackLightEnter = Input.GetButtonDown("attackLight");
+        attackLightExit = Input.GetButtonUp("attackLight");
 
-        attackHeavy        = Input.GetButton("attackHeavy");
-        attackHeavyEnter   = Input.GetButtonDown("attackHeavy");
-        attackHeavyExit    = Input.GetButtonUp("attackHeavy");
+        attackHeavy = Input.GetButton("attackHeavy");
+        attackHeavyEnter = Input.GetButtonDown("attackHeavy");
+        attackHeavyExit = Input.GetButtonUp("attackHeavy");
 
         grab = Input.GetButton("Grab");
         grabEnter = Input.GetButtonDown("Grab");
         grabExit = Input.GetButtonUp("Grab");
-        #endregion
+
+        #endregion PrendsLesInputs
 
         IslookingRight();
     }

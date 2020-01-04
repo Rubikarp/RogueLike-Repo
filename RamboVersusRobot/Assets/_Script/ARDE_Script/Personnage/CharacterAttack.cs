@@ -3,70 +3,82 @@ using UnityEngine;
 
 public class CharacterAttack : MonoBehaviour
 {
-    CharacterInput input = default;
-    CharacterState state = default;
-    Transform attackFrom = default;
+    private CharacterInput input = default;
+    private CharacterState state = default;
+    private Transform attackFrom = default;
 
     [SerializeField]
-    ARDE_CharacterLifeSystem lifeSystem = default;
+    private ARDE_CharacterLifeSystem lifeSystem = default;
 
-    enum Attack {Neutral, Side, Up, Down }
-    Attack attackDirection = default;
+    private enum Direction
+    { Neutral, Left, Right, Up, Down }
+    private Direction attackDirection = default;
+
+    public int lightEnergieCost = 1;
+    public int heavyEnergieCost = 15;
 
     [Header("Classique")]
     public GameObject attackLight = default;
-    public int lightEnergieCost = 1;
     public Vector2 lightAttackDash = new Vector2(10f, 0f);
     [SerializeField] private float rotZ;
-    [Space(10)]
 
+    [Space(10)]
     [Header("Neutral")]
     public GameObject attackHeavyNeutral = default;
     public float airNeutralTime = 1f;
-    public int heavyNeutralEnergieCost = 15;
-    [Space(10)]
 
+    [Space(10)]
     [Header("Side")]
     public GameObject attackHeavySide = default;
     public float airSideTime = 1f;
-    public int heavySideEnergieCost = 15;
     public float attackHeavySideDuration = 1.5f;
-    [Space(10)]
 
+    [Space(10)]
     [Header("Up")]
     public GameObject attackHeavyUp = default;
-    public int heavyUpEnergieCost = 15;
-    [Space(10)]
 
+    [Space(10)]
     [Header("Down")]
     public GameObject attackHeavyDown = default;
-    public int heavyDownEnergieCost = 15;
 
-    void Start()
+    private void Start()
     {
         attackFrom = this.transform;
         input = GetComponentInParent<CharacterInput>();
         state = GetComponentInParent<CharacterState>();
     }
 
-    void Update()
+    private void Update()
     {
-        if (input.attackLightEnter)
+        if (state.canAttack)
         {
-            defaultAttack();
-            state.soundManager.Play("AttackLight");
+            if (input.attackLightEnter && lifeSystem.energie > lightEnergieCost)
+            {
+                state.canAttack = false;
 
-        }
-        else
-        if (input.attackHeavyEnter)
-        {
-            specialAttack();
-            state.soundManager.Play("AttackSpé");
+                defaultAttack();
 
+                lifeSystem.energieAttack(lightEnergieCost);
+
+                state.soundManager.Play("AttackLight");
+            }
+            else
+            if (input.attackHeavyEnter && lifeSystem.energie > heavyEnergieCost)
+            {
+                state.canAttack = false;
+
+                specialAttack();
+
+                StartCoroutine(activateAttackIn());
+
+                lifeSystem.energieAttack(heavyEnergieCost);
+
+                state.soundManager.Play("AttackSpé");
+            }
         }
     }
 
-    void defaultAttack()
+    private void defaultAttack()
     {
         state.isAttackingLight = true;
 
@@ -89,7 +101,7 @@ public class CharacterAttack : MonoBehaviour
                 state.body.velocity += lightAttackDash;
             }
         }
-        else  
+        else
         {
             attackFrom.transform.rotation = Quaternion.Euler(0f, 0f, rotZ);
             state.body.velocity += input.stickDirection * lightAttackDash;
@@ -98,66 +110,73 @@ public class CharacterAttack : MonoBehaviour
         Instantiate(attackLight, attackFrom);
         lifeSystem.energieAttack(lightEnergieCost);
 
-        StartCoroutine(activateAttackIn(state.isAttackingLight));
+        StartCoroutine(activateAttackIn());
     }
 
-    void specialAttack()
+    private void specialAttack()
     {
-        //Neutral Spécial
-        if (input.stickXabs < 0.3 && input.stickYabs < 0.3 && lifeSystem.energie > heavyNeutralEnergieCost)
+        attackFrom.transform.rotation = Quaternion.Euler(0f, state.isLookingRight ? 0f : 180f, 0f);
+
+        attackDirection = DetermineAttackDirection(input.stickDirectionBrut);
+
+        switch (attackDirection)
         {
-            state.isAttackingNeutral = true;
+            case Direction.Neutral:
 
-            lifeSystem.energieAttack(heavyNeutralEnergieCost);
+                break;
 
-            attackFrom.transform.rotation = Quaternion.Euler(0f, state.isLookingRight?0f:180f, 0f);
-            Instantiate(attackHeavyNeutral, attackFrom);
+            case Direction.Left:
 
-            StartCoroutine(AirMaintain(airNeutralTime));
+                break;
 
-            StartCoroutine(activateAttackIn(state.isAttackingNeutral));
+            case Direction.Right:
+
+                break;
+
+            case Direction.Up:
+
+                break;
+
+            case Direction.Down:
+
+                break;
         }
-        //Side Spécial
-        else if (input.stickXabs > 0.3 && input.stickXabs > input.stickYabs && lifeSystem.energie > heavySideEnergieCost)
-        {
-            state.isAttackingSide = true;
 
-            lifeSystem.energieAttack(heavySideEnergieCost);
-
-            attackFrom.transform.rotation = Quaternion.Euler(0f, state.isLookingRight ? 0f : 180f, 0f);
-            Instantiate(attackHeavySide, attackFrom);
-
-            StartCoroutine(AirMaintain(airSideTime));
-
-            StartCoroutine(activateAttackIn( state.isAttackingSide));
-        }
-        // Up Spécial
-        else if (input.stickYabs > 0.3 && input.stickYabs > input.stickXabs && input.stickY > 0 && lifeSystem.energie > heavyUpEnergieCost)
-        {
-            state.isAttackingUp = true;
-
-            lifeSystem.energieAttack(heavyUpEnergieCost);
-
-            attackFrom.transform.rotation = Quaternion.Euler(0f, state.isLookingRight ? 0f : 180f, 0f);
-            Instantiate(attackHeavyUp, attackFrom);
-
-            StartCoroutine(activateAttackIn( state.isAttackingUp));
-        }
-        // Down Spécial
-        else if (input.stickYabs > 0.3 && input.stickYabs > input.stickXabs && input.stickY < 0 && lifeSystem.energie > heavyDownEnergieCost)
-        {
-            state.isAttackingDown = true;
-
-            lifeSystem.energieAttack(heavyDownEnergieCost);
-
-            attackFrom.transform.rotation = Quaternion.Euler(0f, state.isLookingRight ? 0f : 180f, 0f);
-            Instantiate(attackHeavyDown, attackFrom);
-
-            StartCoroutine(activateAttackIn( state.isAttackingDown));
-        }
     }
 
-    IEnumerator activateAttackIn(bool attackState)
+    private void spacialUp()
+    {
+        state.isAttackingUp = true;
+
+        Instantiate(attackHeavyUp, attackFrom);
+    }
+
+    private void spacialDown()
+    {
+        state.isAttackingDown = true;
+
+        Instantiate(attackHeavyDown, attackFrom);
+    }
+
+    private void spacialSide()
+    {
+        state.isAttackingSide = true;
+
+        Instantiate(attackHeavySide, attackFrom);
+
+        StartCoroutine(AirMaintain(airSideTime));
+    }
+
+    private void spacialNeutral()
+    {
+        state.isAttackingNeutral = true;
+
+        Instantiate(attackHeavyNeutral, attackFrom);
+
+        StartCoroutine(AirMaintain(airNeutralTime));
+    }
+
+    private IEnumerator activateAttackIn()
     {
         yield return new WaitForSeconds(0.3f);
 
@@ -167,23 +186,48 @@ public class CharacterAttack : MonoBehaviour
         state.isAttackingUp = false;
         state.isAttackingDown = false;
 
+        state.canAttack = true;
     }
 
-    IEnumerator AirMaintain(float airMaintienTime)
+    private IEnumerator AirMaintain(float airMaintienTime)
     {
         float time = 0f;
-        
+
         while (time < 1f) //appel la boucle à chaque frame du dash
         {
-            time += Time.deltaTime * (1/ airMaintienTime);
+            time += Time.deltaTime * (1 / airMaintienTime);
             state.body.velocity = new Vector2(0f, 0.9f); //boost appliqué à chaque frame
             yield return 0; //va à la prochaine frame
         }
     }
 
-    void DetermineAttackDirection(float stickX, float stickY)
+    private Direction DetermineAttackDirection(Vector2 StickNotNormalized)
     {
+        //entre 0 et 1
+        float NeutralZone = 0.5f;
 
+        if (StickNotNormalized.normalized.magnitude < NeutralZone)
+        {
+            return Direction.Neutral;
+        }
+        else
+        if (StickNotNormalized.y > Mathf.Abs(StickNotNormalized.x))
+        {
+            return Direction.Up;
+        }
+        else
+        if (-StickNotNormalized.y > Mathf.Abs(StickNotNormalized.x))
+        {
+            return Direction.Down;
+        }
+        else
+        if (0 < StickNotNormalized.x)
+        {
+            return Direction.Right;
+        }
+        else
+        {
+            return Direction.Left;
+        }
     }
-
 }
