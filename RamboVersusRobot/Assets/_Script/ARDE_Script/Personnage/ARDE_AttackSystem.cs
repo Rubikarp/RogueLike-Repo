@@ -5,6 +5,8 @@ using UnityEngine;
 public class ARDE_AttackSystem : MonoBehaviour
 {
     [HideInInspector] public Transform attackPos = default;
+    private CharacterState state = default;
+
     public GameObject attack;
 
     public int damage = 1;
@@ -16,6 +18,8 @@ public class ARDE_AttackSystem : MonoBehaviour
     private void Start()
     {
         attackPos = this.transform;
+        state = GetComponentInParent<CharacterState>();
+
     }
 
     void Update()
@@ -25,6 +29,7 @@ public class ARDE_AttackSystem : MonoBehaviour
             lifeTime -= Time.deltaTime;
             if (lifeTime < 0)
             {
+                state.canAttack = true;
                 //je meurt
                 Destroy(attack);
             }

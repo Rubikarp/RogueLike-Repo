@@ -130,23 +130,23 @@ public class CharacterAttack : MonoBehaviour
         switch (attackDirection)
         {
             case Direction.Neutral:
-
+                spacialNeutral();
                 break;
 
             case Direction.Left:
-
+                spacialSide();
                 break;
 
             case Direction.Right:
-
+                spacialSide();
                 break;
 
             case Direction.Up:
-
+                spacialUp();
                 break;
 
             case Direction.Down:
-
+                spacialDown();
                 break;
         }
 
@@ -174,7 +174,7 @@ public class CharacterAttack : MonoBehaviour
     {
         state.isAttackingSide = true;
 
-        Instantiate(attackHeavySide, attackFrom);
+        attackHeavySide.SetActive(true);
 
         attackHeavySide.SetActive(true);
     }
@@ -183,7 +183,7 @@ public class CharacterAttack : MonoBehaviour
     {
         state.isAttackingNeutral = true;
 
-        Instantiate(attackHeavyNeutral, attackFrom);
+        attackHeavyNeutral.SetActive(true);
 
         attackHeavyNeutral.SetActive(true);
     }
