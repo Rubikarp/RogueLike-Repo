@@ -13,6 +13,8 @@ public class CharacterAnimator : MonoBehaviour
     [Space(30)]
     [SerializeField] ParticleSystem dashParticleLeft = default;
     [SerializeField] ParticleSystem dashParticleRight = default;
+    [SerializeField] GameObject dashParticleLeftGameObject = default;
+    [SerializeField] GameObject dashParticleRightGameObject = default;
     [SerializeField] ParticleSystem dustFall = default;
     [SerializeField] ParticleSystem dustJump = default;
 
@@ -22,6 +24,8 @@ public class CharacterAnimator : MonoBehaviour
         input = this.GetComponentInParent<CharacterInput>();
         state = this.GetComponentInParent<CharacterState>();
         lifeSystem = this.GetComponentInParent<ARDE_CharacterLifeSystem>();
+        dashParticleLeftGameObject = dashParticleLeft.gameObject;
+        dashParticleRightGameObject = dashParticleRight.gameObject;
     }
 
     void Update()
@@ -49,16 +53,23 @@ public class CharacterAnimator : MonoBehaviour
         animator.SetBool("IsOnWall", state.isOnWall);
         animator.SetBool("IsOnGround", state.isOnGround);
 
-        if (!state.isDashing)
+        if (state.isDashing)
         {
             if (state.isLookingRight)
             {
+                dashParticleLeftGameObject.SetActive(true);
                 dashParticleLeft.Play();
             }
-            else
+            else if (!state.isLookingRight)
             {
+                dashParticleRightGameObject.SetActive(true);
                 dashParticleRight.Play();
             }
+        }
+        else
+        {
+            dashParticleLeftGameObject.SetActive(false);
+            dashParticleRightGameObject.SetActive(false);
         }
 
     }

@@ -108,7 +108,6 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
         }
     }
 
-
     void Run()
     {
         if (input.stickXabs > 0)
@@ -280,8 +279,6 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
 
         state.canJump = true;
     }
-
-
 
     IEnumerator Dash(float dashDuration)
     {

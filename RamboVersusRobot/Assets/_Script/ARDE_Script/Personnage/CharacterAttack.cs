@@ -36,16 +36,24 @@ public class CharacterAttack : MonoBehaviour
     [Space(10)]
     [Header("Up")]
     public GameObject attackHeavyUp = default;
+    public float UpJump = 20f;
 
     [Space(10)]
     [Header("Down")]
     public GameObject attackHeavyDown = default;
+    public float DownFall = 20f;
 
     private void Start()
     {
         attackFrom = this.transform;
         input = GetComponentInParent<CharacterInput>();
         state = GetComponentInParent<CharacterState>();
+
+        attackHeavyUp.SetActive(false);
+        attackHeavyDown.SetActive(false);
+        attackHeavyNeutral.SetActive(false);
+        attackHeavySide.SetActive(false);
+
     }
 
     private void Update()
@@ -148,14 +156,18 @@ public class CharacterAttack : MonoBehaviour
     {
         state.isAttackingUp = true;
 
-        Instantiate(attackHeavyUp, attackFrom);
+        state.body.velocity = new Vector2(state.body.velocity.x, UpJump);
+
+        attackHeavyUp.SetActive(true);
     }
 
     private void spacialDown()
     {
         state.isAttackingDown = true;
 
-        Instantiate(attackHeavyDown, attackFrom);
+        state.body.velocity = new Vector2(state.body.velocity.x, -DownFall);
+
+        attackHeavyDown.SetActive(true);
     }
 
     private void spacialSide()
@@ -164,7 +176,7 @@ public class CharacterAttack : MonoBehaviour
 
         Instantiate(attackHeavySide, attackFrom);
 
-        StartCoroutine(AirMaintain(airSideTime));
+        attackHeavySide.SetActive(true);
     }
 
     private void spacialNeutral()
@@ -173,32 +185,7 @@ public class CharacterAttack : MonoBehaviour
 
         Instantiate(attackHeavyNeutral, attackFrom);
 
-        StartCoroutine(AirMaintain(airNeutralTime));
-    }
-
-    private IEnumerator activateAttackIn()
-    {
-        yield return new WaitForSeconds(0.3f);
-
-        state.isAttackingLight = false;
-        state.isAttackingNeutral = false;
-        state.isAttackingSide = false;
-        state.isAttackingUp = false;
-        state.isAttackingDown = false;
-
-        state.canAttack = true;
-    }
-
-    private IEnumerator AirMaintain(float airMaintienTime)
-    {
-        float time = 0f;
-
-        while (time < 1f) //appel la boucle à chaque frame du dash
-        {
-            time += Time.deltaTime * (1 / airMaintienTime);
-            state.body.velocity = new Vector2(0f, 0.9f); //boost appliqué à chaque frame
-            yield return 0; //va à la prochaine frame
-        }
+        attackHeavyNeutral.SetActive(true);
     }
 
     private Direction DetermineAttackDirection(Vector2 StickNotNormalized)
@@ -230,4 +217,37 @@ public class CharacterAttack : MonoBehaviour
             return Direction.Left;
         }
     }
+
+    private IEnumerator activateAttackIn()
+    {
+        new WaitForSeconds(0.3f);
+
+        attackHeavyUp.      SetActive(false);
+        attackHeavyDown.    SetActive(false);
+        attackHeavyNeutral. SetActive(false);
+        attackHeavySide.    SetActive(false);
+
+        state.isAttackingLight = false;
+        state.isAttackingNeutral = false;
+        state.isAttackingSide = false;
+        state.isAttackingUp = false;
+        state.isAttackingDown = false;
+
+        state.canAttack = true;
+
+        yield return null;
+    }
+
+    private IEnumerator AirMaintain(float airMaintienTime)
+    {
+
+        state.body.constraints = RigidbodyConstraints2D.FreezePosition;
+
+        yield return new WaitForSeconds(airMaintienTime);
+
+        state.body.constraints = RigidbodyConstraints2D.None;
+        state.body.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+    }
+
 }
