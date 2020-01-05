@@ -13,6 +13,7 @@ public class ARDE_AttackSystem : MonoBehaviour
     public float knockback = 40f;
 
     public bool haveLifeTime = true;
+    public bool DestroyYesDesactivateNo = true;
     public float lifeTime = 0.3f;
 
     private void Start()
@@ -30,8 +31,17 @@ public class ARDE_AttackSystem : MonoBehaviour
             if (lifeTime < 0)
             {
                 state.canAttack = true;
+
                 //je meurt
-                Destroy(attack);
+                if (DestroyYesDesactivateNo)
+                {
+                    Destroy(attack);
+                }
+                else
+                {
+                    attack.SetActive(false);
+                }
+                
             }
 
         }

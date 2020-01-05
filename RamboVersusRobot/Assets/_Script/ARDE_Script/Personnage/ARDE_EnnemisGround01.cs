@@ -87,7 +87,7 @@ public class ARDE_EnnemisGround01 : ARDE_EnnemisBehavior
             isRunning = false;
         }
 
-        if ((Mathf.Abs(player.position.x - transform.position.x)) < attackDistance && playerDistance < attackDistance* attackDistance)
+        if ((Mathf.Abs(player.position.x - transform.position.x)) < attackDistance && playerDistance < attackDistance * 1.42f)
         {
             if (!haveAttack)
             {

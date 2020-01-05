@@ -31,7 +31,7 @@ public class CharacterAttack : MonoBehaviour
     [Header("Side")]
     public GameObject attackHeavySide = default;
     public float airSideTime = 1f;
-    public float attackHeavySideDuration = 1.5f;
+    public float airSideDuration = 1.5f;
 
     [Space(10)]
     [Header("Up")]
@@ -48,11 +48,6 @@ public class CharacterAttack : MonoBehaviour
         attackFrom = this.transform;
         input = GetComponentInParent<CharacterInput>();
         state = GetComponentInParent<CharacterState>();
-
-        attackHeavyUp.SetActive(false);
-        attackHeavyDown.SetActive(false);
-        attackHeavyNeutral.SetActive(false);
-        attackHeavySide.SetActive(false);
 
     }
 
@@ -174,7 +169,7 @@ public class CharacterAttack : MonoBehaviour
     {
         state.isAttackingSide = true;
 
-        attackHeavySide.SetActive(true);
+        AirMaintain(airSideDuration);
 
         attackHeavySide.SetActive(true);
     }
@@ -183,7 +178,7 @@ public class CharacterAttack : MonoBehaviour
     {
         state.isAttackingNeutral = true;
 
-        attackHeavyNeutral.SetActive(true);
+        AirMaintain(airNeutralTime);
 
         attackHeavyNeutral.SetActive(true);
     }

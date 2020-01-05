@@ -2547,6 +2547,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 851569905}
   stickDirection: {x: 0, y: 0}
+  stickDirectionBrut: {x: 0, y: 0}
   stickX: 0
   stickY: 0
   stickXabs: 0
@@ -8024,6 +8025,8 @@ MonoBehaviour:
   lifeSystem: {fileID: 0}
   dashParticleLeft: {fileID: 1273337481}
   dashParticleRight: {fileID: 756921900}
+  dashParticleLeftGameObject: {fileID: 0}
+  dashParticleRightGameObject: {fileID: 0}
   dustFall: {fileID: 0}
   dustJump: {fileID: 0}
 --- !u!95 &851569904
@@ -9084,7 +9087,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1f543569d6e8e9c4d8968d53e12b75ef, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.04
+  m_Volume: 0.4
   m_Pitch: 1.1
   Loop: 0
   Mute: 0
