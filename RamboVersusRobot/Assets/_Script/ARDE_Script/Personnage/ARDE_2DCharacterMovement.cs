@@ -216,33 +216,31 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
 
     void GrabWall()
     {
-        if(input.grab)
-        { 
+
         //GRAB
-        if (state.isOnWallLeft && !state.isWallJumping && input.stickX != 1f)
+        if (state.isOnWallLeft && !state.isWallJumping && input.stickX != 1f && input.grab)
         {
             //augmente la force qd on est sur les mur
             state.body.velocity += new Vector2(-wallFriction, 0);
 
         }
-        else if (state.isOnWallLeft && !state.isWallJumping && input.stickX == 1f)
+        else if (state.isOnWallLeft && !state.isWallJumping && input.stickX == 1f && !input.grab)
         {
             state.body.velocity += new Vector2(airSpeed * input.lookingRight, 0);
         }
 
-        else
-        if (state.isOnWallRight && !state.isWallJumping && input.stickX != 1f)
+        else if (state.isOnWallRight && !state.isWallJumping && input.stickX != -1f && input.grab)
         {
             //augmente la force qd on est sur les mur
             state.body.velocity += new Vector2(+wallFriction, 0);
 
         }
-        else if (state.isOnWallRight && !state.isWallJumping && input.stickX == 1f)
+        else if (state.isOnWallRight && !state.isWallJumping && input.stickX == -1f && !input.grab)
         {
             state.body.velocity += new Vector2(airSpeed * input.lookingRight, 0);
         }
-        }
-        
+
+
         //Slide
         if (input.stickY < -0.2f)
         {

@@ -40,7 +40,7 @@ public class ARDE_NRJpoint : MonoBehaviour
         //defini à chaque frame dans quel direction est le joueur
         playerDirection = (player.position - mySelf.position).normalized;
 
-        FacePlayer();
+        //FacePlayer();
 
         if(time > activationTime)
         {

@@ -104,8 +104,9 @@ MonoBehaviour:
   attackPos: {fileID: 0}
   attack: {fileID: 1203919331608374929}
   damage: 1
-  knockback: 60
+  knockback: 40
   haveLifeTime: 1
+  DestroyYesDesactivateNo: 1
   lifeTime: 0.3
 --- !u!1 &6325076065616346624
 GameObject:
