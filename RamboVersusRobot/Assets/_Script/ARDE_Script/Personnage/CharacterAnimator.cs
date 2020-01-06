@@ -28,7 +28,7 @@ public class CharacterAnimator : MonoBehaviour
         dashParticleRightGameObject = dashParticleRight.gameObject;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         animator.SetFloat("VelocityY", state.body.velocity.y);
         animator.SetFloat("VelocityX", state.body.velocity.x);
@@ -40,7 +40,7 @@ public class CharacterAnimator : MonoBehaviour
         animator.SetBool("JumpButton", input.jumpEnter);
         animator.SetBool("DashButton", input.dashEnter);
         animator.SetBool("attackLightButton", input.attackLightEnter);
-        animator.SetBool("attackHeavyButton", input.attackHeavyEnter);
+        animator.SetBool("attackHeavyButton", state.isAttackingHeavy);
 
         animator.SetBool("AttackingLight", state.isAttackingLight);
         animator.SetBool("AttackingUp", state.isAttackingUp);

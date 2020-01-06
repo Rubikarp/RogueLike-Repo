@@ -14,6 +14,7 @@ public class ARDE_AttackSystem : MonoBehaviour
 
     public bool haveLifeTime = true;
     public bool DestroyYesDesactivateNo = true;
+    public float startLifeTime = 0.3f;
     public float lifeTime = 0.3f;
 
     private void Start()
@@ -27,9 +28,9 @@ public class ARDE_AttackSystem : MonoBehaviour
     {
         if (haveLifeTime)
         {
-            lifeTime -= Time.deltaTime;
             if (lifeTime < 0)
             {
+                lifeTime = startLifeTime;
                 state.canAttack = true;
 
                 //je meurt
@@ -41,10 +42,15 @@ public class ARDE_AttackSystem : MonoBehaviour
                 {
                     attack.SetActive(false);
                 }
-                
+
+            }
+            else
+            {
+                lifeTime -= Time.deltaTime;
             }
 
         }
     }
-
+    
+    
 }

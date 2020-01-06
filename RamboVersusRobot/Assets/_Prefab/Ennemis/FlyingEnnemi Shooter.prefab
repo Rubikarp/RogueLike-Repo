@@ -181,7 +181,7 @@ MonoBehaviour:
   TerrainLayerMask:
     serializedVersion: 2
     m_Bits: 1024
-  speed: 15
+  speed: 8
   detectionRange: 40
   ToFarDistance: 22
   ToNearDistance: 20
@@ -193,10 +193,10 @@ MonoBehaviour:
   IsAttacking: 0
   flyForce: 10
   detectDist: 5
-  startBulletDistance: 6
+  startBulletDistance: 5
   bullet: {fileID: 6726061814755497180, guid: af82aecaa0c7dc24ebf5d9a3e6c1b77a, type: 3}
   bulletContainer: {fileID: 0}
-  shootCoolDown: 1.2
+  shootCoolDown: 1
   rotZ: 0
   haveShoot: 0
 --- !u!114 &6341020235826140564
@@ -224,3 +224,5 @@ MonoBehaviour:
   bulletScreenShake: 0.2
   attackScreenShake: 0.2
   knockbackSensitivity: 1
+  vivrationL: 0.3
+  vivrationR: 0.3

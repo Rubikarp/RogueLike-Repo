@@ -51,7 +51,14 @@ public class Fade : MonoBehaviour
     {
         time = 0;
         color.a = 1;
-        SpriteRenderer.color = color;
+        if (SpriteRenderer == null)
+        {
+            image.color = color;
+        }
+        else
+        {
+            SpriteRenderer.color = color;
+        }
 
     }
 

@@ -135,13 +135,13 @@ public class ARDE_CharacterLifeSystem : MonoBehaviour
     public void gainLife(int bonusHealth)
     {
         health += bonusHealth;
-        etat.soundManager.Play("Loot");
+        soundManager.Play("Loot");
     }
 
     public void gainNRJ(int bonusNRJ)
     {
         energie += bonusNRJ;
-        etat.soundManager.Play("Loot");
+        soundManager.Play("Loot");
     }
 
     public void energieAttack(int energieCost)

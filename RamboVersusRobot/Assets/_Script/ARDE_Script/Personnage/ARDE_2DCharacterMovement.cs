@@ -32,7 +32,6 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
     public int doubleJumpCost = 10;
     bool haveDoubleJump = false;
 
-
     [Header("course")]
     public float RunDeadZone = 1f;
     public float maxRunSpeed = 35f;
@@ -63,7 +62,6 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
     public float dashCooldown = 0.4f;
     public float dashScreenShake = 0.2f;
     public int dashEnergieCost = 10;
-
 
     private void Start()
     {
@@ -192,6 +190,8 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
             haveDoubleJump = true;
             state.isJumping = true;
 
+            StartCoroutine(Vibrating(0.2f, 0.1f));
+
             lifeSystem.energieAttack(doubleJumpCost);
 
             state.soundManager.Play("Dash");
@@ -313,6 +313,7 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
         state.body.velocity = Vector2.zero;
 
         cameraShake.trauma += dashScreenShake;
+        StartCoroutine(Vibrating(0.2f, 0.2f));
         lifeSystem.energieAttack(dashEnergieCost);
         state.soundManager.Play("Dash");
 
@@ -338,7 +339,7 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
         while (duration > time)
         {
             time = time + Time.deltaTime;
-            GamePad.SetVibration(playerIndex, vibrationForce, vibrationForce/2);
+            GamePad.SetVibration(playerIndex, vibrationForce, vibrationForce);
             yield return 0;
         }
 
@@ -346,4 +347,5 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
 
         yield return null;
     }
+
 }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CharacterState : MonoBehaviour
 {
@@ -36,8 +34,9 @@ public class CharacterState : MonoBehaviour
     public bool isRuning ;
     public bool isJumping ;
     public bool isDashing ;
-
+    
     public bool isAttackingLight;
+    public bool isAttackingHeavy;
     public bool isAttackingUp;
     public bool isAttackingDown;
     public bool isAttackingNeutral;
@@ -48,6 +47,10 @@ public class CharacterState : MonoBehaviour
     public bool isOnWallLeft;
     public bool isOnWallRight;
     public bool isOnCeilling;
+
+    public bool isLanding;
+    public bool isSartJumping;
+    bool willJump;
 
     [Header("DistanceDetection")]
     [SerializeField] private float groundDetectDist     = 0.2f;
@@ -66,11 +69,31 @@ public class CharacterState : MonoBehaviour
 
     private void Update()
     {
+        willJump = isOnGround;
+
         //detection sol & mur & plafond
         CheckingPos();
 
+        if(willJump != isOnGround)
+        {
+            if (isOnGround)
+            {
+                isLanding = true;
+                isSartJumping = false;
+            }
+            else
+            {
+                isSartJumping = true;
+                isLanding = false;
+            }
+        }
+        else
+        {
+            isSartJumping = true;
+            isLanding = false;
+        }
 
-        if(input.lookingRight == 1)
+        if (input.lookingRight == 1)
         {
             isLookingRight = true;
         }

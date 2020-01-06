@@ -6,8 +6,8 @@ public class ARDE_UpAttack : MonoBehaviour
     private Direction attackRequest = Direction.Up;
 
     // Automatique
-    private CharacterInput input = default;
-    private CharacterState state = default;
+    public CharacterInput input = default;
+    public CharacterState state = default;
     private Transform attackFrom = default;
     //
 
@@ -58,7 +58,8 @@ public class ARDE_UpAttack : MonoBehaviour
 
     private void Attack()
     {
-        state.isAttackingDown = true;
+        state.isAttackingHeavy = true;
+        state.isAttackingUp = true;
 
         attackSpecial.SetActive(true);
 
@@ -69,7 +70,7 @@ public class ARDE_UpAttack : MonoBehaviour
 
         if (haveAirTime)
         {
-            StartCoroutine(AirMaintain(airTime));
+            //StartCoroutine(AirMaintain(airTime));
         }
 
     }
@@ -111,6 +112,7 @@ public class ARDE_UpAttack : MonoBehaviour
         attackToDesactivate.SetActive(false);
 
         state.isAttackingUp = false;
+        state.isAttackingHeavy = false;
 
         new WaitForSeconds(CoolDown - attackDuration);
 
