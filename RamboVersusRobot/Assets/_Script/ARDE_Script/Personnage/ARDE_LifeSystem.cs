@@ -1,6 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using XInputDotNetPure;
 
 public class ARDE_LifeSystem : MonoBehaviour
 {
@@ -23,6 +23,13 @@ public class ARDE_LifeSystem : MonoBehaviour
     [Range(0.5f, 3)]
     public float knockbackSensitivity = 1f;
 
+    bool playerIndexSet = false;
+    PlayerIndex playerIndex;
+    GamePadState state;
+    GamePadState prevState;
+
+    public float vivrationL = 0.3f;
+    public float vivrationR = 0.3f;
 
     private void Start()
     {
@@ -109,6 +116,29 @@ public class ARDE_LifeSystem : MonoBehaviour
         haveTakeDamage = false;
 
     }
+
+    protected void DetectController()
+    {
+        // Find a PlayerIndex, for a single player game
+        // Will find the first controller that is connected ans use it
+        if (!playerIndexSet || !prevState.IsConnected)
+        {
+            for (int i = 0; i < 4; ++i)
+            {
+                PlayerIndex testPlayerIndex = (PlayerIndex)i;
+                GamePadState testetat = GamePad.GetState(testPlayerIndex);
+                if (testetat.IsConnected)
+                {
+                    playerIndex = testPlayerIndex;
+                    playerIndexSet = true;
+                }
+            }
+        }
+
+        prevState = state;
+        state = GamePad.GetState(playerIndex);
+    }
+
 
     //Fonctions Accessible
     public void TakeDamage(int damage)

@@ -96,7 +96,7 @@ public class CharacterState : MonoBehaviour
     {
         //Le calcul (x et y inversé je sais pas pourquoi)
         isOnGround    = Physics2D.OverlapBox(checkPosFloor.position,    new Vector2(collid.size.x - 0.2f, -groundDetectDist)  , 0, TerrainLayerMask);
-        isOnWallLeft  = Physics2D.OverlapBox(checkPosWallLeft.position, new Vector2( wallDetectDist,-collid.size.y - 0.2f), 0, TerrainLayerMask);
+        isOnWallLeft  = Physics2D.OverlapBox(checkPosWallLeft.position, new Vector2( wallDetectDist, collid.size.y - 0.2f)    , 0, TerrainLayerMask);
         isOnWallRight = Physics2D.OverlapBox(checkPosWallRight.position,new Vector2( wallDetectDist, collid.size.y - 0.2f)    , 0, TerrainLayerMask);
         isOnCeilling  = Physics2D.OverlapBox(checkPosCeilling.position, new Vector2(collid.size.x - 0.2f, ceillingDetectDist) , 0, TerrainLayerMask);
 

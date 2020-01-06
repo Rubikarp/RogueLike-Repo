@@ -130,8 +130,8 @@ GameObject:
   m_Component:
   - component: {fileID: 29038037}
   - component: {fileID: 29038040}
-  - component: {fileID: 29038039}
   - component: {fileID: 29038038}
+  - component: {fileID: 29038039}
   m_Layer: 0
   m_Name: AttackHeavyDown
   m_TagString: damage
@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackPos: {fileID: 0}
-  attack: {fileID: 0}
+  attack: {fileID: 29038036}
   damage: 1
   knockback: 40
   haveLifeTime: 1
@@ -1990,6 +1990,42 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 369980864}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &510962603
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 510962604}
+  m_Layer: 5
+  m_Name: Damage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &510962604
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510962603}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1254479215}
+  m_Father: {fileID: 682807983}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &529257119
 GameObject:
   m_ObjectHideFlags: 0
@@ -2574,6 +2610,7 @@ RectTransform:
   m_Children:
   - {fileID: 2141994799}
   - {fileID: 1263467916}
+  - {fileID: 510962604}
   m_Father: {fileID: 136099061}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2783,7 +2820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackPos: {fileID: 0}
-  attack: {fileID: 0}
+  attack: {fileID: 691107750}
   damage: 1
   knockback: 40
   haveLifeTime: 1
@@ -8733,9 +8770,9 @@ MonoBehaviour:
   soundManager: {fileID: 415512278}
   player: {fileID: 1619806515}
   mouv: {fileID: 1619806520}
-  state: {fileID: 1619806524}
-  energie: 100
-  energieParSec: 2
+  etat: {fileID: 0}
+  energie: 80
+  energieParSec: 1
   bulletScreenShake: 0.3
   attackScreenShake: 0.4
   knockbackSensitivity: 1
@@ -9058,8 +9095,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1066724229}
   - component: {fileID: 1066724232}
-  - component: {fileID: 1066724231}
   - component: {fileID: 1066724230}
+  - component: {fileID: 1066724231}
   m_Layer: 0
   m_Name: AttackHeavyNeutral
   m_TagString: damage
@@ -9120,7 +9157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackPos: {fileID: 0}
-  attack: {fileID: 0}
+  attack: {fileID: 1066724228}
   damage: 1
   knockback: 40
   haveLifeTime: 1
@@ -9807,6 +9844,79 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e558845d2e87064488ef6b3935e9fbcc, type: 3}
+--- !u!1 &1254479214
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1254479215}
+  - component: {fileID: 1254479217}
+  - component: {fileID: 1254479216}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1254479215
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254479214}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 510962604}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1254479216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254479214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 30d59ad5f40cc3a4188c26e5473c3530, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1254479217
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254479214}
+  m_CullTransparentMesh: 0
 --- !u!1 &1262106995
 GameObject:
   m_ObjectHideFlags: 0
@@ -9912,15 +10022,15 @@ RectTransform:
   m_GameObject: {fileID: 1263467915}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 1, z: 1}
   m_Children:
   - {fileID: 1760101833}
   m_Father: {fileID: 682807983}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 275, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 44, y: 86}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1269812086
@@ -15137,7 +15247,6 @@ MonoBehaviour:
   attackLight: {fileID: 1203919331608374929, guid: 7fe0f9196d4a4ba49bd0607851e9d23a,
     type: 3}
   lightAttackDash: {x: 10, y: 0}
-  rotZ: 0
   attackHeavyNeutral: {fileID: 1066724228}
   airNeutralTime: 1
   attackHeavySide: {fileID: 691107750}
@@ -15685,13 +15794,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1472460162}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.008727774, z: -0, w: 0.9999619}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1177179949}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -1, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 71.25, y: -23}
@@ -16062,6 +16171,7 @@ MonoBehaviour:
   wallJumpForce: 10
   wallJumpHeight: 40
   wallJumpCooldown: 0.2
+  doubleJumpCost: 10
   RunDeadZone: 1
   maxRunSpeed: 30
   runAccelerationTime: 0.3
@@ -17671,8 +17781,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2072599697}
   - component: {fileID: 2072599700}
-  - component: {fileID: 2072599699}
   - component: {fileID: 2072599698}
+  - component: {fileID: 2072599699}
   m_Layer: 0
   m_Name: AttackHeavyUp
   m_TagString: damage
@@ -17733,7 +17843,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackPos: {fileID: 0}
-  attack: {fileID: 0}
+  attack: {fileID: 2072599696}
   damage: 1
   knockback: 40
   haveLifeTime: 1
@@ -18218,9 +18328,9 @@ RectTransform:
   m_Father: {fileID: 682807983}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 26, y: 146}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &665057435175768011
@@ -18433,11 +18543,14 @@ MonoBehaviour:
   heart: {fileID: 1754641479522917262, guid: c602880a8f047a74483293fe8a27dd75, type: 3}
   pointNRJ: {fileID: 7217022867515649967, guid: a59ac26f607768f4eac129e51da104c8,
     type: 3}
+  sparkle: {fileID: 0}
   heartProba: 50
   numberOfNRJ: 5
   bulletScreenShake: 0.2
   attackScreenShake: 0.2
   knockbackSensitivity: 1
+  vivrationL: 0.3
+  vivrationR: 0.3
 --- !u!50 &759026115925642735
 Rigidbody2D:
   serializedVersion: 4
