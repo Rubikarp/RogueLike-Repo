@@ -218,6 +218,7 @@ MonoBehaviour:
   heart: {fileID: 1754641479522917262, guid: c602880a8f047a74483293fe8a27dd75, type: 3}
   pointNRJ: {fileID: 7217022867515649967, guid: a59ac26f607768f4eac129e51da104c8,
     type: 3}
+  sparkle: {fileID: 5400841400495707613, guid: 752e2974755453d48b08915bd9f5485d, type: 3}
   heartProba: 33
   numberOfNRJ: 5
   bulletScreenShake: 0.2

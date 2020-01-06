@@ -12,7 +12,7 @@ public class ARDE_LifeSystem : MonoBehaviour
     public int health = 5;
     public ARDE_SoundManager soundManager = default;
 
-    public GameObject heart, pointNRJ = default;
+    public GameObject heart, pointNRJ, sparkle = default;
     [Range(0,100)]
     public float heartProba = 0.3f;
     public float numberOfNRJ = 5;
@@ -114,6 +114,7 @@ public class ARDE_LifeSystem : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+        Instantiate(sparkle, mySelf.position, mySelf.rotation, mySelf);
         soundManager.Play("RobotHit");
     }
 
