@@ -16,7 +16,7 @@ public class Fade : MonoBehaviour
 
         if(SpriteRenderer == null)
         {
-            time = 1f;
+            time = 0f;
         }
     }
 
@@ -27,6 +27,7 @@ public class Fade : MonoBehaviour
             time += Time.deltaTime / timeInSec;
         }
         FadeTime(timeInSec);
+
     }
 
     void FadeTime(float timeInSec)

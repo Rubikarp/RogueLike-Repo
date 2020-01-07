@@ -8,6 +8,7 @@ public class ARDE_UpAttack : MonoBehaviour
     // Automatique
     public CharacterInput input = default;
     public CharacterState state = default;
+    public GameObject charac;
     private Transform attackFrom = default;
     //
 
@@ -107,14 +108,12 @@ public class ARDE_UpAttack : MonoBehaviour
 
     private IEnumerator activateAttackIn(GameObject attackToDesactivate, float attackDuration, float CoolDown)
     {
-        new WaitForSeconds(attackDuration);
-
-        attackToDesactivate.SetActive(false);
+        yield return new WaitForSeconds(attackDuration);
 
         state.isAttackingUp = false;
         state.isAttackingHeavy = false;
 
-        new WaitForSeconds(CoolDown - attackDuration);
+        yield return new WaitForSeconds(CoolDown - attackDuration);
 
         state.canAttack = true;
 

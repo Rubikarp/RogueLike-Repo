@@ -10,7 +10,6 @@ public class ARDE_sparkleBehavior : MonoBehaviour
 
     [Header("tweaking")]
     public float lifeTime = 2f;
-    float time = 0f;
 
     [SerializeField] public Vector2 playerDirection;
 
@@ -21,6 +20,14 @@ public class ARDE_sparkleBehavior : MonoBehaviour
 
         //defini à chaque frame dans quel direction est le joueur
         playerDirection = (player.position - mySelf.position).normalized;
+
+        lifeTime -= Time.deltaTime;
+
+        if (lifeTime < 0)
+        {
+            //je meurt
+            Destroy(this.gameObject);
+        }
 
         FacePlayer();
     }

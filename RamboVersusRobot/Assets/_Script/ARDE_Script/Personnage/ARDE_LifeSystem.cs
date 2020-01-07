@@ -80,8 +80,6 @@ public class ARDE_LifeSystem : MonoBehaviour
         }
     }
 
-
-
     //Fonctions interne
     protected void isAlive(GameObject Me, float DeathScrennShake)
     {
@@ -139,12 +137,19 @@ public class ARDE_LifeSystem : MonoBehaviour
         state = GamePad.GetState(playerIndex);
     }
 
-
     //Fonctions Accessible
     public void TakeDamage(int damage)
     {
         health -= damage;
-        Instantiate(sparkle, mySelf.position, mySelf.rotation, mySelf);
+
+        if(health > 0)
+        {
+            Instantiate(sparkle, mySelf.position, mySelf.rotation);
+        }
+        else
+        {
+            Instantiate(sparkle, mySelf.position, mySelf.rotation, null);
+        }
         soundManager.Play("RobotHit");
     }
 
