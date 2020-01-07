@@ -140,7 +140,7 @@ public class ARDE_CharacterLifeSystem : MonoBehaviour
         energie -= energieCost;
     }
 
-    private void TakeKnockBack(float knockbackPower, Transform attackSource)
+    public void TakeKnockBack(float knockbackPower, Transform attackSource)
     {
         // La direction de l'attaque
         Vector2 knockBackDirection = mySelf.position - attackSource.position;
