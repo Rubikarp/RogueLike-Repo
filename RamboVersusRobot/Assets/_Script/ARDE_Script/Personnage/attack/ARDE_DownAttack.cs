@@ -68,11 +68,6 @@ public class ARDE_DownAttack : MonoBehaviour
             state.body.velocity = new Vector2(state.body.velocity.x, jumpForce);
         }
 
-        if (haveAirTime)
-        {
-            StartCoroutine(AirMaintain(airTime));
-        }
-
     }
 
     private Direction DetermineAttackDirection(Vector2 StickNotNormalized)
@@ -107,28 +102,15 @@ public class ARDE_DownAttack : MonoBehaviour
 
     private IEnumerator activateAttackIn(GameObject attackToDesactivate, float attackDuration, float CoolDown)
     {
-        new WaitForSeconds(attackDuration);
+        yield return new WaitForSeconds(attackDuration);
 
         attackToDesactivate.SetActive(false);
 
         state.isAttackingDown = false;
 
-        new WaitForSeconds(CoolDown - attackDuration);
+        yield return new WaitForSeconds(CoolDown - attackDuration);
 
         state.canAttack = true;
-
-        yield return null;
-    }
-
-    private IEnumerator AirMaintain(float airMaintienTime)
-    {
-
-        state.body.constraints = RigidbodyConstraints2D.FreezePosition;
-
-        new WaitForSeconds(airMaintienTime);
-
-        state.body.constraints = RigidbodyConstraints2D.None;
-        state.body.constraints = RigidbodyConstraints2D.FreezeRotation;
 
         yield return null;
     }

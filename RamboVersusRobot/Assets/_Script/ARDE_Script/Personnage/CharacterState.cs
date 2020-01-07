@@ -15,6 +15,8 @@ public class CharacterState : MonoBehaviour
     public CharacterInput input;
     [SerializeField]
     public ARDE_SoundManager soundManager = default;
+    [SerializeField]
+    public Animator animator = default;
 
     #region Statuts
 
@@ -36,7 +38,6 @@ public class CharacterState : MonoBehaviour
     public bool isDashing ;
     
     public bool isAttackingLight;
-    public bool isAttackingHeavy;
     public bool isAttackingUp;
     public bool isAttackingDown;
     public bool isAttackingNeutral;
@@ -49,8 +50,11 @@ public class CharacterState : MonoBehaviour
     public bool isOnCeilling;
 
     public bool isLanding;
-    public bool isSartJumping;
-    bool willJump;
+    public GameObject Landing;
+    public bool isStartJumping;
+    public GameObject StartJump;
+
+    public bool willJump;
 
     [Header("DistanceDetection")]
     [SerializeField] private float groundDetectDist     = 0.2f;
@@ -74,25 +78,6 @@ public class CharacterState : MonoBehaviour
         //detection sol & mur & plafond
         CheckingPos();
 
-        if(willJump != isOnGround)
-        {
-            if (isOnGround)
-            {
-                isLanding = true;
-                isSartJumping = false;
-            }
-            else
-            {
-                isSartJumping = true;
-                isLanding = false;
-            }
-        }
-        else
-        {
-            isSartJumping = true;
-            isLanding = false;
-        }
-
         if (input.lookingRight == 1)
         {
             isLookingRight = true;
@@ -113,6 +98,28 @@ public class CharacterState : MonoBehaviour
             isOnWall = true;
         }
 
+    }
+
+    private void FixedUpdate()
+    {
+        if (willJump != isOnGround)
+        {
+            if (isOnGround)
+            {
+                isLanding = true;
+                isStartJumping = false;
+
+                Instantiate(Landing, checkPosFloor.position, checkPosFloor.rotation, null);
+            }
+            else 
+            if(!isOnGround)
+            {
+                isStartJumping = true;
+                isLanding = false;
+
+                Instantiate(StartJump, checkPosFloor.position, checkPosFloor.rotation, null);
+            }
+        }
     }
 
     private void CheckingPos()

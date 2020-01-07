@@ -104,13 +104,13 @@ public class ARDE_SideAttack : MonoBehaviour
 
     private IEnumerator activateAttackIn(GameObject attackToDesactivate, float attackDuration, float CoolDown)
     {
-        new WaitForSeconds(attackDuration);
+        yield return new WaitForSeconds(attackDuration);
 
         attackToDesactivate.SetActive(false);
 
         state.isAttackingSide = false;
 
-        new WaitForSeconds(CoolDown - attackDuration);
+        yield return new WaitForSeconds(CoolDown - attackDuration);
 
         state.canAttack = true;
 
@@ -122,7 +122,7 @@ public class ARDE_SideAttack : MonoBehaviour
 
         state.body.constraints = RigidbodyConstraints2D.FreezePosition;
 
-        new WaitForSeconds(airMaintienTime);
+        yield return new WaitForSeconds(airMaintienTime);
 
         state.body.constraints = RigidbodyConstraints2D.None;
         state.body.constraints = RigidbodyConstraints2D.FreezeRotation;

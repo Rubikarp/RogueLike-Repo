@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using XInputDotNetPure;
 
@@ -115,6 +114,7 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
                 StartCoroutine(Dash(dashDuration));
             }
         }
+
     }
 
     void Run()

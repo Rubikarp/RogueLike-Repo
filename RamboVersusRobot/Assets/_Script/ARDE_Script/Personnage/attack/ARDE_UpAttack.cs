@@ -59,7 +59,6 @@ public class ARDE_UpAttack : MonoBehaviour
 
     private void Attack()
     {
-        state.isAttackingHeavy = true;
         state.isAttackingUp = true;
 
         attackSpecial.SetActive(true);
@@ -67,11 +66,6 @@ public class ARDE_UpAttack : MonoBehaviour
         if (haveJumpForce)
         {
             state.body.velocity = new Vector2(state.body.velocity.x, jumpForce);
-        }
-
-        if (haveAirTime)
-        {
-            //StartCoroutine(AirMaintain(airTime));
         }
 
     }
@@ -111,24 +105,10 @@ public class ARDE_UpAttack : MonoBehaviour
         yield return new WaitForSeconds(attackDuration);
 
         state.isAttackingUp = false;
-        state.isAttackingHeavy = false;
 
         yield return new WaitForSeconds(CoolDown - attackDuration);
 
         state.canAttack = true;
-
-        yield return null;
-    }
-
-    private IEnumerator AirMaintain(float airMaintienTime)
-    {
-
-        state.body.constraints = RigidbodyConstraints2D.FreezePosition;
-
-        new WaitForSeconds(airMaintienTime);
-
-        state.body.constraints = RigidbodyConstraints2D.None;
-        state.body.constraints = RigidbodyConstraints2D.FreezeRotation;
 
         yield return null;
     }

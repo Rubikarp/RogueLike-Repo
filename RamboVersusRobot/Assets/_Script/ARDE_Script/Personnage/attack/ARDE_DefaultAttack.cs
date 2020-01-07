@@ -7,6 +7,7 @@ public class ARDE_DefaultAttack : MonoBehaviour
     private CharacterInput input = default;
     private CharacterState state = default;
     private Transform attackFrom = default;
+    Quaternion initRotate = default;
     //
 
     private enum Direction
@@ -24,15 +25,12 @@ public class ARDE_DefaultAttack : MonoBehaviour
     public float attackDuration = 0.3f, attackCoolDown = 1f;
     public int energieCost = 15;
 
-    //public float airTime = 1f;
-    //public float Up/DownForce = 20f;
-
     private void Start()
     {
         attackFrom = this.transform;
         input = GetComponentInParent<CharacterInput>();
         state = GetComponentInParent<CharacterState>();
-
+        initRotate = transform.rotation;
     }
 
     void Update()
