@@ -36,7 +36,7 @@ namespace LevelDesign
             animator.SetBool("LeverON", true);
             if (wallDoor)
             {
-                door.transform.Translate(Vector2.up * speed);
+                door.transform.Translate(Vector2.right * speed);
             }
             else
             {           
@@ -51,7 +51,7 @@ namespace LevelDesign
             yield return new WaitForSeconds(timer);
             if (wallDoor)
             {
-                door.transform.Translate(Vector2.down * speed);
+                door.transform.Translate(Vector2.left * speed);
             }
             else
             {
