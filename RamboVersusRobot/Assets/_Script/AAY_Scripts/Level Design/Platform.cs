@@ -12,6 +12,7 @@ namespace LevelDesign
 
         public GameObject pointA;
         public GameObject pointB;
+        public bool horizontal = true;
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
@@ -29,10 +30,17 @@ namespace LevelDesign
         }
         void Start()
         {
-            StartCoroutine(Move());
+            if (horizontal)
+            {
+                StartCoroutine(MoveHorizontal());
+            }
+            else
+            {
+                StartCoroutine(MoveVertical());
+            }           
         }
 
-        IEnumerator Move()
+        IEnumerator MoveHorizontal()
         {
             while (true)
             {
@@ -49,6 +57,32 @@ namespace LevelDesign
                     default:
                         transform.position += (velocity * Time.deltaTime);
                         if (transform.position.x >= pointB.transform.position.x)
+                        {
+                            position += 1;
+                        }
+                        break;
+                }
+                yield return new WaitForSeconds(0);
+            }
+        }
+
+        IEnumerator MoveVertical()
+        {
+            while (true)
+            {
+                switch (position)
+                {
+                    case 1:
+                        transform.position -= (velocity * Time.deltaTime);
+                        if (transform.position.y <= pointB.transform.position.y)
+                        {
+                            position -= 1;
+                        }
+                        break;
+
+                    default:
+                        transform.position += (velocity * Time.deltaTime);
+                        if (transform.position.y >= pointA.transform.position.y)
                         {
                             position += 1;
                         }
