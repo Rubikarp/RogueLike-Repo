@@ -24,7 +24,7 @@ namespace LevelDesign
         // Update is called once per frame
         void Update()
         {
-            knockbackScript.TakeKnockBack(5, this.transform);
+            //knockbackScript.TakeKnockBack(5, this.transform);
         }
     }
 }

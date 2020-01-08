@@ -13,6 +13,8 @@ namespace LevelDesign
         private bool doorWillClose = false;
         public GameObject door;
         public float timer;
+        public bool wallDoor = true;
+        public Animator animator;
 
         private void OnTriggerEnter2D (Collider2D collision)
         {
@@ -31,16 +33,31 @@ namespace LevelDesign
         IEnumerator OpenDoor()
         {
             doorClosed = false;
-            door.transform.Translate(Vector2.up * speed);
-            yield return new WaitForSeconds(1);          
+            animator.SetBool("LeverON", true);
+            if (wallDoor)
+            {
+                door.transform.Translate(Vector2.up * speed);
+            }
+            else
+            {           
+                door.transform.Translate(Vector2.left * speed);
+            }
+            yield return new WaitForSeconds(1);         
             StopCoroutine(OpenDoor());
-
         }
         IEnumerator CloseDoor()
         {
             doorWillClose = true;
-            yield return new WaitForSeconds(timer);          
-            door.transform.Translate(Vector2.down * speed);
+            yield return new WaitForSeconds(timer);
+            if (wallDoor)
+            {
+                door.transform.Translate(Vector2.down * speed);
+            }
+            else
+            {
+                door.transform.Translate(Vector2.right * speed);
+            }
+            animator.SetBool("LeverON", false);
             yield return new WaitForSeconds(1);
             doorClosed = true;
             doorWillClose = false;
