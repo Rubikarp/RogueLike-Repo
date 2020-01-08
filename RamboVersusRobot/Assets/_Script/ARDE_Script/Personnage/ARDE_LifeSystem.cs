@@ -1,6 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using XInputDotNetPure;
 
 public class ARDE_LifeSystem : MonoBehaviour
 {
@@ -12,7 +12,7 @@ public class ARDE_LifeSystem : MonoBehaviour
     public int health = 5;
     public ARDE_SoundManager soundManager = default;
 
-    public GameObject heart, pointNRJ, sparkle = default;
+    public GameObject heart, pointNRJ, sparkle, explosion = default;
     [Range(0,100)]
     public float heartProba = 0.3f;
     public float numberOfNRJ = 5;
@@ -23,6 +23,13 @@ public class ARDE_LifeSystem : MonoBehaviour
     [Range(0.5f, 3)]
     public float knockbackSensitivity = 1f;
 
+    bool playerIndexSet = false;
+    PlayerIndex playerIndex;
+    GamePadState state;
+    GamePadState prevState;
+
+    public float vivrationL = 0.3f;
+    public float vivrationR = 0.3f;
 
     private void Start()
     {
@@ -38,7 +45,7 @@ public class ARDE_LifeSystem : MonoBehaviour
     void Update()
     {
         //meurt si PV = 0
-        isAlive(Me, 0.3f);
+        isAlive(Me, 0.6f);
     }
 
     //Se prend des dégâts
@@ -73,8 +80,6 @@ public class ARDE_LifeSystem : MonoBehaviour
         }
     }
 
-
-
     //Fonctions interne
     protected void isAlive(GameObject Me, float DeathScrennShake)
     {
@@ -82,18 +87,18 @@ public class ARDE_LifeSystem : MonoBehaviour
         {
             cameraShake.trauma += DeathScrennShake;
 
+            Instantiate(explosion, mySelf.position, mySelf.rotation);
+
             for (int i = 0; i != numberOfNRJ; i++)
             {
                 Instantiate(pointNRJ, mySelf.position, mySelf.rotation);
             }
-
             float alea;
             alea = Random.Range(0f, 100f);
             if(alea < heartProba)
             {
                 Instantiate(heart, mySelf.position, mySelf.rotation);
             }
-
 
             soundManager.Play("RobotDeath");
             Destroy(Me);
@@ -110,11 +115,41 @@ public class ARDE_LifeSystem : MonoBehaviour
 
     }
 
+    protected void DetectController()
+    {
+        // Find a PlayerIndex, for a single player game
+        // Will find the first controller that is connected ans use it
+        if (!playerIndexSet || !prevState.IsConnected)
+        {
+            for (int i = 0; i < 4; ++i)
+            {
+                PlayerIndex testPlayerIndex = (PlayerIndex)i;
+                GamePadState testetat = GamePad.GetState(testPlayerIndex);
+                if (testetat.IsConnected)
+                {
+                    playerIndex = testPlayerIndex;
+                    playerIndexSet = true;
+                }
+            }
+        }
+
+        prevState = state;
+        state = GamePad.GetState(playerIndex);
+    }
+
     //Fonctions Accessible
     public void TakeDamage(int damage)
     {
         health -= damage;
-        Instantiate(sparkle, mySelf.position, mySelf.rotation, mySelf);
+
+        if(health > 0)
+        {
+            Instantiate(sparkle, mySelf.position, mySelf.rotation);
+        }
+        else
+        {
+            Instantiate(sparkle, mySelf.position, mySelf.rotation, null);
+        }
         soundManager.Play("RobotHit");
     }
 

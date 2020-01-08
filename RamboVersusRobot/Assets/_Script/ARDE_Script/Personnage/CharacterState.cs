@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CharacterState : MonoBehaviour
 {
@@ -17,6 +15,8 @@ public class CharacterState : MonoBehaviour
     public CharacterInput input;
     [SerializeField]
     public ARDE_SoundManager soundManager = default;
+    [SerializeField]
+    public Animator animator = default;
 
     #region Statuts
 
@@ -36,7 +36,7 @@ public class CharacterState : MonoBehaviour
     public bool isRuning ;
     public bool isJumping ;
     public bool isDashing ;
-
+    
     public bool isAttackingLight;
     public bool isAttackingUp;
     public bool isAttackingDown;
@@ -48,6 +48,13 @@ public class CharacterState : MonoBehaviour
     public bool isOnWallLeft;
     public bool isOnWallRight;
     public bool isOnCeilling;
+
+    public bool isLanding;
+    public GameObject Landing;
+    public bool isStartJumping;
+    public GameObject StartJump;
+
+    public bool willJump;
 
     [Header("DistanceDetection")]
     [SerializeField] private float groundDetectDist     = 0.2f;
@@ -66,11 +73,12 @@ public class CharacterState : MonoBehaviour
 
     private void Update()
     {
+        willJump = isOnGround;
+
         //detection sol & mur & plafond
         CheckingPos();
 
-
-        if(input.lookingRight == 1)
+        if (input.lookingRight == 1)
         {
             isLookingRight = true;
         }
@@ -92,11 +100,33 @@ public class CharacterState : MonoBehaviour
 
     }
 
+    private void FixedUpdate()
+    {
+        if (willJump != isOnGround)
+        {
+            if (isOnGround)
+            {
+                isLanding = true;
+                isStartJumping = false;
+
+                Instantiate(Landing, checkPosFloor.position, checkPosFloor.rotation, null);
+            }
+            else 
+            if(!isOnGround)
+            {
+                isStartJumping = true;
+                isLanding = false;
+
+                Instantiate(StartJump, checkPosFloor.position, checkPosFloor.rotation, null);
+            }
+        }
+    }
+
     private void CheckingPos()
     {
         //Le calcul (x et y inversé je sais pas pourquoi)
         isOnGround    = Physics2D.OverlapBox(checkPosFloor.position,    new Vector2(collid.size.x - 0.2f, -groundDetectDist)  , 0, TerrainLayerMask);
-        isOnWallLeft  = Physics2D.OverlapBox(checkPosWallLeft.position, new Vector2( wallDetectDist,-collid.size.y - 0.2f), 0, TerrainLayerMask);
+        isOnWallLeft  = Physics2D.OverlapBox(checkPosWallLeft.position, new Vector2( wallDetectDist, collid.size.y - 0.2f)    , 0, TerrainLayerMask);
         isOnWallRight = Physics2D.OverlapBox(checkPosWallRight.position,new Vector2( wallDetectDist, collid.size.y - 0.2f)    , 0, TerrainLayerMask);
         isOnCeilling  = Physics2D.OverlapBox(checkPosCeilling.position, new Vector2(collid.size.x - 0.2f, ceillingDetectDist) , 0, TerrainLayerMask);
 

@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2184526487880124038}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6, z: 0}
+  m_LocalPosition: {x: 0, y: -2.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7340589684179513230}
@@ -257,6 +257,7 @@ MonoBehaviour:
   knockback: 40
   haveLifeTime: 0
   DestroyYesDesactivateNo: 1
+  startLifeTime: 0.3
   lifeTime: 1
 --- !u!1 &7317773029549192068
 GameObject:
@@ -319,7 +320,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7340589684179513265}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9102969026156696362}
@@ -453,11 +454,15 @@ MonoBehaviour:
   pointNRJ: {fileID: 7217022867515649967, guid: a59ac26f607768f4eac129e51da104c8,
     type: 3}
   sparkle: {fileID: 5400841400495707613, guid: 752e2974755453d48b08915bd9f5485d, type: 3}
+  explosion: {fileID: 3978311401444018108, guid: f7beb522c7ac6544c9b33a404f88f566,
+    type: 3}
   heartProba: 50
   numberOfNRJ: 5
   bulletScreenShake: 0.2
   attackScreenShake: 0.2
   knockbackSensitivity: 1
+  vivrationL: 0.3
+  vivrationR: 0.3
 --- !u!114 &2317264325978534434
 MonoBehaviour:
   m_ObjectHideFlags: 0

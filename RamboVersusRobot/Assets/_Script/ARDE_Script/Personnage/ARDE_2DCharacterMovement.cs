@@ -1,12 +1,17 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using XInputDotNetPure;
 
 public class ARDE_2DCharacterMovement : MonoBehaviour
 {
     CharacterInput input;
     CharacterState state;
     ARDE_ScreenShake cameraShake;
+
+    bool playerIndexSet = false;
+    PlayerIndex playerIndex;
+    GamePadState etat;
+    GamePadState prevetat;
 
     [SerializeField] ARDE_CharacterLifeSystem lifeSystem = default;
 
@@ -23,7 +28,8 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
     public float wallJumpForce = 35f;
     public float wallJumpHeight = 35f;
     public float wallJumpCooldown = 1f;
-
+    public int doubleJumpCost = 10;
+    bool haveDoubleJump = false;
 
     [Header("course")]
     public float RunDeadZone = 1f;
@@ -54,8 +60,7 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
     public float dashDuration = 0.2f;
     public float dashCooldown = 0.4f;
     public float dashScreenShake = 0.2f;
-    public int dashEnergieCost = 20;
-
+    public int dashEnergieCost = 10;
 
     private void Start()
     {
@@ -78,6 +83,7 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
             if (state.isOnGround)
             {
                 state.isJumping = false;
+                haveDoubleJump = false;
 
                 Run();
                 Jump();
@@ -87,6 +93,7 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
             {
                 state.isRuning = false;
                 state.isJumping = false;
+                haveDoubleJump = false;
 
                 GrabWall();
                 characterWallJump();
@@ -95,6 +102,7 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
             {
                 state.isRuning = false;
 
+                AirJump();
                 AirControl();
             }
         }
@@ -106,6 +114,7 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
                 StartCoroutine(Dash(dashDuration));
             }
         }
+
     }
 
     void Run()
@@ -171,6 +180,23 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
             state.isJumping = true;
 
             state.body.velocity = new Vector2(state.body.velocity.x, jumpHeight);
+        }
+    }
+
+    void AirJump()
+    {
+        if (input.jumpEnter == true && !haveDoubleJump && lifeSystem.energie > doubleJumpCost)
+        {
+            haveDoubleJump = true;
+            state.isJumping = true;
+
+            StartCoroutine(Vibrating(0.2f, 0.1f));
+
+            lifeSystem.energieAttack(doubleJumpCost);
+
+            state.soundManager.Play("Dash");
+
+            state.body.velocity = new Vector2(state.body.velocity.x, jumpHeight/1.2f);
         }
     }
 
@@ -287,6 +313,7 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
         state.body.velocity = Vector2.zero;
 
         cameraShake.trauma += dashScreenShake;
+        StartCoroutine(Vibrating(0.2f, 0.2f));
         lifeSystem.energieAttack(dashEnergieCost);
         state.soundManager.Play("Dash");
 
@@ -304,4 +331,21 @@ public class ARDE_2DCharacterMovement : MonoBehaviour
         yield return new WaitForSeconds(dashCooldown);
         state.canDash = true;
     }
+
+    IEnumerator Vibrating(float duration, float vibrationForce)
+    {
+        float time = 0f;
+
+        while (duration > time)
+        {
+            time = time + Time.deltaTime;
+            GamePad.SetVibration(playerIndex, vibrationForce, vibrationForce);
+            yield return 0;
+        }
+
+        GamePad.SetVibration(playerIndex, 0, 0);
+
+        yield return null;
+    }
+
 }

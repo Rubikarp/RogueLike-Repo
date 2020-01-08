@@ -20,7 +20,6 @@ public class CharacterAttack : MonoBehaviour
     [Header("Classique")]
     public GameObject attackLight = default;
     public Vector2 lightAttackDash = new Vector2(10f, 0f);
-    [SerializeField] private float rotZ;
 
     [Space(10)]
     [Header("Neutral")]
@@ -86,7 +85,7 @@ public class CharacterAttack : MonoBehaviour
         state.isAttackingLight = true;
 
         //conversion en angle le l'axe du stick
-        rotZ = Mathf.Atan2(input.stickY, input.stickX) * Mathf.Rad2Deg;
+        float rotZ = Mathf.Atan2(input.stickY, input.stickX) * Mathf.Rad2Deg;
 
         //si le stick est immobile
         if (input.stickY == 0 && input.stickX == 0)
@@ -238,11 +237,12 @@ public class CharacterAttack : MonoBehaviour
 
         state.body.constraints = RigidbodyConstraints2D.FreezePosition;
 
-        yield return new WaitForSeconds(airMaintienTime);
+        new WaitForSeconds(airMaintienTime);
 
         state.body.constraints = RigidbodyConstraints2D.None;
         state.body.constraints = RigidbodyConstraints2D.FreezeRotation;
 
+        yield return null;
     }
 
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using XInputDotNetPure;
 
 public class ARDE_CharacterLifeSystem : MonoBehaviour
 {
@@ -13,9 +14,10 @@ public class ARDE_CharacterLifeSystem : MonoBehaviour
     public ARDE_SoundManager soundManager = default;
     public GameObject player = default;
     public ARDE_2DCharacterMovement mouv = default;
+    public Fade redOverlay = default;
 
     [SerializeField]
-    private CharacterState state = default;
+    private CharacterState etat = default;
 
     // health already define
     private int maxHealth = 7;
@@ -33,6 +35,11 @@ public class ARDE_CharacterLifeSystem : MonoBehaviour
     [Range(0.5f, 3)]
     public float knockbackSensitivity = 1f;
 
+    bool playerIndexSet = false;
+    PlayerIndex playerIndex;
+    GamePadState state;
+    GamePadState prevetat;
+
     private void Start()
     {
         mySelf = this.transform;
@@ -47,6 +54,7 @@ public class ARDE_CharacterLifeSystem : MonoBehaviour
         health = ClampInt(health, maxHealth);
         energie = ClampInt(energie, maxEnergie);
 
+        DetectController();
         isAlive(player, 1f);
 
         time += Time.deltaTime;
@@ -107,6 +115,7 @@ public class ARDE_CharacterLifeSystem : MonoBehaviour
         {
             cameraShake.trauma += DeathScrennShake;
 
+
             soundManager.Play("Mort");
 
             new WaitForSeconds(0.3f);
@@ -126,13 +135,13 @@ public class ARDE_CharacterLifeSystem : MonoBehaviour
     public void gainLife(int bonusHealth)
     {
         health += bonusHealth;
-        state.soundManager.Play("Loot");
+        soundManager.Play("Loot");
     }
 
     public void gainNRJ(int bonusNRJ)
     {
         energie += bonusNRJ;
-        state.soundManager.Play("Loot");
+        soundManager.Play("Loot");
     }
 
     public void energieAttack(int energieCost)
@@ -153,7 +162,53 @@ public class ARDE_CharacterLifeSystem : MonoBehaviour
     private void TakeDamage(int damage)
     {
         health -= damage;
-        state.soundManager.Play("Mort");
+
+        redOverlay.reset();
+
+        if (health != 0)
+        {
+            StartCoroutine(Vibrating(0.3f, 0.8f));
+        }
+
+        soundManager.Play("Mort");
+    }
+
+    void DetectController()
+    {
+        // Find a PlayerIndex, for a single player game
+        // Will find the first controller that is connected ans use it
+        if (!playerIndexSet || !prevetat.IsConnected)
+        {
+            for (int i = 0; i < 4; ++i)
+            {
+                PlayerIndex testPlayerIndex = (PlayerIndex)i;
+                GamePadState testetat = GamePad.GetState(testPlayerIndex);
+                if (testetat.IsConnected)
+                {
+                    playerIndex = testPlayerIndex;
+                    playerIndexSet = true;
+                }
+            }
+        }
+
+        prevetat = state;
+        state = GamePad.GetState(playerIndex);
+    }
+
+    IEnumerator Vibrating(float duration, float vibrationForce)
+    {
+        float time = 0f;
+
+        while (duration > time)
+        {
+            time = time + Time.deltaTime;
+            GamePad.SetVibration(playerIndex, vibrationForce, vibrationForce);
+            yield return 0; 
+        }
+
+        GamePad.SetVibration(playerIndex, 0, 0);
+
+        yield return null;
     }
 
     protected IEnumerator damageInvulnerabilty(float duration)

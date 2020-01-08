@@ -40,8 +40,6 @@ public class ARDE_SoundManager : MonoBehaviour
 
     public void Play(string name)
     {
-        Debug.Log(name);
-
         Sound son = Array.Find(sounds, sound => sound.name == name);
         if(son == null)
         {
