@@ -939,7 +939,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomGenerator: {fileID: 275261826}
   roomsContainer: {fileID: 1222299975}
-  roomCounterLimite: 100
+  roomCounterLimite: 30
   moveIncrementHorizontal: 76
   moveIncrementVertical: 34
   staringRoom: {fileID: 634677718879681491, guid: b43fddb0e1588d84a94e625a3d28544e,
@@ -955,11 +955,11 @@ MonoBehaviour:
   - {fileID: 4437635297145180983, guid: 665396f2e41a6094e8a415efa31a24a3, type: 3}
   - {fileID: 7514761399767491983, guid: 64b3aa78cf74d3a4e981dd3317458213, type: 3}
   - {fileID: 2063813927489656858, guid: 061446b206f02034bba442b26af4ad1c, type: 3}
-  - {fileID: 1927116373412289382, guid: cf2116741e5cbc7408041b52f51b2fc8, type: 3}
+  - {fileID: 2242440184405506987, guid: 526c7042b63e90447abdaeed69491e14, type: 3}
   - {fileID: 2242440184405506987, guid: 526c7042b63e90447abdaeed69491e14, type: 3}
   - {fileID: 662207195316221008, guid: 28a1787846d285245b53120514f3f368, type: 3}
-  - {fileID: 4512544992523184064, guid: a47a1d89df5ccd542ad1ff6885457a80, type: 3}
-  - {fileID: 1217003425607045510, guid: b2d9cb2a6f612524fbf812f87846fd0c, type: 3}
+  - {fileID: 7514761399767491983, guid: 64b3aa78cf74d3a4e981dd3317458213, type: 3}
+  - {fileID: 2063813927489656858, guid: 061446b206f02034bba442b26af4ad1c, type: 3}
   - {fileID: 6840835647550502800, guid: a975a6d79d198a44bb508010af88b129, type: 3}
   roomsUpDown:
   - {fileID: 8546614644618942251, guid: a7eef187c9d128f43bb004318fe4ce7a, type: 3}
