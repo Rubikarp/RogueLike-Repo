@@ -939,7 +939,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomGenerator: {fileID: 275261826}
   roomsContainer: {fileID: 1222299975}
-  roomCounterLimite: 30
+  roomCounterLimite: 50
   moveIncrementHorizontal: 76
   moveIncrementVertical: 34
   staringRoom: {fileID: 634677718879681491, guid: b43fddb0e1588d84a94e625a3d28544e,
