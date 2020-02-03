@@ -22,12 +22,16 @@ public class LevelGeneration : MonoBehaviour
     [Header("Les listes de salles disponibles")]
     //liste des salles qui peuvent apparaitre 
     [SerializeField] private GameObject staringRoom = null;
-    [SerializeField] private GameObject[] roomsLeftRight = null;
-    [SerializeField] private GameObject[] roomsUpDown = null;
-    [SerializeField] private GameObject[] roomsUpLeft = null;
-    [SerializeField] private GameObject[] roomsUpRight = null;
-    [SerializeField] private GameObject[] roomsDownLeft = null;
-    [SerializeField] private GameObject[] roomsDownRight = null;
+    [SerializeField] private GameObject[] roomsLeftToRight = null;
+    [SerializeField] private GameObject[] roomsRightToLeft = null;
+    [SerializeField] private GameObject[] roomsUpToDown = null;
+    [SerializeField] private GameObject[] roomsUpToLeft = null;
+    [SerializeField] private GameObject[] roomsUpToRight = null;
+    [SerializeField] private GameObject[] roomsLeftToDown = null;
+    [SerializeField] private GameObject[] roomsRightToDown = null;
+    [SerializeField] private GameObject roomsLeftToEnd = null;
+    [SerializeField] private GameObject roomsRightToEnd = null;
+    [SerializeField] private GameObject roomsUpToEnd = null;
     #endregion
 
     #region Pour le fonctionnement en interne
@@ -42,9 +46,10 @@ public class LevelGeneration : MonoBehaviour
     private Direction nextDirection;
     //Roll direction
     [SerializeField] private int diceRoll = 0;
+
     #endregion
 
-    void Start()
+    private void Start()
     {
         Initialisation();
 
@@ -59,7 +64,7 @@ public class LevelGeneration : MonoBehaviour
 
     private void Initialisation()
     {
-        Instantiate(roomsLeftRight[Random.Range(0, roomsLeftRight.Length)], roomGenerator.position, new Quaternion(0, 0, 0, 0), roomsContainer);
+        Instantiate(roomsLeftToRight[Random.Range(0, roomsLeftToRight.Length)], roomGenerator.position, new Quaternion(0, 0, 0, 0), roomsContainer);
 
         //commence vers la droite
         nextDirection = Direction.Right;
@@ -101,6 +106,19 @@ public class LevelGeneration : MonoBehaviour
         InverseDirection(comeFrom);
 
         //instancier la dernière room selon là d'ou l'on vient
+        if (comeFrom == Direction.Left)
+        {
+                Instantiate(roomsLeftToEnd, roomGenerator.position, new Quaternion(0, 0, 0, 0), roomsContainer);
+        }
+        else if (comeFrom == Direction.Right)
+        {
+                Instantiate(roomsRightToEnd, roomGenerator.position, new Quaternion(0, 0, 0, 0), roomsContainer);
+        }
+        else if (comeFrom == Direction.Up)
+        {
+                Instantiate(roomsUpToEnd, roomGenerator.position, new Quaternion(0, 0, 0, 0), roomsContainer);
+        }
+
     }
 
     #region Tool
@@ -183,11 +201,11 @@ public class LevelGeneration : MonoBehaviour
         {
             if (nextDirection == Direction.Right)
             {
-                Instantiate(roomsLeftRight[Random.Range(0, roomsLeftRight.Length)], roomGenerator.position, new Quaternion(0, 0, 0, 0), roomsContainer);
+                Instantiate(roomsLeftToRight[Random.Range(0, roomsLeftToRight.Length)], roomGenerator.position, new Quaternion(0, 0, 0, 0), roomsContainer);
             }
             else if (nextDirection == Direction.Down)
             {
-                Instantiate(roomsDownLeft[Random.Range(0, roomsDownLeft.Length)], roomGenerator.position, new Quaternion(0, 0, 0, 0), roomsContainer);
+                Instantiate(roomsLeftToDown[Random.Range(0, roomsLeftToDown.Length)], roomGenerator.position, new Quaternion(0, 0, 0, 0), roomsContainer);
             }
 
         }
@@ -195,11 +213,11 @@ public class LevelGeneration : MonoBehaviour
         {
             if (nextDirection == Direction.Left)
             {
-                Instantiate(roomsLeftRight[Random.Range(0, roomsLeftRight.Length)], roomGenerator.position, new Quaternion(0, 0, 0, 0), roomsContainer);
+                Instantiate(roomsRightToLeft[Random.Range(0, roomsRightToLeft.Length)], roomGenerator.position, new Quaternion(0, 0, 0, 0), roomsContainer);
             }
             else if (nextDirection == Direction.Down)
             {
-                Instantiate(roomsDownRight[Random.Range(0, roomsDownRight.Length)], roomGenerator.position, new Quaternion(0, 0, 0, 0), roomsContainer);
+                Instantiate(roomsRightToDown[Random.Range(0, roomsRightToDown.Length)], roomGenerator.position, new Quaternion(0, 0, 0, 0), roomsContainer);
             }
 
         }
@@ -207,15 +225,15 @@ public class LevelGeneration : MonoBehaviour
         {
             if (nextDirection == Direction.Left)
             {
-                Instantiate(roomsUpLeft[Random.Range(0, roomsUpLeft.Length)], roomGenerator.position, new Quaternion(0, 0, 0, 0), roomsContainer);
+                Instantiate(roomsUpToLeft[Random.Range(0, roomsUpToLeft.Length)], roomGenerator.position, new Quaternion(0, 0, 0, 0), roomsContainer);
             }
             else if (nextDirection == Direction.Right)
             {
-                Instantiate(roomsUpRight[Random.Range(0, roomsUpRight.Length)], roomGenerator.position, new Quaternion(0, 0, 0, 0), roomsContainer);
+                Instantiate(roomsUpToRight[Random.Range(0, roomsUpToRight.Length)], roomGenerator.position, new Quaternion(0, 0, 0, 0), roomsContainer);
             }
             else if (nextDirection == Direction.Down)
             {
-                Instantiate(roomsUpDown[Random.Range(0, roomsUpDown.Length)], roomGenerator.position, new Quaternion (0,0,0,0), roomsContainer);
+                Instantiate(roomsUpToDown[Random.Range(0, roomsUpToDown.Length)], roomGenerator.position, new Quaternion (0,0,0,0), roomsContainer);
 
             }
         }
@@ -223,5 +241,4 @@ public class LevelGeneration : MonoBehaviour
     }
 
     #endregion
-
 }
