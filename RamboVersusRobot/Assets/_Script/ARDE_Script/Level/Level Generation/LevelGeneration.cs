@@ -49,7 +49,7 @@ public class LevelGeneration : MonoBehaviour
 
     #endregion
 
-    private void Start()
+    private IEnumerator Start()
     {
         Initialisation();
 
@@ -57,6 +57,7 @@ public class LevelGeneration : MonoBehaviour
         for (roomCounter = 0; roomCounter < roomCounterLimite; roomCounter++)
         {
             GenerateNextRoom();
+            yield return new WaitForSeconds(0.2f);
         }
 
         TheEnd();
